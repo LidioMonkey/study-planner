@@ -97,6 +97,7 @@ def main() -> None:
     mistakes = read_json("mistakes.json", [])
     modules = read_json("modules.json", [])
     papers = read_json("papers.json", [])
+    materials = read_json("materials.json", [])
     current_week = read_json("current_week.json", {})
 
     data = {
@@ -121,6 +122,7 @@ def main() -> None:
         "mistakes": mistakes,
         "modules": modules,
         "papers": papers,
+        "materials": materials,
         "currentWeek": current_week,
         "inventory": safe_report("inventory", "--profile", PROFILE_NAME, default={"inventory": {}, "pending_reviews": {}}),
         "phase": safe_report("phase-report", "--profile", PROFILE_NAME, "--date", RUN_DATE, default={"phase": "未初始化", "days_left": 0, "rules": []}),
@@ -128,6 +130,7 @@ def main() -> None:
         "courseRatio": safe_report("course-ratio-report", "--profile", PROFILE_NAME, "--source", "current-week", "--cap", str(COURSE_CAP), default={"course_ratio_percent": 0, "course_cap_percent": COURSE_CAP, "status": "ok"}),
         "analytics": safe_report("analytics-report", "--profile", PROFILE_NAME, "--end", RUN_DATE, "--days", str(ANALYTICS_DAYS), default={}),
         "model408": safe_report("408-model-report", "--profile", PROFILE_NAME, default={"model": {}}),
+        "catalogAudit": safe_report("catalog-audit", "--profile", PROFILE_NAME, default={"summary": {}, "items": []}),
     }
     html = render_html(data)
     (OUT_DIR / "index.html").write_text(html, encoding="utf-8")
@@ -254,7 +257,7 @@ def render_html(data: dict) -> str:
     const API_BASE = DATA.apiBase || "http://127.0.0.1:8790";
     const tabs = [
       ["overview","总览"],["week","本周"],["subjects","科目"],["reviews","复习"],
-      ["blocks","阻塞"],["model408","408模型"],["mistakes","错题/真题"],["mistakeCalendar","错题回炉"],["deploy","部署"]
+      ["blocks","阻塞"],["materials","资料目录"],["model408","408模型"],["mistakes","错题/真题"],["mistakeCalendar","错题回炉"],["deploy","部署"]
     ];
     const app = document.getElementById("app");
     document.getElementById("stamp").textContent = `生成 ${{DATA.generated}} · 档案 ${{PROFILE}}`;
@@ -428,6 +431,8 @@ def render_html(data: dict) -> str:
       const meta = typeof item === "string" ? "保底版本" : `${{zh(item.type)}}${{item.id ? " · " + item.id : ""}}${{item.priority ? " · 优先级 " + item.priority : ""}}`;
       const details = typeof item === "string" ? "" : [
         item.material ? `资料：${{zh(item.material)}}` : "",
+        item.material_id ? `目录资料：${{zh(item.material_id)}}` : "目录资料：未绑定真实目录",
+        item.catalog_units?.length ? `目录单元：${{item.catalog_units.map(zh).join("、")}}` : "目录单元：未指定",
         item.scope ? `范围：${{zh(item.scope)}}` : "",
         item.precise_range ? `精确范围：${{zh(item.precise_range)}}` : "",
         item.page_range ? `页码：${{zh(item.page_range)}}` : "",
@@ -530,6 +535,18 @@ def render_html(data: dict) -> str:
         <div class="card"><h2>被阻塞任务</h2><ul>${{(DATA.blocked.blocked_tasks||[]).slice(0,18).map(x=>taskLine(x.task)).join("")}}</ul></div>
       </div></section>`;
     }}
+    function renderMaterials() {{
+      const rows = DATA.materials || [];
+      const auditItems = DATA.catalogAudit?.items || [];
+      const summary = DATA.catalogAudit?.summary || {{}};
+      return `<section id="materials" class="section"><div class="grid two">
+        <div class="card"><h2>资料目录库</h2>${{rows.length?`<table><tr><th>ID</th><th>资料</th><th>类型</th><th>科目</th><th>目录</th><th>单元数</th></tr>${{rows.map(m=>`<tr><td><code>${{esc(m.id)}}</code></td><td>${{esc(zh(m.name))}}</td><td>${{esc(zh(m.kind))}}</td><td>${{esc(zh(m.subject))}}</td><td><span class="pill ${{m.catalog_status==='complete'?'green':'red'}}">${{m.catalog_status==='complete'?'已建目录':'目录缺失'}}</span></td><td>${{(m.catalog_units||[]).length}}</td></tr>`).join("")}}</table>`:"<p class='muted'>暂无资料目录。先为每本书、题册、网课建立真实章节/讲次/题号目录。</p>"}}</div>
+        <div class="card"><h2>目录审计</h2><p class="muted">用于发现仍未绑定真实目录、未指定目录单元或缺少页码/讲次/题号的任务。</p>
+          <p>${{Object.entries(summary).map(([k,v])=>`<span class="pill ${{k==='ok'?'green':'red'}}">${{esc(zh(k))}}：${{v}}</span>`).join("") || "<span class='pill red'>未运行审计</span>"}}</p>
+          ${{auditItems.length?`<table><tr><th>任务</th><th>资料</th><th>范围</th><th>问题</th></tr>${{auditItems.slice(0,40).map(x=>`<tr><td><code>${{esc(x.task_id)}}</code> ${{esc(zh(x.subject))}}</td><td>${{esc(zh(x.material))}}</td><td>${{esc(zh(x.scope))}}</td><td><span class="pill red">${{esc(zh(x.issue || x.severity))}}</span></td></tr>`).join("")}}</table>`:"<p class='muted'>所有任务都已通过目录审计。</p>"}}
+        </div>
+      </div></section>`;
+    }}
     function render408() {{
       const model = DATA.model408.model || {{}};
       return `<section id="model408" class="section"><div class="grid">
@@ -568,7 +585,7 @@ def render_html(data: dict) -> str:
         <div class="card"><h2>有域名：挂到域名下</h2><p>把当前输出目录作为静态站点部署到 Nginx、Cloudflare Pages、Vercel、Netlify 或服务器任意 Web 根目录。</p><div class="command">${{esc(DATA.outDir)}}<br>&nbsp;&nbsp;index.html</div><p class="muted">域名页面可以展示看板；直接写入本地档案仍需要你电脑上的本地写入服务。若域名页要写入本机档案，需要启动服务前设置 STUDY_DASHBOARD_ORIGINS 为你的域名来源。不开本地服务时，使用底部备用导出。</p></div>
       </div></section>`;
     }}
-    app.innerHTML = renderOverview()+renderWeek()+renderSubjects()+renderReviews()+renderBlocks()+render408()+renderMistakes()+renderMistakeCalendar()+renderDeploy();
+    app.innerHTML = renderOverview()+renderWeek()+renderSubjects()+renderReviews()+renderBlocks()+renderMaterials()+render408()+renderMistakes()+renderMistakeCalendar()+renderDeploy();
     function setItemSyncState(el, text, state="warn") {{
       const node = el?.querySelector("[data-sync-state]");
       if (!node) return;

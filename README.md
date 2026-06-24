@@ -9,6 +9,7 @@
 - 需要每日待办、本周计划、复盘、提醒、进度追踪
 - 需要控制“看课太多、做题太少”的风险
 - 需要本地 HTML 看板和可勾选任务清单
+- 需要每本教材、网课、题册按真实目录拆分，而不是 agent 凭感觉安排
 
 ## 核心能力
 
@@ -31,6 +32,7 @@
 - `papers.json`：真题/套卷记录
 - `current_week.json`：当前周计划
 - `dashboard_completions.json`：无 task id 的看板勾选记录
+- `materials.json`：教材、网课、题册、App、讲义、套卷的真实目录
 
 ### 2. 任务生成规则
 
@@ -56,7 +58,28 @@
 
 如果页码、讲次、题号未知，skill 会要求 agent 询问用户或查资料，而不是凭空编造。
 
-### 3. 周计划系统
+### 3. 资料目录库
+
+每本书、每套题、每门网课都应该先进入 `materials.json`。
+
+资料目录包含：
+
+- 资料 ID
+- 资料名称
+- 类型：书、题册、网课、讲义、App、套卷
+- 科目、版本、老师
+- 目录来源
+- 真实章节/小节/讲次/页码/题号范围
+
+计划任务必须引用：
+
+```text
+material_id + catalog_units
+```
+
+如果资料没有真实目录，agent 必须先查权威来源，或要求用户提供目录、PDF、截图、OCR 文本、课程列表、题号范围。不能继续凭空拆章节。
+
+### 4. 周计划系统
 
 支持生成完整周计划，并按层级组织：
 
@@ -67,7 +90,7 @@
 
 默认周期是“当天到本周日”，而不是强行 7 天。
 
-### 4. 网课控制
+### 5. 网课控制
 
 网课不是完成本身，只是输入。
 
@@ -79,7 +102,7 @@
 - 默认每天不超过 3 个新课切片
 - 课程占比超标时，优先压缩低价值看课，保护做题、订正和复习
 
-### 5. 习题册安排
+### 6. 习题册安排
 
 习题任务包含：
 
@@ -93,7 +116,7 @@
 
 正确率低于 60% 时，自动建议降新题量、回到例题/笔记/基础课；60%-80% 继续章节练习并增加订正；80% 以上进入混合和限时训练。
 
-### 6. 复盘与预测
+### 7. 复盘与预测
 
 支持：
 
@@ -105,7 +128,7 @@
 - 生成“下周必须保护的任务”
 - 生成“可以砍掉或降级的任务”
 
-### 7. 错题回炉日历
+### 8. 错题回炉日历
 
 错题不只是记录，会自动进入复习队列。
 
@@ -117,7 +140,7 @@
 
 HTML 看板里有独立的“错题回炉”标签页，只展示来源标记为 `mistake:<id>` 的回炉任务。
 
-### 8. 真题/套卷模式
+### 9. 真题/套卷模式
 
 支持记录：
 
@@ -132,7 +155,7 @@ HTML 看板里有独立的“错题回炉”标签页，只展示来源标记为
 
 真题和套卷里的薄弱点会进入后续复习和预测。
 
-### 9. 408 专项模型
+### 10. 408 专项模型
 
 内置 408 更细的专题模型：
 
@@ -143,7 +166,7 @@ HTML 看板里有独立的“错题回炉”标签页，只展示来源标记为
 
 可按专题追踪任务数、完成数、套卷弱点和风险。
 
-### 10. HTML 看板
+### 11. HTML 看板
 
 内置本地 HTML 看板，支持：
 
@@ -152,6 +175,7 @@ HTML 看板里有独立的“错题回炉”标签页，只展示来源标记为
 - 科目进度
 - 复习队列
 - 阻塞任务
+- 资料目录与目录审计
 - 408 模型
 - 错题/真题
 - 错题回炉日历
@@ -220,16 +244,29 @@ python scripts/study_store.py init --profile default --goal "2027 考研" --dead
 python scripts/study_store.py set-weights --profile default --weights "Math II=30,408 - Operating System=16,408 - Computer Organization=12,408 - Computer Network=10,408 - Data Structure=7,English II=15,Politics=10"
 ```
 
+### 添加资料目录
+
+```bash
+python scripts/study_store.py add-material --profile default --name "李永乐线性代数基础篇讲义" --kind book --subject "Math II - Linear Algebra" --teacher "李永乐" --catalog-source "用户提供目录/OCR/官网目录" --catalog "LA-01|行列式|P1-P24|||;LA-02|矩阵|P25-P58|||;LA-05|特征值与特征向量|P120-P150|第 10-11 讲||"
+```
+
+### 检查资料目录
+
+```bash
+python scripts/study_store.py material-report --profile default
+python scripts/study_store.py catalog-audit --profile default
+```
+
 ### 添加网课任务
 
 ```bash
-python scripts/study_store.py add-course --profile default --subject "Math II" --title "李永乐线代基础篇" --slice "矩阵对角化" --lecture-range "第 12-13 讲" --page-range "P80-P96" --output "对角化条件清单" --exercise "配套习题 1-25"
+python scripts/study_store.py add-course --profile default --subject "Math II" --title "李永乐线代基础篇" --material-id MAT001 --catalog-units LA-05 --slice "学习特征值与特征向量并整理条件清单" --output "特征值、特征向量、相似矩阵条件清单" --exercise "配套习题 1-25"
 ```
 
 ### 添加习题任务
 
 ```bash
-python scripts/study_store.py add-exercise --profile default --subject "Math II" --resource "660 题" --scope "二重积分" --problem-range "第 1-30 题" --quantity 30
+python scripts/study_store.py add-exercise --profile default --subject "Math II" --resource "660 题" --material-id MAT002 --catalog-units M660-02 --scope "二重积分" --quantity 30
 ```
 
 ### 生成本周计划
@@ -437,6 +474,8 @@ study-planner/
 - 完成率和正确率分析
 - 错因统计
 - 延期预测
+- 资料目录库
+- 目录审计
 - 错题包
 - 错题回炉日历
 - 真题/套卷模式

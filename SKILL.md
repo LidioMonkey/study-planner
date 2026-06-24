@@ -25,6 +25,7 @@ Default weekly planning cycle:
 ## Modes
 
 - **Build profile**: collect the learning goal, deadline, subjects, baseline, available time, resources, and preferred output style.
+- **Build material catalog**: before planning from a book, course, question bank, app, handout, or paper set, create or verify its real catalog in `materials.json`.
 - **Plan**: create a long-term, stage, weekly, or daily plan.
 - **Today**: generate today's task list from course, exercise, review, and backlog queues.
 - **Weekly plan**: generate a layered plan from the start date through Sunday with main tasks, review tasks, optional extras, and minimum versions.
@@ -86,9 +87,12 @@ Every task should have an acceptance condition. Prefer "finish 25 limit problems
 
 Never generate vague tasks such as "finish the tail", "start the chapter", "repair exercises", "weak-topic practice", "foundation launch", or only a topic name.
 
+Never invent a book/course/question-bank structure. Every plan that uses a material should reference that material's real catalog. If the catalog is missing, stop planning that material and either search authoritative/current sources or ask the user for the table of contents, lecture list, page photos, PDF, OCR text, or problem-number ranges.
+
 Every executable task must include:
 
 - **Material**: the exact book, question bank, app, handout, course, teacher route, or paper.
+- **Catalog binding**: `material_id` and `catalog_units` when the material is known in `materials.json`.
 - **Scope**: chapter, section, lecture range, page range, problem range, passage number, or topic boundary.
 - **Precise range**: use `page_range`, `lecture_range`, and/or `problem_range` whenever the material has pages, lecture numbers, or question numbers. Prefer "第 3 章第 2 节 / P45-P58 / 例 12-18 / 习题 1-25" over only a topic name.
 - **Quantity**: number of videos, minutes, pages, questions, passages, words, formulas, or review cards.
@@ -98,6 +102,35 @@ Every executable task must include:
 If material names, chapter boundaries, page ranges, lecture numbers, or problem ranges are unknown, do not invent them. Ask the user for the missing detail, or, when the user explicitly allows web lookup/current information, search authoritative pages or official/catalog sources first. Mark any inferred range as an assumption.
 
 When exact ranges are still unknown, keep the task usable but explicitly mark the missing field as needing completion, such as `page_range: 待补充教材页码` or `problem_range: 待补充题号范围`. Do not hide missing precision behind phrases like "尾巴", "启动", "收口", "专项练习", or "当前章节".
+
+## Material Catalog Rules
+
+Use `materials.json` as the source of truth for every resource's structure.
+
+Each material should store:
+
+- `id`: stable id such as `MAT001`.
+- `name`: exact book, course, question bank, app, or paper-set name.
+- `kind`: `book`, `exercise-book`, `course`, `paper-set`, `app`, `handout`, or `other`.
+- `subject`, `edition`, `teacher`, and source notes when known.
+- `catalog_status`: `complete` only when real chapters/lectures/problem ranges are known.
+- `catalog_units`: real units with `id`, `title`, `page_range`, `lecture_range`, `problem_range`, and optional `parent`.
+
+Planning rule:
+
+1. Before creating tasks for a material, run `material-report` or inspect `materials.json`.
+2. If no material exists, create it with `add-material`.
+3. If the catalog is missing or incomplete, ask the user for the catalog or search authoritative/current sources when web lookup is allowed.
+4. Only create tasks with `--material-id` and `--catalog-units` after the material's actual structure is known.
+5. Run `catalog-audit` after generating or importing tasks. Treat any non-`ok` item as a planning defect, not as a harmless warning.
+
+Example:
+
+```bash
+python scripts/study_store.py add-material --profile default --name "李永乐线性代数基础篇讲义" --kind book --subject "Math II - Linear Algebra" --teacher "李永乐" --catalog-source "用户提供目录/OCR/官网目录" --catalog "LA-01|行列式|P1-P24|||;LA-02|矩阵|P25-P58|||;LA-05|特征值与特征向量|P120-P150|第 10-11 讲||"
+python scripts/study_store.py add-course --profile default --subject "Math II - Linear Algebra" --title "李永乐线性代数基础篇讲义" --material-id MAT001 --catalog-units LA-05 --slice "学习特征值与特征向量并整理条件清单" --output "特征值、特征向量、相似矩阵条件清单"
+python scripts/study_store.py catalog-audit --profile default
+```
 
 For exercise books, specify the resource and quantity at minimum. Prefer exact ranges when known:
 

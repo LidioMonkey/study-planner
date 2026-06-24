@@ -20,6 +20,7 @@ STORE_FILES = {
     "papers.json": [],
     "current_week.json": {},
     "dashboard_completions.json": [],
+    "materials.json": [],
     "meta.json": {},
 }
 

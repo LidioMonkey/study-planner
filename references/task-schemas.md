@@ -20,6 +20,8 @@
   "type": "course",
   "subject": "Math",
   "course": "Advanced Math foundation",
+  "material_id": "MAT001",
+  "catalog_units": ["LIM-01"],
   "chapter": "Limits",
   "slice": "definition and properties",
   "page_range": "P12-P24",
@@ -40,6 +42,8 @@
   "type": "exercise",
   "subject": "Math",
   "resource": "660",
+  "material_id": "MAT002",
+  "catalog_units": ["LIM-EX-01"],
   "scope": "limits",
   "page_range": "",
   "lecture_range": "",
@@ -51,6 +55,34 @@
   "status": "pending"
 }
 ```
+
+## Material Catalog
+
+```json
+{
+  "id": "MAT001",
+  "name": "Exact book/course/question bank name",
+  "kind": "book",
+  "subject": "Math",
+  "edition": "2027",
+  "teacher": "Teacher name",
+  "source": "Official site / user OCR / table of contents photo",
+  "catalog_status": "complete",
+  "catalog_source": "Where the catalog came from",
+  "catalog_units": [
+    {
+      "id": "LIM-01",
+      "title": "Limit definition and properties",
+      "page_range": "P12-P24",
+      "lecture_range": "Lecture 3",
+      "problem_range": "Examples 1-8",
+      "parent": "Chapter 1"
+    }
+  ]
+}
+```
+
+Tasks should reference `material_id` and `catalog_units`. If a task cannot be tied to a material catalog, run `catalog-audit` and repair it before treating the plan as reliable.
 
 ## Weekly Plan
 

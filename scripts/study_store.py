@@ -137,6 +137,7 @@ FILES = {
     "papers": "papers.json",
     "backlog": "backlog.json",
     "current_week": "current_week.json",
+    "materials": "materials.json",
     "meta": "meta.json",
 }
 
@@ -203,6 +204,176 @@ def next_id(profile: str) -> str:
     return f"T{current:03d}"
 
 
+def next_material_id(profile: str) -> str:
+    meta = load(profile, "meta")
+    current = int(meta.get("next_material_id", 1))
+    meta["next_material_id"] = current + 1
+    save(profile, "meta", meta)
+    return f"MAT{current:03d}"
+
+
+def parse_catalog_units(value: str) -> list[str]:
+    return split_csv(value)
+
+
+def add_material(args: argparse.Namespace) -> None:
+    materials = load(args.profile, "materials")
+    material = {
+        "id": args.material_id or next_material_id(args.profile),
+        "name": args.name,
+        "kind": args.kind,
+        "subject": args.subject or "",
+        "edition": args.edition or "",
+        "teacher": args.teacher or "",
+        "source": args.source or "",
+        "catalog_status": "complete" if args.catalog else "missing",
+        "catalog_source": args.catalog_source or "",
+        "catalog_units": [],
+        "notes": args.notes or "",
+        "created": today_iso(),
+    }
+    if args.catalog:
+        for raw_unit in args.catalog.split(";"):
+            parts = [part.strip() for part in raw_unit.split("|")]
+            if not parts or not parts[0]:
+                continue
+            unit = {
+                "id": parts[0],
+                "title": parts[1] if len(parts) > 1 else parts[0],
+                "page_range": parts[2] if len(parts) > 2 else "",
+                "lecture_range": parts[3] if len(parts) > 3 else "",
+                "problem_range": parts[4] if len(parts) > 4 else "",
+                "parent": parts[5] if len(parts) > 5 else "",
+            }
+            material["catalog_units"].append(unit)
+    materials.append(material)
+    save(args.profile, "materials", materials)
+    print_json(material)
+
+
+def find_material(profile: str, material_id: str) -> dict[str, Any] | None:
+    if not material_id:
+        return None
+    for material in load(profile, "materials"):
+        if material.get("id") == material_id or material.get("name") == material_id:
+            return material
+    return None
+
+
+def material_unit_index(material: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
+    if not material:
+        return {}
+    index = {}
+    for unit in material.get("catalog_units", []):
+        unit_id = str(unit.get("id", ""))
+        title = str(unit.get("title", ""))
+        if unit_id:
+            index[unit_id] = unit
+        if title:
+            index[title] = unit
+    return index
+
+
+def apply_catalog_ranges(task: dict[str, Any], material: dict[str, Any] | None, unit_refs: list[str]) -> None:
+    if not material:
+        return
+    task["material_id"] = material.get("id", "")
+    task["catalog_units"] = unit_refs
+    index = material_unit_index(material)
+    matched = [index[ref] for ref in unit_refs if ref in index]
+    if not matched:
+        return
+    for field in ["page_range", "lecture_range", "problem_range"]:
+        if task.get(field):
+            continue
+        values = [unit.get(field, "") for unit in matched if unit.get(field)]
+        if values:
+            task[field] = "；".join(values)
+    if not task.get("chapter"):
+        titles = [unit.get("title", "") for unit in matched if unit.get("title")]
+        if titles:
+            task["chapter"] = "；".join(titles)
+    if not task.get("scope"):
+        titles = [unit.get("title", "") for unit in matched if unit.get("title")]
+        if titles:
+            task["scope"] = "；".join(titles)
+
+
+def validate_task_catalog(profile: str, task: dict[str, Any], material_field: str, scope_field: str) -> dict[str, Any]:
+    material_id = task.get("material_id", "")
+    catalog_units = task.get("catalog_units", [])
+    material_name = task.get(material_field, "")
+    scope = task.get(scope_field, "")
+    has_precise_range = any(task.get(field) for field in ["page_range", "lecture_range", "problem_range"])
+    issue = ""
+    severity = "ok"
+    if not material_id:
+        issue = "未绑定 materials.json 中的真实资料目录"
+        severity = "missing-material"
+    else:
+        material = find_material(profile, material_id)
+        if not material:
+            issue = "material_id 不存在"
+            severity = "invalid-material"
+        elif material.get("catalog_status") != "complete":
+            issue = "资料目录未完成"
+            severity = "catalog-incomplete"
+        elif not catalog_units:
+            issue = "未引用目录单元"
+            severity = "missing-catalog-unit"
+        elif not has_precise_range:
+            issue = "目录单元未提供页码/讲次/题号"
+            severity = "missing-precise-range"
+    return {
+        "task_id": task.get("id"),
+        "type": task.get("type"),
+        "subject": task.get("subject"),
+        "material": material_name,
+        "scope": scope,
+        "material_id": material_id,
+        "catalog_units": catalog_units,
+        "page_range": task.get("page_range", ""),
+        "lecture_range": task.get("lecture_range", ""),
+        "problem_range": task.get("problem_range", ""),
+        "severity": severity,
+        "issue": issue,
+    }
+
+
+def material_report(args: argparse.Namespace) -> None:
+    materials = load(args.profile, "materials")
+    rows = []
+    for material in materials:
+        rows.append(
+            {
+                "id": material.get("id"),
+                "name": material.get("name"),
+                "kind": material.get("kind"),
+                "subject": material.get("subject"),
+                "catalog_status": material.get("catalog_status", "missing"),
+                "unit_count": len(material.get("catalog_units", [])),
+                "catalog_source": material.get("catalog_source", ""),
+            }
+        )
+    print_json({"profile": args.profile, "materials": rows})
+
+
+def catalog_audit(args: argparse.Namespace) -> None:
+    rows = []
+    for task in load(args.profile, "courses"):
+        row = validate_task_catalog(args.profile, task, "title", "chapter")
+        if args.all or row["severity"] != "ok":
+            rows.append(row)
+    for task in load(args.profile, "exercises"):
+        row = validate_task_catalog(args.profile, task, "resource", "scope")
+        if args.all or row["severity"] != "ok":
+            rows.append(row)
+    summary: dict[str, int] = {}
+    for row in rows:
+        summary[row["severity"]] = summary.get(row["severity"], 0) + 1
+    print_json({"profile": args.profile, "summary": summary, "items": rows})
+
+
 def init_profile(args: argparse.Namespace) -> None:
     ensure_profile(args.profile)
     goals = load(args.profile, "goals")
@@ -251,12 +422,16 @@ def set_weights(args: argparse.Namespace) -> None:
 
 def add_course(args: argparse.Namespace) -> None:
     courses = load(args.profile, "courses")
+    material = find_material(args.profile, args.material_id)
+    catalog_units = parse_catalog_units(args.catalog_units)
     task = {
         "id": next_id(args.profile),
         "type": "course",
         "subject": args.subject,
         "title": args.title,
         "chapter": args.chapter or "",
+        "material_id": args.material_id or "",
+        "catalog_units": catalog_units,
         "page_range": args.page_range or "",
         "lecture_range": args.lecture_range or "",
         "problem_range": args.problem_range or "",
@@ -269,6 +444,7 @@ def add_course(args: argparse.Namespace) -> None:
         "status": "pending",
         "created": today_iso(),
     }
+    apply_catalog_ranges(task, material, catalog_units)
     courses.append(task)
     save(args.profile, "courses", courses)
     print_json(task)
@@ -276,12 +452,16 @@ def add_course(args: argparse.Namespace) -> None:
 
 def add_exercise(args: argparse.Namespace) -> None:
     exercises = load(args.profile, "exercises")
+    material = find_material(args.profile, args.material_id)
+    catalog_units = parse_catalog_units(args.catalog_units)
     task = {
         "id": next_id(args.profile),
         "type": "exercise",
         "subject": args.subject,
         "resource": args.resource,
         "scope": args.scope,
+        "material_id": args.material_id or "",
+        "catalog_units": catalog_units,
         "page_range": args.page_range or "",
         "lecture_range": args.lecture_range or "",
         "problem_range": args.problem_range or "",
@@ -294,6 +474,7 @@ def add_exercise(args: argparse.Namespace) -> None:
         "status": "pending",
         "created": today_iso(),
     }
+    apply_catalog_ranges(task, material, catalog_units)
     exercises.append(task)
     save(args.profile, "exercises", exercises)
     print_json(task)
@@ -728,6 +909,8 @@ def plan_task_view(item: dict[str, Any]) -> dict[str, Any]:
         "task": action,
         "material": material,
         "scope": scope,
+        "material_id": item.get("material_id", ""),
+        "catalog_units": item.get("catalog_units", []),
         "page_range": item.get("page_range", ""),
         "lecture_range": item.get("lecture_range", ""),
         "problem_range": item.get("problem_range", ""),
@@ -1812,11 +1995,36 @@ def build_parser() -> argparse.ArgumentParser:
     weights.add_argument("--weights", required=True)
     weights.set_defaults(func=set_weights)
 
+    material = sub.add_parser("add-material")
+    material.add_argument("--profile", default="default")
+    material.add_argument("--material-id", default="")
+    material.add_argument("--name", required=True)
+    material.add_argument("--kind", choices=["book", "exercise-book", "course", "paper-set", "app", "handout", "other"], default="book")
+    material.add_argument("--subject", default="")
+    material.add_argument("--edition", default="")
+    material.add_argument("--teacher", default="")
+    material.add_argument("--source", default="")
+    material.add_argument("--catalog-source", default="")
+    material.add_argument("--catalog", default="", help="Semicolon-separated units: id|title|page_range|lecture_range|problem_range|parent")
+    material.add_argument("--notes", default="")
+    material.set_defaults(func=add_material)
+
+    material_report_parser = sub.add_parser("material-report")
+    material_report_parser.add_argument("--profile", default="default")
+    material_report_parser.set_defaults(func=material_report)
+
+    catalog_audit_parser = sub.add_parser("catalog-audit")
+    catalog_audit_parser.add_argument("--profile", default="default")
+    catalog_audit_parser.add_argument("--all", action="store_true")
+    catalog_audit_parser.set_defaults(func=catalog_audit)
+
     course = sub.add_parser("add-course")
     course.add_argument("--profile", default="default")
     course.add_argument("--subject", required=True)
     course.add_argument("--title", required=True)
     course.add_argument("--chapter", default="")
+    course.add_argument("--material-id", default="")
+    course.add_argument("--catalog-units", default="")
     course.add_argument("--page-range", default="")
     course.add_argument("--lecture-range", default="")
     course.add_argument("--problem-range", default="")
@@ -1833,6 +2041,8 @@ def build_parser() -> argparse.ArgumentParser:
     exercise.add_argument("--subject", required=True)
     exercise.add_argument("--resource", required=True)
     exercise.add_argument("--scope", required=True)
+    exercise.add_argument("--material-id", default="")
+    exercise.add_argument("--catalog-units", default="")
     exercise.add_argument("--page-range", default="")
     exercise.add_argument("--lecture-range", default="")
     exercise.add_argument("--problem-range", default="")
