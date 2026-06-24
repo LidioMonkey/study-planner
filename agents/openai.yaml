@@ -1,0 +1,4 @@
+interface:
+  display_name: "Study Planner"
+  short_description: "Plan, review, track, and dashboard long-term learning."
+  default_prompt: "Help me create a task-based study plan, generate a weekly dashboard, and keep my local study profile updated."
