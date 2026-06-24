@@ -18,6 +18,7 @@ The JSON profile remains the operational source of truth for scripts and dashboa
 ```bash
 python scripts/obsidian_sync.py --profile default configure --vault "/path/to/Vault" --study-root "Study Planner"
 python scripts/obsidian_sync.py --profile default import-materials
+python scripts/obsidian_sync.py --profile default import-wangdao-pdfs --pdf-dir "/path/to/408-pdfs" --bind-tasks
 python scripts/obsidian_sync.py --profile default import-408-outline --bind-tasks
 python scripts/obsidian_sync.py --profile default import-mistakes
 python scripts/obsidian_sync.py --profile default export
@@ -38,6 +39,43 @@ Study Planner/
 ```
 
 The importer scans all Markdown files in the vault except `.obsidian` and `.git`.
+
+## Wangdao 408 PDF Import
+
+When the user provides actual Wangdao PDFs, import those before using ordinary Obsidian outline notes:
+
+```bash
+python scripts/obsidian_sync.py --profile default import-wangdao-pdfs --pdf-dir "/path/to/408-pdfs" --bind-tasks
+```
+
+Default file names under `--pdf-dir`:
+
+```text
+2025王道数据结构考研复习指导.pdf
+2026年计算机组成原理考研复习指导.pdf
+2025王道操作系统考研复习指导.pdf
+2025王道计算机网络考研复习指导.pdf
+```
+
+Explicit paths are also supported:
+
+```bash
+python scripts/obsidian_sync.py --profile default import-wangdao-pdfs --ds "...数据结构.pdf" --co "...计组.pdf" --os "...操作系统.pdf" --cn "...计算机网络.pdf" --bind-tasks
+```
+
+Import behavior:
+
+- Reads PDF bookmarks with `pypdf`.
+- Creates chapter and section catalog units.
+- Stores PDF page ranges such as `P359-P420`.
+- Sets `catalog_precision: chapter-section-page`.
+- With `--bind-tasks`, known Wangdao 408 tasks are rebound to the PDF units.
+
+Authority rule:
+
+- If a PDF catalog conflicts with an older Obsidian knowledge graph, trust the PDF for the book catalog.
+- Keep the Obsidian knowledge graph as notes and cross-links, not as the source of truth for Wangdao page ranges or chapter numbers.
+- Do not invent problem numbers; PDF bookmark import gives page ranges, not exact exercise numbers.
 
 ## Existing 408 Outline Import
 

@@ -5,6 +5,7 @@ import argparse
 import json
 import os
 import re
+import logging
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -62,6 +63,45 @@ OUTLINE_408_SPECS = [
     },
 ]
 
+WANGDAO_PDF_SPECS = {
+    "ds": {
+        "id": "MAT-WANGDAO-DS",
+        "name": "王道数据结构复习指导书",
+        "kind": "book",
+        "subject": "408 - Data Structure",
+        "prefix": "DS",
+        "default_filename": "2025王道数据结构考研复习指导.pdf",
+        "edition": "2025",
+    },
+    "co": {
+        "id": "MAT-WANGDAO-CO",
+        "name": "王道计算机组成原理复习指导书",
+        "kind": "book",
+        "subject": "408 - Computer Organization",
+        "prefix": "CO",
+        "default_filename": "2026年计算机组成原理考研复习指导.pdf",
+        "edition": "2026",
+    },
+    "os": {
+        "id": "MAT-WANGDAO-OS",
+        "name": "王道操作系统复习指导书",
+        "kind": "book",
+        "subject": "408 - Operating System",
+        "prefix": "OS",
+        "default_filename": "2025王道操作系统考研复习指导.pdf",
+        "edition": "2025",
+    },
+    "cn": {
+        "id": "MAT-WANGDAO-CN",
+        "name": "王道计算机网络复习指导书",
+        "kind": "book",
+        "subject": "408 - Computer Network",
+        "prefix": "CN",
+        "default_filename": "2025王道计算机网络考研复习指导.pdf",
+        "edition": "2025",
+    },
+}
+
 OUTLINE_408_BINDINGS = {
     "T005": ("MAT-WANGDAO-DS", ["DS-06"]),
     "T017": ("MAT-WANGDAO-DS", ["DS-06"]),
@@ -72,6 +112,20 @@ OUTLINE_408_BINDINGS = {
     "T008": ("MAT-WANGDAO-OS", ["OS-02"]),
     "T009": ("MAT-WANGDAO-OS", ["OS-03", "OS-04"]),
     "T021": ("MAT-WANGDAO-OS", ["OS-02", "OS-03", "OS-04"]),
+    "T010": ("MAT-WANGDAO-CN", ["CN-01"]),
+    "T022": ("MAT-WANGDAO-CN", ["CN-01"]),
+}
+
+PDF_408_BINDINGS = {
+    "T005": ("MAT-WANGDAO-DS", ["DS-08"]),
+    "T017": ("MAT-WANGDAO-DS", ["DS-08"]),
+    "T006": ("MAT-WANGDAO-CO", ["CO-04"]),
+    "T019": ("MAT-WANGDAO-CO", ["CO-04"]),
+    "T007": ("MAT-WANGDAO-CO", ["CO-05"]),
+    "T020": ("MAT-WANGDAO-CO", ["CO-05"]),
+    "T008": ("MAT-WANGDAO-OS", ["OS-02"]),
+    "T009": ("MAT-WANGDAO-OS", ["OS-02"]),
+    "T021": ("MAT-WANGDAO-OS", ["OS-02"]),
     "T010": ("MAT-WANGDAO-CN", ["CN-01"]),
     "T022": ("MAT-WANGDAO-CN", ["CN-01"]),
 }
@@ -127,6 +181,44 @@ OUTLINE_408_HINTS = {
             "CN-05": ["传输层", "TCP", "UDP"],
             "CN-06": ["应用层"],
             "CN-07": ["网络安全"],
+        },
+    },
+}
+
+PDF_408_HINTS = {
+    "MAT-WANGDAO-DS": {
+        "subject": ["Data Structure", "数据结构"],
+        "unit_hints": {
+            "DS-01": ["绪论", "算法评价", "复杂度"],
+            "DS-02": ["线性表", "顺序表", "链表"],
+            "DS-03": ["栈", "队列", "数组"],
+            "DS-04": ["串", "模式匹配"],
+            "DS-05": ["树", "二叉树", "平衡二叉树"],
+            "DS-06": ["图", "关键路径", "拓扑排序", "最短路径"],
+            "DS-07": ["查找", "B 树", "B树", "散列", "哈希"],
+            "DS-08": ["排序", "快速排序", "归并排序", "堆排序"],
+        },
+    },
+    "MAT-WANGDAO-CO": OUTLINE_408_HINTS["MAT-WANGDAO-CO"],
+    "MAT-WANGDAO-OS": {
+        "subject": ["Operating System", "操作系统"],
+        "unit_hints": {
+            "OS-01": ["操作系统概述", "计算机系统概述", "操作系统引论"],
+            "OS-02": ["进程", "线程", "PCB", "CPU调度", "处理机调度", "同步", "互斥", "PV", "死锁"],
+            "OS-03": ["内存管理", "存储器管理", "虚拟内存", "虚拟存储器"],
+            "OS-04": ["文件管理", "文件系统", "目录"],
+            "OS-05": ["输入输出", "I/O", "IO", "磁盘", "固态硬盘"],
+        },
+    },
+    "MAT-WANGDAO-CN": {
+        "subject": ["Computer Network", "计算机网络", "计网"],
+        "unit_hints": {
+            "CN-01": ["计算机网络体系结构", "计算机网络概述", "体系结构", "分层", "OSI", "TCP/IP"],
+            "CN-02": ["物理层"],
+            "CN-03": ["数据链路层"],
+            "CN-04": ["网络层", "IP", "IPv4", "IPv6"],
+            "CN-05": ["传输层", "TCP", "UDP"],
+            "CN-06": ["应用层", "DNS", "FTP", "WWW", "电子邮件"],
         },
     },
 }
@@ -277,6 +369,128 @@ def parse_wiki_outline_units(path: Path, prefix: str) -> list[dict[str, str]]:
     return units
 
 
+def clean_outline_title(title: str) -> str:
+    title = str(title or "").strip()
+    title = title.lstrip("*").strip()
+    title = re.sub(r"\s+", " ", title)
+    title = title.replace("　", " ")
+    return title
+
+
+def page_range(start: int | None, next_start: int | None, total_pages: int) -> str:
+    if not start:
+        return ""
+    end = (next_start - 1) if next_start and next_start > start else total_pages
+    return f"P{start}-P{end}" if end > start else f"P{start}"
+
+
+def outline_title(item: Any) -> str:
+    try:
+        return clean_outline_title(item.title)
+    except Exception:
+        try:
+            return clean_outline_title(item.get("/Title", ""))
+        except Exception:
+            return clean_outline_title(str(item))
+
+
+def outline_page(reader: Any, item: Any) -> int | None:
+    try:
+        return reader.get_destination_page_number(item) + 1
+    except Exception:
+        return None
+
+
+def walk_pdf_outline(reader: Any, items: list[Any], level: int = 0, rows: list[dict[str, Any]] | None = None) -> list[dict[str, Any]]:
+    rows = rows or []
+    for item in items:
+        if isinstance(item, list):
+            walk_pdf_outline(reader, item, level + 1, rows)
+        else:
+            rows.append({"level": level, "title": outline_title(item), "page": outline_page(reader, item)})
+    return rows
+
+
+def fill_missing_pages(rows: list[dict[str, Any]]) -> None:
+    for index, row in enumerate(rows):
+        if row.get("page"):
+            continue
+        child_pages = [candidate.get("page") for candidate in rows[index + 1 :] if candidate["level"] > row["level"] and candidate.get("page")]
+        if child_pages:
+            row["page"] = min(child_pages)
+
+
+def parse_wangdao_pdf_catalog(path: Path, prefix: str) -> list[dict[str, str]]:
+    try:
+        logging.getLogger("pypdf").setLevel(logging.ERROR)
+        from pypdf import PdfReader
+    except ImportError as exc:
+        raise SystemExit("Missing pypdf. Install it with: python -m pip install pypdf") from exc
+    reader = PdfReader(str(path), strict=False)
+    rows = walk_pdf_outline(reader, reader.outline)
+    fill_missing_pages(rows)
+    content_rows = [row for row in rows if re.match(r"^(第\d+章|\d+\.\d+\s)", row["title"])]
+    chapters = [row for row in content_rows if re.match(r"^第\d+章", row["title"])]
+    chapter_starts = [row.get("page") for row in chapters]
+    units: list[dict[str, str]] = []
+    chapter_id = ""
+    chapter_title = ""
+    for row in content_rows:
+        title = row["title"]
+        chapter_match = re.match(r"^第\s*(\d+)\s*章\s*(.+)$", title)
+        section_match = re.match(r"^(\d+)\.(\d+)\s+(.+)$", title)
+        if chapter_match:
+            chapter_no = int(chapter_match.group(1))
+            chapter_id = f"{prefix}-{chapter_no:02d}"
+            chapter_title = f"第{chapter_no}章 {chapter_match.group(2).strip()}"
+            next_page = None
+            for start in chapter_starts:
+                if start and row.get("page") and start > row["page"]:
+                    next_page = start
+                    break
+            units.append(
+                {
+                    "id": chapter_id,
+                    "title": chapter_title,
+                    "page_range": page_range(row.get("page"), next_page, len(reader.pages)),
+                    "lecture_range": "",
+                    "problem_range": "",
+                    "parent": "",
+                    "level": "chapter",
+                }
+            )
+        elif section_match and chapter_id:
+            chapter_no = int(section_match.group(1))
+            section_no = int(section_match.group(2))
+            if not chapter_id.endswith(f"{chapter_no:02d}"):
+                chapter_id = f"{prefix}-{chapter_no:02d}"
+                chapter_title = f"第{chapter_no}章"
+            same_or_next = [
+                candidate.get("page")
+                for candidate in content_rows
+                if candidate.get("page")
+                and candidate.get("page") > (row.get("page") or 0)
+                and (
+                    re.match(rf"^{chapter_no}\.\d+\s", candidate["title"])
+                    or re.match(r"^第\d+章", candidate["title"])
+                )
+            ]
+            next_page = min(same_or_next) if same_or_next else None
+            units.append(
+                {
+                    "id": f"{prefix}-{chapter_no:02d}-{section_no:02d}",
+                    "title": f"{chapter_no}.{section_no} {section_match.group(3).strip()}",
+                    "page_range": page_range(row.get("page"), next_page, len(reader.pages)),
+                    "lecture_range": "",
+                    "problem_range": "",
+                    "parent": chapter_id,
+                    "level": "section",
+                    "parent_title": chapter_title,
+                }
+            )
+    return units
+
+
 def upsert_material(materials: list[dict[str, Any]], material: dict[str, Any]) -> None:
     material_id = material.get("id")
     for item in materials:
@@ -298,11 +512,11 @@ def bind_task_to_material(task: dict[str, Any], material: dict[str, Any], unit_i
         else:
             task["scope"] = scope
     for field in ["page_range", "lecture_range", "problem_range"]:
-        if task.get(field):
-            continue
         values = [index[unit_id].get(field, "") for unit_id in unit_ids if unit_id in index and index[unit_id].get(field)]
         if values:
             task[field] = "；".join(values)
+        elif material.get("catalog_source", "").startswith("pdf-outline:") and field in task:
+            task.pop(field, None)
 
 
 def task_search_text(task: dict[str, Any]) -> str:
@@ -320,18 +534,45 @@ def task_search_text(task: dict[str, Any]) -> str:
     return " ".join(str(field) for field in fields if field)
 
 
-def infer_408_binding(task: dict[str, Any]) -> tuple[str, list[str]] | None:
-    if task.get("id") in OUTLINE_408_BINDINGS:
-        return OUTLINE_408_BINDINGS[task["id"]]
-    text = task_search_text(task)
-    if "王道" not in text and not str(task.get("material_id", "")).startswith("MAT-WANGDAO-"):
+def task_primary_text(task: dict[str, Any]) -> str:
+    fields = [
+        task.get("subject", ""),
+        task.get("title", ""),
+        task.get("resource", ""),
+        task.get("material", ""),
+        task.get("chapter", ""),
+        task.get("scope", ""),
+        task.get("task", ""),
+        task.get("chapter_or_scope", ""),
+        task.get("title_or_resource", ""),
+    ]
+    return " ".join(str(field) for field in fields if field)
+
+
+def infer_408_binding(task: dict[str, Any], material_by_id: dict[str, dict[str, Any]] | None = None) -> tuple[str, list[str]] | None:
+    task_id = task.get("id")
+    if task_id in PDF_408_BINDINGS:
+        material_id, unit_ids = PDF_408_BINDINGS[task_id]
+        material = (material_by_id or {}).get(material_id)
+        if material and material.get("catalog_source", "").startswith("pdf-outline:"):
+            return material_id, unit_ids
+    if task_id in OUTLINE_408_BINDINGS:
+        material_id, unit_ids = OUTLINE_408_BINDINGS[task_id]
+        return material_id, unit_ids
+    return infer_408_binding_from_hints(task, PDF_408_HINTS if material_by_id else OUTLINE_408_HINTS)
+
+
+def infer_408_binding_from_hints(task: dict[str, Any], hint_map: dict[str, Any]) -> tuple[str, list[str]] | None:
+    primary = task_primary_text(task)
+    all_text = task_search_text(task)
+    if "王道" not in all_text and not str(task.get("material_id", "")).startswith("MAT-WANGDAO-"):
         return None
-    for material_id, hints in OUTLINE_408_HINTS.items():
-        if not any(hint in text for hint in hints["subject"]):
+    for material_id, hints in hint_map.items():
+        if not any(hint in all_text for hint in hints["subject"]):
             continue
         matched = []
         for unit_id, unit_hints in hints["unit_hints"].items():
-            if any(hint in text for hint in unit_hints):
+            if any(hint in primary for hint in unit_hints):
                 matched.append(unit_id)
         if matched:
             return material_id, matched
@@ -344,7 +585,7 @@ def bind_408_tasks(codex_home: Path, profile: str, material_by_id: dict[str, dic
         tasks = load(codex_home, profile, key)
         touched = False
         for task in tasks:
-            binding = infer_408_binding(task)
+            binding = infer_408_binding(task, material_by_id)
             if not binding:
                 continue
             material_id, unit_ids = binding
@@ -362,7 +603,7 @@ def bind_408_tasks(codex_home: Path, profile: str, material_by_id: dict[str, dic
         for day in current_week.get("plan", []):
             for bucket in ["main_tasks", "review_tasks", "optional_extra"]:
                 for item in day.get(bucket, []):
-                    binding = infer_408_binding(item)
+                    binding = infer_408_binding(item, material_by_id)
                     if not binding:
                         continue
                     material_id, unit_ids = binding
@@ -468,6 +709,57 @@ def import_408_outline(args: argparse.Namespace) -> None:
         upsert_material(materials, material)
         material_by_id[spec["id"]] = material
         imported.append({"id": spec["id"], "name": spec["name"], "units": len(units), "path": str(index_path)})
+    save(codex_home, args.profile, "materials", materials)
+    bound = bind_408_tasks(codex_home, args.profile, material_by_id) if args.bind_tasks else []
+    print_json({"ok": True, "profile": args.profile, "imported": imported, "bound_tasks": bound})
+
+
+def import_wangdao_pdfs(args: argparse.Namespace) -> None:
+    codex_home = Path(args.codex_home).expanduser()
+    materials = load(codex_home, args.profile, "materials")
+    pdf_dir = Path(args.pdf_dir).expanduser() if args.pdf_dir else None
+    explicit_paths = {
+        "ds": args.ds,
+        "co": args.co,
+        "os": args.os,
+        "cn": args.cn,
+    }
+    imported = []
+    material_by_id: dict[str, dict[str, Any]] = {}
+    for key, spec in WANGDAO_PDF_SPECS.items():
+        raw_path = explicit_paths.get(key)
+        path = Path(raw_path).expanduser() if raw_path else (pdf_dir / spec["default_filename"] if pdf_dir else None)
+        if not path or not path.exists():
+            imported.append({"id": spec["id"], "name": spec["name"], "skipped": True, "reason": f"PDF not found: {path}"})
+            continue
+        units = parse_wangdao_pdf_catalog(path, spec["prefix"])
+        material = {
+            "id": spec["id"],
+            "name": spec["name"],
+            "kind": spec["kind"],
+            "subject": spec["subject"],
+            "edition": spec["edition"],
+            "teacher": "",
+            "source": str(path),
+            "catalog_status": "complete" if units else "missing",
+            "catalog_source": f"pdf-outline:{path}",
+            "catalog_precision": "chapter-section-page",
+            "catalog_units": units,
+            "notes": "由王道 PDF 书签目录导入。页码为 PDF 页序；做计划时可引用章级或节级单元。",
+            "updated": date.today().isoformat(),
+        }
+        upsert_material(materials, material)
+        material_by_id[spec["id"]] = material
+        imported.append(
+            {
+                "id": spec["id"],
+                "name": spec["name"],
+                "units": len(units),
+                "chapters": len([unit for unit in units if unit.get("level") == "chapter"]),
+                "sections": len([unit for unit in units if unit.get("level") == "section"]),
+                "path": str(path),
+            }
+        )
     save(codex_home, args.profile, "materials", materials)
     bound = bind_408_tasks(codex_home, args.profile, material_by_id) if args.bind_tasks else []
     print_json({"ok": True, "profile": args.profile, "imported": imported, "bound_tasks": bound})
@@ -645,6 +937,15 @@ def build_parser() -> argparse.ArgumentParser:
     import_408_parser.add_argument("--vault", default="")
     import_408_parser.add_argument("--bind-tasks", action="store_true", help="Bind known Wangdao 408 tasks in the current profile to imported units.")
     import_408_parser.set_defaults(func=import_408_outline)
+
+    import_wangdao_parser = sub.add_parser("import-wangdao-pdfs")
+    import_wangdao_parser.add_argument("--pdf-dir", default="", help="Folder containing the four Wangdao PDFs with default file names.")
+    import_wangdao_parser.add_argument("--ds", default="", help="Path to Wangdao data structure PDF.")
+    import_wangdao_parser.add_argument("--co", default="", help="Path to Wangdao computer organization PDF.")
+    import_wangdao_parser.add_argument("--os", default="", help="Path to Wangdao operating system PDF.")
+    import_wangdao_parser.add_argument("--cn", default="", help="Path to Wangdao computer network PDF.")
+    import_wangdao_parser.add_argument("--bind-tasks", action="store_true", help="Bind known Wangdao 408 tasks in the current profile to imported PDF units.")
+    import_wangdao_parser.set_defaults(func=import_wangdao_pdfs)
 
     import_mistakes_parser = sub.add_parser("import-mistakes")
     import_mistakes_parser.add_argument("--vault", default="")

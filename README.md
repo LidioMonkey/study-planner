@@ -373,6 +373,25 @@ python scripts/obsidian_sync.py --profile default configure --vault "/path/to/Ob
 python scripts/obsidian_sync.py --profile default import-materials
 ```
 
+从王道 408 PDF 书签目录导入真实章节、小节和 PDF 页码：
+
+```bash
+python scripts/obsidian_sync.py --profile default import-wangdao-pdfs --pdf-dir "/path/to/408-pdfs" --bind-tasks
+```
+
+也可以分别指定四本书：
+
+```bash
+python scripts/obsidian_sync.py --profile default import-wangdao-pdfs \
+  --ds "/path/to/2025王道数据结构考研复习指导.pdf" \
+  --co "/path/to/2026年计算机组成原理考研复习指导.pdf" \
+  --os "/path/to/2025王道操作系统考研复习指导.pdf" \
+  --cn "/path/to/2025王道计算机网络考研复习指导.pdf" \
+  --bind-tasks
+```
+
+这个命令会把 `materials.json` 升级为 PDF 真实目录，精度为 `chapter-section-page`。如果 PDF 目录和旧 Obsidian 知识图谱冲突，以 PDF 为准。例如王道数据结构 2025 版的“排序”是第 8 章；王道操作系统 2025 版是 5 章体系。
+
 从已有的 408 Obsidian 知识库导入王道四科章级目录：
 
 ```bash
