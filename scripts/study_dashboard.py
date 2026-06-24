@@ -433,6 +433,7 @@ def render_html(data: dict) -> str:
       "architecture":"体系结构", "physical":"物理层", "data link":"数据链路层",
       "network layer":"网络层", "transport layer":"传输层", "application":"应用层"
     }};
+    const materialMap = Object.fromEntries((DATA.materials||[]).map(m=>[m.id,m]));
     function zh(v) {{
       let s = String(v ?? "");
       if (mapText[s]) return mapText[s];
@@ -452,6 +453,15 @@ def render_html(data: dict) -> str:
     const taskName = t => esc(zh(t.task || t.slice || t.scope || t.chapter_or_scope || t.title_or_resource || t.content || t.id));
     const taskLine = t => `<li><code>${{esc(t.id)}}</code> ${{esc(zh(t.subject))}}：${{taskName(t)}}</li>`;
     const ymd = d => `${{d.getFullYear()}}-${{String(d.getMonth()+1).padStart(2,"0")}}-${{String(d.getDate()).padStart(2,"0")}}`;
+    function materialLabel(materialId) {{
+      const material = materialMap[materialId];
+      return material ? `${{materialId}}（${{zh(material.name)}}）` : zh(materialId);
+    }}
+    function catalogUnitLabel(materialId, unitId) {{
+      const material = materialMap[materialId];
+      const unit = (material?.catalog_units || []).find(row => row.id === unitId);
+      return unit ? `${{unitId}}（${{zh(unit.title)}}）` : zh(unitId);
+    }}
     const todoKey = (date, layer, item, index) => `${{PROFILE}}-week-${{DATA.currentWeek.start || "current"}}:${{date}}:${{layer}}:${{item?.id || index}}`;
     const layerText = {{ main:"主线任务", review:"复习任务", extra:"加餐任务", minimum:"保底任务" }};
     function todoTitle(item) {{
@@ -465,8 +475,8 @@ def render_html(data: dict) -> str:
       const meta = typeof item === "string" ? "保底版本" : `${{zh(item.type)}}${{item.id ? " · " + item.id : ""}}${{item.priority ? " · 优先级 " + item.priority : ""}}`;
       const details = typeof item === "string" ? "" : [
         item.material ? `资料：${{zh(item.material)}}` : "",
-        item.material_id ? `目录资料：${{zh(item.material_id)}}` : "目录资料：未绑定真实目录",
-        item.catalog_units?.length ? `目录单元：${{item.catalog_units.map(zh).join("、")}}` : "目录单元：未指定",
+        item.material_id ? `目录资料：${{materialLabel(item.material_id)}}` : "目录资料：未绑定真实目录",
+        item.catalog_units?.length ? `目录单元：${{item.catalog_units.map(unit=>catalogUnitLabel(item.material_id, unit)).join("、")}}` : "目录单元：未指定",
         item.scope ? `范围：${{zh(item.scope)}}` : "",
         item.precise_range ? `精确范围：${{zh(item.precise_range)}}` : "",
         item.page_range ? `页码：${{zh(item.page_range)}}` : "",
@@ -547,7 +557,6 @@ def render_html(data: dict) -> str:
     }}
     function renderSubjects() {{
       const tasks = [...(DATA.courses||[]), ...(DATA.exercises||[])];
-      const materialMap = Object.fromEntries((DATA.materials||[]).map(m=>[m.id,m]));
       const subjects = {{}};
       for (const task of tasks) {{
         const subject = task.subject || "未分类";
@@ -597,12 +606,19 @@ def render_html(data: dict) -> str:
       const rows = DATA.materials || [];
       const auditItems = DATA.catalogAudit?.items || [];
       const summary = DATA.catalogAudit?.summary || {{}};
+      const unitRows = (m) => (m.catalog_units||[]).map(u=>`<tr><td><code>${{esc(u.id||"")}}</code></td><td>${{esc(zh(u.title||""))}}</td><td>${{esc(zh(u.page_range||"待补充"))}}</td><td>${{esc(zh(u.lecture_range||"待补充"))}}</td><td>${{esc(zh(u.problem_range||"待补充"))}}</td><td>${{esc(u.source_note||u.obsidian_link||"")}}</td></tr>`).join("");
       return `<section id="materials" class="section"><div class="grid two">
         <div class="card"><h2>资料目录库</h2>${{rows.length?`<table><tr><th>ID</th><th>资料</th><th>类型</th><th>科目</th><th>目录</th><th>单元数</th></tr>${{rows.map(m=>`<tr><td><code>${{esc(m.id)}}</code></td><td>${{esc(zh(m.name))}}</td><td>${{esc(zh(m.kind))}}</td><td>${{esc(zh(m.subject))}}</td><td><span class="pill ${{m.catalog_status==='complete'?'green':'red'}}">${{m.catalog_status==='complete'?'已建目录':'目录缺失'}}</span></td><td>${{(m.catalog_units||[]).length}}</td></tr>`).join("")}}</table>`:"<p class='muted'>暂无资料目录。先为每本书、题册、网课建立真实章节/讲次/题号目录。</p>"}}</div>
         <div class="card"><h2>目录审计</h2><p class="muted">用于发现仍未绑定真实目录、未指定目录单元或缺少页码/讲次/题号的任务。</p>
           <p>${{Object.entries(summary).map(([k,v])=>`<span class="pill ${{k==='ok'?'green':'red'}}">${{esc(zh(k))}}：${{v}}</span>`).join("") || "<span class='pill red'>未运行审计</span>"}}</p>
           ${{auditItems.length?`<table><tr><th>任务</th><th>资料</th><th>范围</th><th>问题</th></tr>${{auditItems.slice(0,40).map(x=>`<tr><td><code>${{esc(x.task_id)}}</code> ${{esc(zh(x.subject))}}</td><td>${{esc(zh(x.material))}}</td><td>${{esc(zh(x.scope))}}</td><td><span class="pill red">${{esc(zh(x.issue || x.severity))}}</span></td></tr>`).join("")}}</table>`:"<p class='muted'>所有任务都已通过目录审计。</p>"}}
         </div>
+      </div>
+      <div class="grid" style="margin-top:16px">
+        ${{rows.map(m=>`<div class="card"><h2>${{esc(zh(m.name))}} <span class="pill">${{esc(m.catalog_precision || "目录")}}</span></h2>
+          <p class="muted">来源：${{esc(m.catalog_source || m.source || "未记录")}}</p>
+          ${{(m.catalog_units||[]).length?`<table><tr><th>单元</th><th>真实章节</th><th>页码</th><th>讲次</th><th>题号</th><th>Obsidian 笔记</th></tr>${{unitRows(m)}}</table>`:"<p class='muted'>暂无目录单元。</p>"}}
+        </div>`).join("")}}
       </div></section>`;
     }}
     function render408() {{

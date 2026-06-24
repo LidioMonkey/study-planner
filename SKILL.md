@@ -142,6 +142,7 @@ Supported v1 workflow:
 ```bash
 python scripts/obsidian_sync.py --profile default configure --vault "/path/to/ObsidianVault" --study-root "Study Planner"
 python scripts/obsidian_sync.py --profile default import-materials
+python scripts/obsidian_sync.py --profile default import-408-outline --bind-tasks
 python scripts/obsidian_sync.py --profile default import-mistakes
 python scripts/obsidian_sync.py --profile default export
 ```
@@ -182,6 +183,8 @@ status: pending
 ```
 
 Use Obsidian as the preferred source for real material catalogs when the user already keeps notes there. Import the catalog before generating new tasks. Export after weekly planning, logging, or adding mistakes so the vault remains a readable knowledge base.
+
+If the user already has a 408 Obsidian vault with ordinary directory notes such as `01-数据结构/数据结构目录.md`, `02-计算机组成原理/计算机组成原理目录.md`, `03-操作系统/操作系统目录.md`, and `04-计算机网络/计算机网络目录.md`, use `import-408-outline`. This imports Wangdao 408 chapter-level catalogs and can bind known Wangdao tasks with `--bind-tasks`. Treat the result as chapter-precision only: do not generate page, lecture, or problem ranges unless the vault also provides those ranges through a material table, OCR, screenshots, PDF text, or explicit user confirmation.
 
 For exercise books, specify the resource and quantity at minimum. Prefer exact ranges when known:
 

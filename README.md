@@ -373,6 +373,30 @@ python scripts/obsidian_sync.py --profile default configure --vault "/path/to/Ob
 python scripts/obsidian_sync.py --profile default import-materials
 ```
 
+从已有的 408 Obsidian 知识库导入王道四科章级目录：
+
+```bash
+python scripts/obsidian_sync.py --profile default import-408-outline --vault "/path/to/ObsidianVault" --bind-tasks
+```
+
+该命令会读取类似下面的目录笔记：
+
+```text
+01-数据结构/数据结构目录.md
+02-计算机组成原理/计算机组成原理目录.md
+03-操作系统/操作系统目录.md
+04-计算机网络/计算机网络目录.md
+```
+
+并生成：
+
+- `MAT-WANGDAO-DS`：王道数据结构复习指导书
+- `MAT-WANGDAO-CO`：王道计算机组成原理复习指导书
+- `MAT-WANGDAO-OS`：王道操作系统复习指导书
+- `MAT-WANGDAO-CN`：王道计算机网络复习指导书
+
+`--bind-tasks` 会把当前档案中已知的王道 408 任务绑定到对应章节。这个导入只相信 Obsidian 里已有的章节链接；如果笔记没有页码、讲次、题号，系统会保留为空并在目录审计里提示，不会自动编造。
+
 从 Obsidian 导入错题：
 
 ```bash

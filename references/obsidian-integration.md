@@ -18,6 +18,7 @@ The JSON profile remains the operational source of truth for scripts and dashboa
 ```bash
 python scripts/obsidian_sync.py --profile default configure --vault "/path/to/Vault" --study-root "Study Planner"
 python scripts/obsidian_sync.py --profile default import-materials
+python scripts/obsidian_sync.py --profile default import-408-outline --bind-tasks
 python scripts/obsidian_sync.py --profile default import-mistakes
 python scripts/obsidian_sync.py --profile default export
 ```
@@ -37,6 +38,39 @@ Study Planner/
 ```
 
 The importer scans all Markdown files in the vault except `.obsidian` and `.git`.
+
+## Existing 408 Outline Import
+
+Some users already keep 408 notes as ordinary Obsidian wiki-link outlines rather than `type: material` frontmatter tables. Use:
+
+```bash
+python scripts/obsidian_sync.py --profile default import-408-outline --vault "/path/to/Vault" --bind-tasks
+```
+
+Expected files:
+
+```text
+01-数据结构/数据结构目录.md
+02-计算机组成原理/计算机组成原理目录.md
+03-操作系统/操作系统目录.md
+04-计算机网络/计算机网络目录.md
+```
+
+Expected outline style:
+
+```markdown
+## [[01-数据结构/第6章-排序|排序]]
+```
+
+Import behavior:
+
+- Creates or updates four Wangdao materials: `MAT-WANGDAO-DS`, `MAT-WANGDAO-CO`, `MAT-WANGDAO-OS`, `MAT-WANGDAO-CN`.
+- Converts wiki links such as `第6章-排序` into catalog units such as `DS-06 / 第6章 排序`.
+- Stores `catalog_precision: chapter`.
+- Keeps `page_range`, `lecture_range`, and `problem_range` empty unless they are present elsewhere in a supported material table.
+- With `--bind-tasks`, known Wangdao 408 task ids in the active profile are linked to the imported chapter units.
+
+This command is intentionally conservative. It imports real chapter boundaries from the vault, but it must not invent page numbers, lecture numbers, or problem ranges.
 
 ## Material Note Format
 
@@ -113,4 +147,5 @@ Existing files with the same generated file name are overwritten.
 - Prefer importing material catalogs from Obsidian before generating tasks.
 - Run `catalog-audit` after import and before planning.
 - Do not invent pages, lectures, or problem ranges if the Obsidian material note lacks them.
+- For an imported 408 outline with `catalog_precision: chapter`, chapter-level plans are allowed, but page-level or question-number-level plans still require a richer material table, OCR, screenshots, PDF text, or user confirmation.
 - Keep Obsidian paths user-configurable with `--vault`; never hard-code a local vault path.
