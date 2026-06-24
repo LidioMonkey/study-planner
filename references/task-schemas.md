@@ -84,6 +84,48 @@
 
 Tasks should reference `material_id` and `catalog_units`. If a task cannot be tied to a material catalog, run `catalog-audit` and repair it before treating the plan as reliable.
 
+## Obsidian Config
+
+```json
+{
+  "vault": "/path/to/ObsidianVault",
+  "study_root": "Study Planner",
+  "updated": "2026-06-24"
+}
+```
+
+## Obsidian Material Note
+
+```markdown
+---
+type: material
+id: MAT001
+name: Exact material name
+kind: book
+subject: Math
+catalog_source: user OCR
+---
+
+| id | title | page_range | lecture_range | problem_range | parent |
+|---|---|---|---|---|---|
+| U01 | Limits | P1-P20 | Lecture 1 | #1-20 | Chapter 1 |
+```
+
+## Obsidian Mistake Note
+
+```markdown
+---
+type: mistake
+id: M001
+subject: Math
+material: 660
+question: limits #12
+knowledge: limit existence
+error_causes: [concept, method]
+status: pending
+---
+```
+
 ## Weekly Plan
 
 ```json

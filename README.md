@@ -10,6 +10,7 @@
 - 需要控制“看课太多、做题太少”的风险
 - 需要本地 HTML 看板和可勾选任务清单
 - 需要每本教材、网课、题册按真实目录拆分，而不是 agent 凭感觉安排
+- 需要接入 Obsidian 知识库，把目录、错题、周计划和复盘沉淀成 Markdown
 
 ## 核心能力
 
@@ -33,6 +34,7 @@
 - `current_week.json`：当前周计划
 - `dashboard_completions.json`：无 task id 的看板勾选记录
 - `materials.json`：教材、网课、题册、App、讲义、套卷的真实目录
+- `obsidian.json`：Obsidian vault 路径和同步配置
 
 ### 2. 任务生成规则
 
@@ -183,6 +185,48 @@ HTML 看板里有独立的“错题回炉”标签页，只展示来源标记为
 
 本周任务可以直接勾选。开启本地写入服务后，勾选会写入本地学习档案，不需要复制导出。
 
+### 12. Obsidian 知识库接入
+
+支持把 Obsidian 作为可读、可编辑的学习知识库：
+
+- 从 Obsidian 导入教材/题册/网课目录到 `materials.json`
+- 从 Obsidian 导入错题笔记到 `mistakes.json`
+- 把当前周计划导出成 Markdown
+- 把每日完成记录导出成 Markdown
+- 把资料目录和错题包导出成 Markdown
+
+Obsidian 中的资料目录笔记可以写成：
+
+```markdown
+---
+type: material
+id: MAT001
+name: 李永乐线性代数基础篇讲义
+kind: book
+subject: Math II - Linear Algebra
+teacher: 李永乐
+---
+
+| id | title | page_range | lecture_range | problem_range | parent |
+|---|---|---|---|---|---|
+| LA-05 | 特征值与特征向量 | P120-P150 | 第 10-11 讲 | 习题 1-25 | 第五章 |
+```
+
+错题笔记可以写成：
+
+```markdown
+---
+type: mistake
+id: M001
+subject: Math II
+material: 660 题
+question: 二重积分 #12
+knowledge: 积分区域换序
+error_causes: [concept, method]
+status: pending
+---
+```
+
 ## 安装
 
 把仓库放到 Codex skills 目录：
@@ -313,6 +357,42 @@ python scripts/study_store.py control-report --profile default
 python scripts/study_store.py blocked-report --profile default
 python scripts/study_store.py course-ratio-report --profile default --source current-week --cap 40
 python scripts/study_store.py 408-model-report --profile default
+```
+
+## Obsidian 同步
+
+配置 vault：
+
+```bash
+python scripts/obsidian_sync.py --profile default configure --vault "/path/to/ObsidianVault" --study-root "Study Planner"
+```
+
+从 Obsidian 导入资料目录：
+
+```bash
+python scripts/obsidian_sync.py --profile default import-materials
+```
+
+从 Obsidian 导入错题：
+
+```bash
+python scripts/obsidian_sync.py --profile default import-mistakes
+```
+
+导出当前档案到 Obsidian：
+
+```bash
+python scripts/obsidian_sync.py --profile default export
+```
+
+导出目录：
+
+```text
+Study Planner/
+  01-Weekly Plans/
+  02-Daily Logs/
+  03-Mistakes/
+  04-Materials/
 ```
 
 ## 看板脚本
@@ -450,6 +530,7 @@ study-planner/
 │   ├── exam-presets.md
 │   ├── model-408.md
 │   ├── module-templates.md
+│   ├── obsidian-integration.md
 │   ├── paper-mode.md
 │   ├── planning-rules.md
 │   └── task-schemas.md
@@ -458,6 +539,7 @@ study-planner/
     ├── study_dashboard.py
     ├── study_dashboard_server.py
     ├── study_dashboard_launch.py
+    ├── obsidian_sync.py
     └── study_profile_seed.py
 ```
 
@@ -484,6 +566,8 @@ study-planner/
 - 本地勾选直写档案
 - 备用导出
 - 通用 agent / Hermes 封装
+- Obsidian 资料目录/错题导入
+- Obsidian 周计划/日志/错题/资料导出
 
 看板顶部使用通用标题“学习任务看板”，不绑定考研。倒计时按秒刷新，优先显示当前周周期结束时间；没有周计划时使用目标截止日期。
 

@@ -21,6 +21,7 @@ STORE_FILES = {
     "current_week.json": {},
     "dashboard_completions.json": [],
     "materials.json": [],
+    "obsidian.json": {},
     "meta.json": {},
 }
 
