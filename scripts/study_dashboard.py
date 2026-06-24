@@ -457,6 +457,18 @@ def render_html(data: dict) -> str:
       const material = materialMap[materialId];
       return material ? `${{materialId}}（${{zh(material.name)}}）` : zh(materialId);
     }}
+    function catalogPillClass(status, hasMaterial=true) {{
+      if (!hasMaterial) return "red";
+      if (status === "complete") return "green";
+      if (status === "partial") return "blue";
+      return "red";
+    }}
+    function catalogStatusText(status, hasMaterial=true, completeText="已建章节目录") {{
+      if (!hasMaterial) return "未绑定真实目录";
+      if (status === "complete") return completeText;
+      if (status === "partial") return "部分目录";
+      return "目录缺失";
+    }}
     function catalogUnitLabel(materialId, unitId) {{
       const material = materialMap[materialId];
       const unit = (material?.catalog_units || []).find(row => row.id === unitId);
@@ -482,7 +494,6 @@ def render_html(data: dict) -> str:
         item.page_range ? `页码：${{zh(item.page_range)}}` : "",
         item.lecture_range ? `讲次：${{zh(item.lecture_range)}}` : "",
         item.problem_range ? `题号：${{zh(item.problem_range)}}` : "",
-        (!item.precise_range && !item.page_range && !item.lecture_range && !item.problem_range) ? "精确范围：待补充页码/讲次/题号（需要教材目录或课程列表）" : "",
         item.quantity ? `数量：${{zh(item.quantity)}}` : "",
         item.acceptance || item.output_or_acceptance ? `验收：${{zh(item.acceptance || item.output_or_acceptance)}}` : ""
       ].filter(Boolean).map(line=>`<span>${{esc(line)}}</span>`).join("");
@@ -572,19 +583,19 @@ def render_html(data: dict) -> str:
           pending:0,
           course:0,
           exercise:0,
-          precise:0
+          chapter_bound:0
         }};
         const row = subjects[subject][key];
         row.total += 1;
         if (task.status === "done") row.done += 1; else row.pending += 1;
         if (task.type === "course") row.course += 1;
         if (task.type === "exercise") row.exercise += 1;
-        if (task.page_range || task.lecture_range || task.problem_range) row.precise += 1;
+        if (task.catalog_units?.length || task.chapter || task.scope) row.chapter_bound += 1;
       }}
       return `<section id="subjects" class="section"><div class="grid">
         ${{Object.entries(subjects).map(([subject,materials])=>`<div class="card"><h2>${{esc(zh(subject))}}</h2><table>
-          <tr><th>资料/题册/网课</th><th>完成率</th><th>任务</th><th>构成</th><th>目录</th><th>精确范围</th></tr>
-          ${{Object.values(materials).map(row=>`<tr><td>${{row.material_id?`<code>${{esc(row.material_id)}}</code> `:""}}${{esc(zh(row.name))}}</td><td><div class="bar"><i style="width:${{pct(row.done,row.total)}}%"></i></div><b>${{pct(row.done,row.total)}}%</b></td><td>${{row.done}} 已完成 / ${{row.total}} 总数</td><td><span class="pill blue">课程 ${{row.course}}</span><span class="pill green">习题 ${{row.exercise}}</span></td><td><span class="pill ${{row.catalog_status==='complete'?'green':'red'}}">${{row.catalog_status==='complete'?'已建真实目录':'未绑定真实目录'}}</span></td><td>${{row.precise}}/${{row.total}}</td></tr>`).join("")}}
+          <tr><th>资料/题册/网课</th><th>完成率</th><th>任务</th><th>构成</th><th>目录</th><th>章节绑定</th></tr>
+          ${{Object.values(materials).map(row=>`<tr><td>${{row.material_id?`<code>${{esc(row.material_id)}}</code> `:""}}${{esc(zh(row.name))}}</td><td><div class="bar"><i style="width:${{pct(row.done,row.total)}}%"></i></div><b>${{pct(row.done,row.total)}}%</b></td><td>${{row.done}} 已完成 / ${{row.total}} 总数</td><td><span class="pill blue">课程 ${{row.course}}</span><span class="pill green">习题 ${{row.exercise}}</span></td><td><span class="pill ${{catalogPillClass(row.catalog_status, !!row.material_id)}}">${{catalogStatusText(row.catalog_status, !!row.material_id)}}</span></td><td>${{row.chapter_bound}}/${{row.total}}</td></tr>`).join("")}}
         </table></div>`).join("") || "<div class='card'><h2>科目进度</h2><p class='muted'>暂无课程或习题任务。</p></div>"}}
       </div></section>`;
     }}
@@ -608,8 +619,8 @@ def render_html(data: dict) -> str:
       const summary = DATA.catalogAudit?.summary || {{}};
       const unitRows = (m) => (m.catalog_units||[]).map(u=>`<tr><td><code>${{esc(u.id||"")}}</code></td><td>${{esc(zh(u.title||""))}}</td><td>${{esc(zh(u.page_range||"待补充"))}}</td><td>${{esc(zh(u.lecture_range||"待补充"))}}</td><td>${{esc(zh(u.problem_range||"待补充"))}}</td><td>${{esc(u.source_note||u.obsidian_link||"")}}</td></tr>`).join("");
       return `<section id="materials" class="section"><div class="grid two">
-        <div class="card"><h2>资料目录库</h2>${{rows.length?`<table><tr><th>ID</th><th>资料</th><th>类型</th><th>科目</th><th>目录</th><th>单元数</th></tr>${{rows.map(m=>`<tr><td><code>${{esc(m.id)}}</code></td><td>${{esc(zh(m.name))}}</td><td>${{esc(zh(m.kind))}}</td><td>${{esc(zh(m.subject))}}</td><td><span class="pill ${{m.catalog_status==='complete'?'green':'red'}}">${{m.catalog_status==='complete'?'已建目录':'目录缺失'}}</span></td><td>${{(m.catalog_units||[]).length}}</td></tr>`).join("")}}</table>`:"<p class='muted'>暂无资料目录。先为每本书、题册、网课建立真实章节/讲次/题号目录。</p>"}}</div>
-        <div class="card"><h2>目录审计</h2><p class="muted">用于发现仍未绑定真实目录、未指定目录单元或缺少页码/讲次/题号的任务。</p>
+        <div class="card"><h2>资料目录库</h2>${{rows.length?`<table><tr><th>ID</th><th>资料</th><th>类型</th><th>科目</th><th>目录</th><th>单元数</th></tr>${{rows.map(m=>`<tr><td><code>${{esc(m.id)}}</code></td><td>${{esc(zh(m.name))}}</td><td>${{esc(zh(m.kind))}}</td><td>${{esc(zh(m.subject))}}</td><td><span class="pill ${{catalogPillClass(m.catalog_status, true)}}">${{catalogStatusText(m.catalog_status, true, "已建目录")}}</span></td><td>${{(m.catalog_units||[]).length}}</td></tr>`).join("")}}</table>`:"<p class='muted'>暂无资料目录。先为每本书、题册、网课建立真实章节目录。</p>"}}</div>
+        <div class="card"><h2>目录审计</h2><p class="muted">用于发现仍未绑定真实目录或未指定目录单元的任务。页码、讲次、题号是增强信息，不作为默认计划硬性要求。</p>
           <p>${{Object.entries(summary).map(([k,v])=>`<span class="pill ${{k==='ok'?'green':'red'}}">${{esc(zh(k))}}：${{v}}</span>`).join("") || "<span class='pill red'>未运行审计</span>"}}</p>
           ${{auditItems.length?`<table><tr><th>任务</th><th>资料</th><th>范围</th><th>问题</th></tr>${{auditItems.slice(0,40).map(x=>`<tr><td><code>${{esc(x.task_id)}}</code> ${{esc(zh(x.subject))}}</td><td>${{esc(zh(x.material))}}</td><td>${{esc(zh(x.scope))}}</td><td><span class="pill red">${{esc(zh(x.issue || x.severity))}}</span></td></tr>`).join("")}}</table>`:"<p class='muted'>所有任务都已通过目录审计。</p>"}}
         </div>

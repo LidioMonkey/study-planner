@@ -185,5 +185,5 @@ Existing files with the same generated file name are overwritten.
 - Prefer importing material catalogs from Obsidian before generating tasks.
 - Run `catalog-audit` after import and before planning.
 - Do not invent pages, lectures, or problem ranges if the Obsidian material note lacks them.
-- For an imported 408 outline with `catalog_precision: chapter`, chapter-level plans are allowed, but page-level or question-number-level plans still require a richer material table, OCR, screenshots, PDF text, or user confirmation.
+- For an imported outline with `catalog_precision: chapter`, chapter-level plans are allowed and are the default. Page-level or question-number-level plans still require a richer material table, OCR, screenshots, PDF text, or user confirmation.
 - Keep Obsidian paths user-configurable with `--vault`; never hard-code a local vault path.

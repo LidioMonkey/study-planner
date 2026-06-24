@@ -140,7 +140,9 @@ status: pending
 
 Weekly plans should layer tasks rather than produce an hour-by-hour grid.
 
-Every weekly task should carry the most exact range available. Use `page_range` for book pages, `lecture_range` for course lecture numbers or video ranges, and `problem_range` for exercise IDs or question numbers. If the exact range is unknown, write a visible placeholder such as `"待补充题号范围"` and ask for the missing catalog instead of hiding it in vague wording.
+Every weekly task should bind to a real material catalog unit. Chapter or section precision is the default practical level. Use `page_range` for book pages, `lecture_range` for course lecture numbers or video ranges, and `problem_range` for exercise IDs or question numbers when those details are known or necessary, but do not block a chapter-level plan just because those fields are empty.
+
+For books and exam review guides, prefer 1 real chapter over 1-3 days depending on difficulty. A heavy chapter can be split into a first pass day and an exercise/correction day. Avoid vague labels such as "tail", "start", or "current chapter"; name the actual chapter unit from `catalog_units`.
 
 Commit a weekly plan when the user wants future review to compare planned tasks against actual logs:
 

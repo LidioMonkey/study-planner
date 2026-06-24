@@ -90,19 +90,21 @@ Never generate vague tasks such as "finish the tail", "start the chapter", "repa
 
 Never invent a book/course/question-bank structure. Every plan that uses a material should reference that material's real catalog. If the catalog is missing, stop planning that material and either search authoritative/current sources or ask the user for the table of contents, lecture list, page photos, PDF, OCR text, or problem-number ranges.
 
+Use the real chapter or section as the default planning unit. Do not overfit plans to lecture numbers or problem numbers when the user's actual workflow is chapter-based. A normal chapter can span 1-3 days; a heavy chapter should often be split into "learn/read examples" and "exercise/correct/rework" days instead of being forced into one day.
+
 Every executable task must include:
 
 - **Material**: the exact book, question bank, app, handout, course, teacher route, or paper.
 - **Catalog binding**: `material_id` and `catalog_units` when the material is known in `materials.json`.
-- **Scope**: chapter, section, lecture range, page range, problem range, passage number, or topic boundary.
-- **Precise range**: use `page_range`, `lecture_range`, and/or `problem_range` whenever the material has pages, lecture numbers, or question numbers. Prefer "第 3 章第 2 节 / P45-P58 / 例 12-18 / 习题 1-25" over only a topic name.
+- **Scope**: real chapter or section by default; use lecture range, page range, problem range, passage number, or topic boundary only when they are known and useful.
+- **Optional precise range**: use `page_range`, `lecture_range`, and/or `problem_range` when the material provides them or the user needs fine-grained scheduling. These fields are enhancements, not default blockers, once a real chapter/section catalog is bound.
 - **Quantity**: number of videos, minutes, pages, questions, passages, words, formulas, or review cards.
 - **Action**: watch, read, do, correct, summarize, recite, rework, time, or diagnose.
 - **Acceptance**: a visible output, such as corrected wrong questions, error-cause tags, summary table, formula sheet, solved set, or notes.
 
-If material names, chapter boundaries, page ranges, lecture numbers, or problem ranges are unknown, do not invent them. Ask the user for the missing detail, or, when the user explicitly allows web lookup/current information, search authoritative pages or official/catalog sources first. Mark any inferred range as an assumption.
+If material names or chapter boundaries are unknown, do not invent them. Ask the user for the missing detail, or, when the user explicitly allows web lookup/current information, search authoritative pages or official/catalog sources first. Mark any inferred range as an assumption.
 
-When exact ranges are still unknown, keep the task usable but explicitly mark the missing field as needing completion, such as `page_range: 待补充教材页码` or `problem_range: 待补充题号范围`. Do not hide missing precision behind phrases like "尾巴", "启动", "收口", "专项练习", or "当前章节".
+When page ranges, lecture numbers, or problem numbers are unknown, keep the task at chapter precision instead of fabricating placeholders. Only mark `page_range: 待补充教材页码` or `problem_range: 待补充题号范围` when that precision is required for the user's workflow. Do not hide missing scope behind phrases like "尾巴", "启动", "收口", "专项练习", or "当前章节".
 
 ## Material Catalog Rules
 
@@ -114,16 +116,16 @@ Each material should store:
 - `name`: exact book, course, question bank, app, or paper-set name.
 - `kind`: `book`, `exercise-book`, `course`, `paper-set`, `app`, `handout`, or `other`.
 - `subject`, `edition`, `teacher`, and source notes when known.
-- `catalog_status`: `complete` only when real chapters/lectures/problem ranges are known.
+- `catalog_status`: `complete` when the real chapter/section structure is known enough to plan; `partial` when useful chapter units exist but some sections, pages, lectures, or question numbers are still missing; `missing` when no reliable catalog exists.
 - `catalog_units`: real units with `id`, `title`, `page_range`, `lecture_range`, `problem_range`, and optional `parent`.
 
 Planning rule:
 
 1. Before creating tasks for a material, run `material-report` or inspect `materials.json`.
 2. If no material exists, create it with `add-material`.
-3. If the catalog is missing or incomplete, ask the user for the catalog or search authoritative/current sources when web lookup is allowed.
+3. If the catalog is missing, ask the user for the catalog or search authoritative/current sources when web lookup is allowed. If the catalog is partial but has real chapter units, chapter-level planning is allowed.
 4. Only create tasks with `--material-id` and `--catalog-units` after the material's actual structure is known.
-5. Run `catalog-audit` after generating or importing tasks. Treat any non-`ok` item as a planning defect, not as a harmless warning.
+5. Run `catalog-audit` after generating or importing tasks. Treat missing material ids, invalid material ids, and missing catalog units as planning defects. Missing page, lecture, or problem ranges are enhancement gaps, not default defects.
 
 Example:
 

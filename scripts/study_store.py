@@ -304,7 +304,6 @@ def validate_task_catalog(profile: str, task: dict[str, Any], material_field: st
     catalog_units = task.get("catalog_units", [])
     material_name = task.get(material_field, "")
     scope = task.get(scope_field, "")
-    has_precise_range = any(task.get(field) for field in ["page_range", "lecture_range", "problem_range"])
     issue = ""
     severity = "ok"
     if not material_id:
@@ -315,15 +314,12 @@ def validate_task_catalog(profile: str, task: dict[str, Any], material_field: st
         if not material:
             issue = "material_id 不存在"
             severity = "invalid-material"
-        elif material.get("catalog_status") != "complete":
-            issue = "资料目录未完成"
+        elif material.get("catalog_status") not in ("complete", "partial") or not material.get("catalog_units"):
+            issue = "资料目录缺失"
             severity = "catalog-incomplete"
         elif not catalog_units:
             issue = "未引用目录单元"
             severity = "missing-catalog-unit"
-        elif not has_precise_range:
-            issue = "目录单元未提供页码/讲次/题号"
-            severity = "missing-precise-range"
     return {
         "task_id": task.get("id"),
         "type": task.get("type"),
