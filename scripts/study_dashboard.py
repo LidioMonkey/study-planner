@@ -143,7 +143,7 @@ def render_html(data: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>考研任务系统看板</title>
+  <title>学习任务看板</title>
   <style>
     :root {{
       --ink:#18211c; --muted:#66736b; --paper:#f7f4ed; --panel:#fffdf7;
@@ -168,6 +168,10 @@ def render_html(data: dict) -> str:
     .topline {{ display:flex; justify-content:space-between; gap:18px; align-items:flex-end; flex-wrap:wrap; }}
     h1 {{ margin:0; font-size:clamp(28px,4.5vw,54px); line-height:.95; font-weight:900; }}
     .stamp {{ border:2px solid var(--black); padding:8px 12px; font-weight:800; background:#efe3c8; }}
+    .countdown {{ text-align:right; min-width:260px; }}
+    .countdown-label {{ color:var(--muted); font-size:12px; font-weight:800; }}
+    .countdown-seconds {{ font-size:24px; line-height:1; font-weight:900; font-variant-numeric:tabular-nums; }}
+    .countdown-sub {{ color:var(--muted); font-size:12px; margin-top:4px; }}
     nav {{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }}
     nav button {{
       border:1px solid var(--black); background:var(--panel); padding:9px 12px; cursor:pointer;
@@ -243,8 +247,8 @@ def render_html(data: dict) -> str:
   <header>
     <div class="topline">
       <div>
-        <h1>考研任务系统看板</h1>
-        <div class="muted">任务清单优先 · 依赖驱动 · 复习回炉 · 风险控制</div>
+        <h1>学习任务看板</h1>
+        <div class="muted">任务清单优先 · 真实目录驱动 · 复习回炉 · 进度追踪</div>
       </div>
       <div class="stamp" id="stamp"></div>
     </div>
@@ -257,10 +261,10 @@ def render_html(data: dict) -> str:
     const API_BASE = DATA.apiBase || "http://127.0.0.1:8790";
     const tabs = [
       ["overview","总览"],["week","本周"],["subjects","科目"],["reviews","复习"],
-      ["blocks","阻塞"],["materials","资料目录"],["model408","408模型"],["mistakes","错题/真题"],["mistakeCalendar","错题回炉"],["deploy","部署"]
+      ["materials","资料目录"],["mistakes","错题/真题"],["mistakeCalendar","错题回炉"],["diagnostics","高级诊断"],["deploy","部署"]
     ];
     const app = document.getElementById("app");
-    document.getElementById("stamp").textContent = `生成 ${{DATA.generated}} · 档案 ${{PROFILE}}`;
+    const stamp = document.getElementById("stamp");
     document.getElementById("tabs").innerHTML = tabs.map((t,i)=>`<button class="${{i===0?'active':''}}" data-tab="${{t[0]}}">${{t[1]}}</button>`).join("");
     document.getElementById("tabs").onclick = e => {{
       if(e.target.tagName !== "BUTTON") return;
@@ -269,6 +273,36 @@ def render_html(data: dict) -> str:
     }};
     const esc = v => String(v ?? "").replace(/[&<>"]/g, s=>({{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}}[s]));
     const pct = (done,total)=> total ? Math.round(done/total*1000)/10 : 0;
+    const pad2 = n => String(n).padStart(2, "0");
+    function getCountdownTarget() {{
+      const weekStart = DATA.currentWeek?.start;
+      const weekDays = DATA.currentWeek?.days || 0;
+      if (weekStart && weekDays) {{
+        const end = new Date(weekStart + "T00:00:00");
+        end.setDate(end.getDate() + weekDays - 1);
+        end.setHours(23, 59, 59, 999);
+        return {{ date:end, label:"本周期剩余", target:`${{ymd(end)}} 23:59:59` }};
+      }}
+      if (DATA.goals?.deadline) {{
+        const end = new Date(DATA.goals.deadline + "T23:59:59");
+        return {{ date:end, label:"目标截止剩余", target:`${{DATA.goals.deadline}} 23:59:59` }};
+      }}
+      return null;
+    }}
+    function renderTopCountdown() {{
+      const target = getCountdownTarget();
+      if (!target) {{
+        stamp.innerHTML = `<div class="countdown"><div class="countdown-label">档案 ${{esc(PROFILE)}}</div><div class="countdown-sub">尚未设置周期或截止日期</div></div>`;
+        return;
+      }}
+      const ms = Math.max(target.date - new Date(), 0);
+      const totalSeconds = Math.floor(ms / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      stamp.innerHTML = `<div class="countdown"><div class="countdown-label">${{target.label}} · 档案 ${{esc(PROFILE)}}</div><div class="countdown-seconds">${{days}}天 ${{pad2(hours)}}:${{pad2(minutes)}}:${{pad2(seconds)}}</div><div class="countdown-sub">目标 ${{esc(target.target)}} · 生成 ${{esc(DATA.generated)}}</div></div>`;
+    }}
     const mapText = {{
       "foundation-close":"基础后段", "strengthening":"强化阶段", "past-exam":"真题阶段", "sprint":"冲刺阶段",
       "green":"安全", "yellow":"预警", "red":"危险", "ok":"正常", "over_cap":"超标",
@@ -467,10 +501,12 @@ def render_html(data: dict) -> str:
       const weekEnd = weekEndDate ? ymd(weekEndDate) : "未生成";
       const today = new Date(DATA.generated + "T00:00:00");
       const cycleDaysLeft = weekEndDate ? Math.max(Math.ceil((weekEndDate - today) / 86400000), 0) : 0;
+      const countdown = getCountdownTarget();
+      const secondsLeft = countdown ? Math.max(Math.floor((countdown.date - new Date()) / 1000), 0) : 0;
       return `<section id="overview" class="section active">
         <div class="grid stats">
           ${{metric("阶段", DATA.phase.phase, `${{DATA.phase.days_left}} 天到暂定截止日`)}}
-          ${{metric("本周期倒计时", `${{cycleDaysLeft}} 天`, `${{weekStart || "未生成"}} 至 ${{weekEnd}}`)}}
+          ${{metric("剩余秒数", secondsLeft.toLocaleString(), countdown ? countdown.target : `${{weekStart || "未生成"}} 至 ${{weekEnd}}`)}}
           ${{metric("总任务", pending+done, `${{done}} 已完成 · ${{pending}} 待完成`)}}
           ${{metric("课程占比", DATA.courseRatio.course_ratio_percent+"%", `上限 ${{DATA.courseRatio.course_cap_percent}}% · ${{zh(DATA.courseRatio.status)}}`)}}
         </div>
@@ -510,15 +546,37 @@ def render_html(data: dict) -> str:
       </div>${{exportPanel}}</section>`;
     }}
     function renderSubjects() {{
-      const inv = DATA.inventory.inventory || {{}};
-      return `<section id="subjects" class="section"><div class="grid three">
-        ${{Object.entries(inv).map(([name,row])=>`<div class="card"><h2>${{esc(zh(name))}}</h2>
-          <div class="bar"><i style="width:${{pct(row.done,row.total)}}%"></i></div>
-          <p><b>${{pct(row.done,row.total)}}%</b> · 已完成 ${{row.done||0}} / 总数 ${{row.total||0}}</p>
-          <span class="pill blue">课程 ${{row.by_type?.course||0}}</span>
-          <span class="pill green">习题 ${{row.by_type?.exercise||0}}</span>
-          <span class="pill red">待完成 ${{row.pending||0}}</span>
-        </div>`).join("")}}
+      const tasks = [...(DATA.courses||[]), ...(DATA.exercises||[])];
+      const materialMap = Object.fromEntries((DATA.materials||[]).map(m=>[m.id,m]));
+      const subjects = {{}};
+      for (const task of tasks) {{
+        const subject = task.subject || "未分类";
+        const materialName = task.title || task.resource || task.source || "未命名资料";
+        const key = task.material_id || materialName;
+        subjects[subject] ??= {{}};
+        subjects[subject][key] ??= {{
+          name: materialName,
+          material_id: task.material_id || "",
+          catalog_status: task.material_id ? (materialMap[task.material_id]?.catalog_status || "missing") : "missing",
+          total:0,
+          done:0,
+          pending:0,
+          course:0,
+          exercise:0,
+          precise:0
+        }};
+        const row = subjects[subject][key];
+        row.total += 1;
+        if (task.status === "done") row.done += 1; else row.pending += 1;
+        if (task.type === "course") row.course += 1;
+        if (task.type === "exercise") row.exercise += 1;
+        if (task.page_range || task.lecture_range || task.problem_range) row.precise += 1;
+      }}
+      return `<section id="subjects" class="section"><div class="grid">
+        ${{Object.entries(subjects).map(([subject,materials])=>`<div class="card"><h2>${{esc(zh(subject))}}</h2><table>
+          <tr><th>资料/题册/网课</th><th>完成率</th><th>任务</th><th>构成</th><th>目录</th><th>精确范围</th></tr>
+          ${{Object.values(materials).map(row=>`<tr><td>${{row.material_id?`<code>${{esc(row.material_id)}}</code> `:""}}${{esc(zh(row.name))}}</td><td><div class="bar"><i style="width:${{pct(row.done,row.total)}}%"></i></div><b>${{pct(row.done,row.total)}}%</b></td><td>${{row.done}} 已完成 / ${{row.total}} 总数</td><td><span class="pill blue">课程 ${{row.course}}</span><span class="pill green">习题 ${{row.exercise}}</span></td><td><span class="pill ${{row.catalog_status==='complete'?'green':'red'}}">${{row.catalog_status==='complete'?'已建真实目录':'未绑定真实目录'}}</span></td><td>${{row.precise}}/${{row.total}}</td></tr>`).join("")}}
+        </table></div>`).join("") || "<div class='card'><h2>科目进度</h2><p class='muted'>暂无课程或习题任务。</p></div>"}}
       </div></section>`;
     }}
     function renderReviews() {{
@@ -556,6 +614,20 @@ def render_html(data: dict) -> str:
         </table></div>`).join("")}}
       </div></section>`;
     }}
+    function renderDiagnostics() {{
+      const blockedCount = DATA.blocked?.blocked_count || 0;
+      const model = DATA.model408?.model || {{}};
+      const has408 = Object.keys(model).length > 0 && Object.values(model).some(body => Object.values(body.topics || {{}}).some(row => row.task_count || row.module_count || row.paper_weak_hits));
+      return `<section id="diagnostics" class="section"><div class="grid two">
+        <div class="card"><h2>阻塞诊断</h2><p class="muted">作用：只在任务有前置依赖时有用，例如“先完成 660 二重积分，再进入高数强化篇”。它会找出哪个上游任务卡住了最多下游任务。普通背书、刷题计划如果没有依赖，可以忽略。</p>
+          <p><span class="pill ${{blockedCount?'red':'green'}}">当前阻塞任务：${{blockedCount}}</span></p>
+          ${{blockedCount?`<table><tr><th>ID</th><th>任务</th><th>解锁数</th></tr>${{(DATA.blocked.top_blockers||[]).map(b=>`<tr><td><code>${{esc(b.blocker.id)}}</code></td><td>${{taskName(b.blocker)}}</td><td>${{b.blocks}}</td></tr>`).join("")}}</table>`:`<p class="muted">当前没有明显阻塞链。</p>`}}
+        </div>
+        <div class="card"><h2>408 专项模型</h2><p class="muted">作用：只服务计算机考研 408，把数据结构、计组、操作系统、计网拆成专题风险。非 408 考试可以忽略；如果你的考试不是 408，这一块不会影响周计划。</p>
+          ${{has408?`<p><span class="pill green">检测到 408 任务，已启用专项分析</span></p>${{Object.entries(model).map(([subject,body])=>`<h3>${{esc(zh(subject))}}</h3><table><tr><th>专题</th><th>任务</th><th>风险</th></tr>${{Object.entries(body.topics).filter(([topic,row])=>row.task_count||row.module_count||row.paper_weak_hits).map(([topic,row])=>`<tr><td>${{esc(zh(topic))}}</td><td>${{row.done}} 已完成 / ${{row.pending}} 待完成</td><td><span class="pill ${{row.risk==='yellow'?'red':'green'}}">${{zh(row.risk)}}</span></td></tr>`).join("")}}</table>`).join("")}}`:`<p><span class="pill">未检测到需要展示的 408 专项任务</span></p>`}}
+        </div>
+      </div></section>`;
+    }}
     function renderMistakes() {{
       return `<section id="mistakes" class="section"><div class="grid two">
         <div class="card"><h2>错题包</h2>${{DATA.mistakes.length?`<ul>${{DATA.mistakes.map(m=>`<li>${{esc(zh(m.subject))}} · ${{esc(zh(m.knowledge))}} · ${{esc(zh((m.error_causes||[]).join("、")))}}</li>`).join("")}}</ul>`:"<p class='muted'>暂无错题记录</p>"}}</div>
@@ -585,7 +657,7 @@ def render_html(data: dict) -> str:
         <div class="card"><h2>有域名：挂到域名下</h2><p>把当前输出目录作为静态站点部署到 Nginx、Cloudflare Pages、Vercel、Netlify 或服务器任意 Web 根目录。</p><div class="command">${{esc(DATA.outDir)}}<br>&nbsp;&nbsp;index.html</div><p class="muted">域名页面可以展示看板；直接写入本地档案仍需要你电脑上的本地写入服务。若域名页要写入本机档案，需要启动服务前设置 STUDY_DASHBOARD_ORIGINS 为你的域名来源。不开本地服务时，使用底部备用导出。</p></div>
       </div></section>`;
     }}
-    app.innerHTML = renderOverview()+renderWeek()+renderSubjects()+renderReviews()+renderBlocks()+renderMaterials()+render408()+renderMistakes()+renderMistakeCalendar()+renderDeploy();
+    app.innerHTML = renderOverview()+renderWeek()+renderSubjects()+renderReviews()+renderMaterials()+renderMistakes()+renderMistakeCalendar()+renderDiagnostics()+renderDeploy();
     function setItemSyncState(el, text, state="warn") {{
       const node = el?.querySelector("[data-sync-state]");
       if (!node) return;
@@ -791,6 +863,8 @@ def render_html(data: dict) -> str:
     }});
     hydrateTodoState();
     checkApi();
+    renderTopCountdown();
+    setInterval(renderTopCountdown, 1000);
   </script>
 </body>
 </html>"""
