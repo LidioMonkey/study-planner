@@ -29,7 +29,7 @@ Default weekly planning cycle:
 - **Obsidian sync**: when the user wants to connect an Obsidian vault, import material catalogs and mistakes from Markdown, and export weekly plans, daily logs, materials, and mistakes back to Markdown.
 - **Plan**: create a long-term, stage, weekly, or daily plan.
 - **Today**: generate today's task list from course, exercise, review, and backlog queues.
-- **Weekly plan**: generate a layered plan from the start date through Sunday with main tasks, review tasks, optional extras, and minimum versions.
+- **Weekly plan**: generate a layered plan from the start date through Sunday with main tasks, review tasks, and optional extras.
 - **Commit weekly plan**: save the generated weekly plan as the current comparison baseline for later review.
 - **Log progress**: convert the user's completion report into structured progress, review items, and backlog changes.
 - **Adjust**: repair an overloaded or delayed plan, reduce scope, and protect review/feedback loops.
@@ -126,6 +126,14 @@ Planning rule:
 3. If the catalog is missing, ask the user for the catalog or search authoritative/current sources when web lookup is allowed. If the catalog is partial but has real chapter units, chapter-level planning is allowed.
 4. Only create tasks with `--material-id` and `--catalog-units` after the material's actual structure is known.
 5. Run `catalog-audit` after generating or importing tasks. Treat missing material ids, invalid material ids, and missing catalog units as planning defects. Missing page, lecture, or problem ranges are enhancement gaps, not default defects.
+
+Auxiliary material rule:
+
+- If a material is marked in `materials.json` notes as `辅助习题册` or `非主线使用`, treat it as supplemental, not a main route.
+- Supplemental exercise books must not enter `main_tasks` or `today_must_do` by default.
+- Supplemental exercise books may enter `optional_extra` only after the matching main-route chapter/task is already finished or explicitly linked as unblocked through `depends_on`.
+- When a week is overloaded, cut supplemental exercise books before cutting review, correction, main books, main question banks, or past papers.
+- When creating tasks from supplemental books, set lower priority and add explicit dependency on the matching main-route task whenever possible.
 
 Example:
 
@@ -232,6 +240,12 @@ Follow-up:
 ```
 
 When accuracy is below 60%, reduce new questions and return to examples, notes, or course basics. At 60-80%, continue chapter practice and increase rework. Above 80%, move toward mixed or timed training.
+
+For supplemental exercise books marked as `辅助习题册` / `非主线使用`:
+
+- Default them to `optional_extra`, not `main_tasks`.
+- Use them for chapter reinforcement, weak-point补强, or surplus-capacity days.
+- Do not schedule them as a replacement for the main exercise book of the same topic.
 
 ## Review Rules
 
@@ -366,3 +380,5 @@ Read `references/model-408.md` when planning, auditing, or predicting 408 progre
 Read `references/agent-integration.md` when packaging the skill for another agent, running it outside the original workspace, adapting it for Hermes, deploying the dashboard, or debugging profile/path/port portability.
 
 Read `references/obsidian-integration.md` when importing from or exporting to an Obsidian vault, designing material catalog notes, mistake notes, or vault folder structure.
+
+If the repository includes `deployment/`, treat it as a bundled migration pack. Restore bundled profiles before planning or dashboard work on a new machine. On Linux or Hermes, never trust a bundled Windows Obsidian path; require the real local vault path before any Obsidian sync command.

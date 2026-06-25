@@ -45,6 +45,10 @@ python <skill-dir>/scripts/study_dashboard_launch.py --profile <profile> --open
 
 Regenerate the dashboard after any command that changes profile data.
 
+If the repository contains a bundled deployment snapshot under `deployment/profiles/<profile>/`, restore that snapshot into `${CODEX_HOME}/study-planner/profiles/<profile>` or `~/.codex/study-planner/profiles/<profile>` before generating the dashboard. Prefer the bundled restore script when available.
+
+Do not silently keep machine-specific Obsidian paths from another OS. If `obsidian.json` still points to a Windows path such as `D:\...` on Linux, stop Obsidian-related actions until the vault path is explicitly corrected.
+
 ## Direct Checkbox Writes
 
 The generated HTML posts to:
@@ -94,6 +98,7 @@ Hermes-style agents should prefer deterministic script calls:
 3. Run scripts with explicit `--profile`.
 4. Return the dashboard URL or output `index.html` path to the user.
 5. Avoid generating a new dashboard implementation in the conversation unless the bundled scripts are missing or broken.
+6. If `deployment/hermes-prompt.md` exists, follow it exactly for Linux/Hermes migration work.
 
 ## Validation
 

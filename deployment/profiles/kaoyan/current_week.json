@@ -1,0 +1,913 @@
+{
+  "profile": "kaoyan",
+  "start": "2026-06-24",
+  "days": 5,
+  "plan": [
+    {
+      "date": "2026-06-24",
+      "main_tasks": [
+        {
+          "id": "T015",
+          "type": "exercise",
+          "subject": "Math II - Linear Algebra",
+          "task": "第5章 特征值与特征向量（第1-3节）",
+          "material": "李永乐线代基础篇讲义配套习题",
+          "scope": "第5章 特征值与特征向量（第1-3节）",
+          "material_id": "MAT-LIYONGLE-LA-BASE",
+          "catalog_units": [
+            "LYLA-05-01",
+            "LYLA-05-02",
+            "LYLA-05-03"
+          ],
+          "page_range": "P162-P167",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P162-P167",
+          "quantity": "25 题，不限时",
+          "acceptance": "完成 25 题，订正全部错题，总结特征值、特征向量、相似矩阵条件",
+          "display_title": "李永乐线代基础篇讲义配套习题 | 第5章 特征值与特征向量（第1-3节） | 25 题，不限时 | 验收：完成 25 题，订正全部错题，总结特征值、特征向量、相似矩阵条件",
+          "output_or_acceptance": "完成 25 题，订正全部错题，总结特征值、特征向量、相似矩阵条件",
+          "depends_on": [
+            "T002"
+          ],
+          "priority": 1,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:36"
+        },
+        {
+          "id": "T008",
+          "type": "course",
+          "subject": "408 - Operating System",
+          "task": "学习进程与线程小节 1 个 45-60 分钟切片：进程状态、PCB、线程模型",
+          "material": "王道操作系统复习指导书",
+          "scope": "第2章 进程与线程",
+          "material_id": "MAT-WANGDAO-OS",
+          "catalog_units": [
+            "OS-02-01"
+          ],
+          "page_range": "P50-P76",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P50-P76",
+          "quantity": "60 分钟",
+          "acceptance": "画出进程状态转换图，并列出进程/线程区别",
+          "display_title": "王道操作系统复习指导书 | 第2章 进程与线程 | 60 分钟 | 学习进程与线程小节 1 个 45-60 分钟切片：进程状态、PCB、线程模型 | 输出：画出进程状态转换图，并列出进程/线程区别 | 配套练习：王道操作系统进程与线程课后选择题 8-10 题",
+          "output_or_acceptance": "画出进程状态转换图，并列出进程/线程区别",
+          "depends_on": [],
+          "priority": 1,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:45"
+        },
+        {
+          "id": "T023",
+          "type": "exercise",
+          "subject": "English II",
+          "task": "Review 复习队列 + Learn 新词队列",
+          "material": "不背单词 App",
+          "scope": "Review 复习队列 + Learn 新词队列",
+          "material_id": "MAT-BBDC-APP",
+          "catalog_units": [
+            "BBDC-REVIEW",
+            "BBDC-LEARN"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "Review 240；Learn 6680",
+          "precise_range": "题号：Review 240；Learn 6680",
+          "quantity": "240 题，不限时",
+          "acceptance": "完成当日 Review 队列 240 词，标记顽固词，并推进 Learn 新词队列",
+          "display_title": "不背单词 App | Review 复习队列 + Learn 新词队列 | 240 题，不限时 | 验收：完成当日 Review 队列 240 词，标记顽固词，并推进 Learn 新词队列",
+          "output_or_acceptance": "完成当日 Review 队列 240 词，标记顽固词，并推进 Learn 新词队列",
+          "depends_on": [],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:37"
+        }
+      ],
+      "review_tasks": [],
+      "optional_extra": [
+        {
+          "id": "T014",
+          "type": "exercise",
+          "subject": "Math II",
+          "task": "高数篇：二重积分（填空题 + 选择题）",
+          "material": "660 题",
+          "scope": "高数篇：二重积分（填空题 + 选择题）",
+          "material_id": "MAT-660-GS",
+          "catalog_units": [
+            "660GS-F09",
+            "660GS-C09"
+          ],
+          "page_range": "P62；P145",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P62；P145",
+          "quantity": "30 题，不限时",
+          "acceptance": "完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+          "display_title": "660 题 | 高数篇：二重积分（填空题 + 选择题） | 30 题，不限时 | 验收：完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+          "output_or_acceptance": "完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+          "depends_on": [],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:29"
+        },
+        {
+          "id": "T016",
+          "type": "exercise",
+          "subject": "Math II - Linear Algebra",
+          "task": "第5章 矩阵的对角化（第4-5节）",
+          "material": "李永乐线代基础篇讲义配套习题",
+          "scope": "第5章 矩阵的对角化（第4-5节）",
+          "material_id": "MAT-LIYONGLE-LA-BASE",
+          "catalog_units": [
+            "LYLA-05-04",
+            "LYLA-05-05"
+          ],
+          "page_range": "P172-P175",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P172-P175",
+          "quantity": "25 题，不限时",
+          "acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+          "display_title": "李永乐线代基础篇讲义配套习题 | 第5章 矩阵的对角化（第4-5节） | 25 题，不限时 | 验收：完成 25 题，写出对角化条件清单并订正错题",
+          "output_or_acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+          "depends_on": [
+            "T003"
+          ],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T08:53:36"
+        },
+        {
+          "id": "T007",
+          "type": "course",
+          "subject": "408 - Computer Organization",
+          "task": "学习第5章第4节：控制器的功能和工作原理",
+          "material": "王道计算机组成原理复习指导书 + 湖师大老师网课",
+          "scope": "第5章 中央处理器",
+          "material_id": "MAT-WANGDAO-CO",
+          "catalog_units": [
+            "CO-05-04"
+          ],
+          "page_range": "P248-P262",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P248-P262",
+          "quantity": "60 分钟",
+          "acceptance": "整理硬布线控制器、微程序控制器、控制信号产生流程对比表",
+          "display_title": "王道计算机组成原理复习指导书 + 湖师大老师网课 | 第5章 中央处理器 | 60 分钟 | 学习第5章第4节：控制器的功能和工作原理 | 输出：整理硬布线控制器、微程序控制器、控制信号产生流程对比表 | 配套练习：王道计组第5章中央处理器：控制器相关课后题 15-20 题",
+          "output_or_acceptance": "整理硬布线控制器、微程序控制器、控制信号产生流程对比表",
+          "depends_on": [],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:47"
+        }
+      ],
+      "minimum_version": [
+        "Math II - Linear Algebra：做《李永乐线代基础篇讲义配套习题》第5章 特征值与特征向量（第1-3节） 8 题，并订正错题。",
+        "408 - Operating System：从《王道操作系统复习指导书》第2章 进程与线程完成 20 分钟，并写出 3 个关键点；验收：画出进程状态转换图，并列出进程/线程区别。"
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "main_tasks": [
+        {
+          "id": "T009",
+          "type": "course",
+          "subject": "408 - Operating System",
+          "task": "学习调度算法与 PV 入门 1 个 45-60 分钟切片",
+          "material": "王道操作系统复习指导书",
+          "scope": "第2章 进程与线程",
+          "material_id": "MAT-WANGDAO-OS",
+          "catalog_units": [
+            "OS-02-02",
+            "OS-02-03"
+          ],
+          "page_range": "P77-P159",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P77-P159",
+          "quantity": "60 分钟",
+          "acceptance": "整理 FCFS/SJF/优先级/时间片调度对比表和 PV 模板",
+          "display_title": "王道操作系统复习指导书 | 第2章 进程与线程 | 60 分钟 | 学习调度算法与 PV 入门 1 个 45-60 分钟切片 | 输出：整理 FCFS/SJF/优先级/时间片调度对比表和 PV 模板 | 配套练习：王道操作系统调度与 PV 课后题 25 题",
+          "output_or_acceptance": "整理 FCFS/SJF/优先级/时间片调度对比表和 PV 模板",
+          "depends_on": [
+            "T008"
+          ],
+          "priority": 1,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:48"
+        },
+        {
+          "id": "T014",
+          "type": "exercise",
+          "subject": "Math II",
+          "task": "高数篇：二重积分（填空题 + 选择题）",
+          "material": "660 题",
+          "scope": "高数篇：二重积分（填空题 + 选择题）",
+          "material_id": "MAT-660-GS",
+          "catalog_units": [
+            "660GS-F09",
+            "660GS-C09"
+          ],
+          "page_range": "P62；P145",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P62；P145",
+          "quantity": "30 题，不限时",
+          "acceptance": "完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+          "display_title": "660 题 | 高数篇：二重积分（填空题 + 选择题） | 30 题，不限时 | 验收：完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+          "output_or_acceptance": "完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+          "depends_on": [],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:48"
+        },
+        {
+          "id": "T007",
+          "type": "course",
+          "subject": "408 - Computer Organization",
+          "task": "学习第5章第4节：控制器的功能和工作原理",
+          "material": "王道计算机组成原理复习指导书 + 湖师大老师网课",
+          "scope": "第5章 中央处理器",
+          "material_id": "MAT-WANGDAO-CO",
+          "catalog_units": [
+            "CO-05-04"
+          ],
+          "page_range": "P248-P262",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P248-P262",
+          "quantity": "60 分钟",
+          "acceptance": "整理硬布线控制器、微程序控制器、控制信号产生流程对比表",
+          "display_title": "王道计算机组成原理复习指导书 + 湖师大老师网课 | 第5章 中央处理器 | 60 分钟 | 学习第5章第4节：控制器的功能和工作原理 | 输出：整理硬布线控制器、微程序控制器、控制信号产生流程对比表 | 配套练习：王道计组第5章中央处理器：控制器相关课后题 15-20 题",
+          "output_or_acceptance": "整理硬布线控制器、微程序控制器、控制信号产生流程对比表",
+          "depends_on": [],
+          "priority": 2
+        }
+      ],
+      "review_tasks": [
+        {
+          "id": "T036",
+          "type": "review",
+          "subject": "408 - Computer Organization",
+          "task": "Cache mapping: direct, fully associative, set associative, address partition",
+          "material": "Weak point",
+          "scope": "Cache mapping: direct, fully associative, set associative, address partition",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，1 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | Cache mapping: direct, fully associative, set associative, address partition | 1 个复习项，1 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:55"
+        },
+        {
+          "id": "T041",
+          "type": "review",
+          "subject": "408 - Computer Organization",
+          "task": "pipeline: speedup, throughput, hazard, timing diagram problems",
+          "material": "Weak point",
+          "scope": "pipeline: speedup, throughput, hazard, timing diagram problems",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，1 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | pipeline: speedup, throughput, hazard, timing diagram problems | 1 个复习项，1 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:54"
+        },
+        {
+          "id": "T026",
+          "type": "review",
+          "subject": "408 - Data Structure",
+          "task": "B tree concepts, insertion/deletion/search details, representative choices",
+          "material": "Weak point",
+          "scope": "B tree concepts, insertion/deletion/search details, representative choices",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，1 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | B tree concepts, insertion/deletion/search details, representative choices | 1 个复习项，1 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:23:54"
+        },
+        {
+          "id": "T031",
+          "type": "review",
+          "subject": "408 - Data Structure",
+          "task": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+          "material": "Weak point",
+          "scope": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，1 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | critical path: AOE network, earliest/latest time, slack, typical calculation | 1 个复习项，1 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null
+        }
+      ],
+      "optional_extra": [
+        {
+          "id": "T016",
+          "type": "exercise",
+          "subject": "Math II - Linear Algebra",
+          "task": "第5章 矩阵的对角化（第4-5节）",
+          "material": "李永乐线代基础篇讲义配套习题",
+          "scope": "第5章 矩阵的对角化（第4-5节）",
+          "material_id": "MAT-LIYONGLE-LA-BASE",
+          "catalog_units": [
+            "LYLA-05-04",
+            "LYLA-05-05"
+          ],
+          "page_range": "P172-P175",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P172-P175",
+          "quantity": "25 题，不限时",
+          "acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+          "display_title": "李永乐线代基础篇讲义配套习题 | 第5章 矩阵的对角化（第4-5节） | 25 题，不限时 | 验收：完成 25 题，写出对角化条件清单并订正错题",
+          "output_or_acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+          "depends_on": [
+            "T003"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "T010",
+          "type": "course",
+          "subject": "408 - Computer Network",
+          "task": "学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口",
+          "material": "王道计算机网络复习指导书",
+          "scope": "第1章 计算机网络体系结构",
+          "material_id": "MAT-WANGDAO-CN",
+          "catalog_units": [
+            "CN-01-01",
+            "CN-01-02"
+          ],
+          "page_range": "P13-P40",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P13-P40",
+          "quantity": "45 分钟",
+          "acceptance": "整理分层模型、协议数据单元、典型协议表",
+          "display_title": "王道计算机网络复习指导书 | 第1章 计算机网络体系结构 | 45 分钟 | 学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口 | 输出：整理分层模型、协议数据单元、典型协议表 | 配套练习：王道计网体系结构章节课后题 20 题",
+          "output_or_acceptance": "整理分层模型、协议数据单元、典型协议表",
+          "depends_on": [],
+          "priority": 2
+        },
+        {
+          "id": "T011",
+          "type": "course",
+          "subject": "English II",
+          "task": "完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分",
+          "material": "刘晓艳 88句",
+          "scope": "第1句-第3句",
+          "material_id": "MAT-LXY-88",
+          "catalog_units": [
+            "LXY88-001",
+            "LXY88-002",
+            "LXY88-003"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "40 分钟",
+          "acceptance": "拆解 3 个长难句并记录生词",
+          "display_title": "刘晓艳 88句 | 第1句-第3句 | 40 分钟 | 完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分 | 输出：拆解 3 个长难句并记录生词 | 配套练习：刘晓艳 88句：第1句-第3句逐句复盘",
+          "output_or_acceptance": "拆解 3 个长难句并记录生词",
+          "depends_on": [],
+          "priority": 3
+        }
+      ],
+      "minimum_version": [
+        "408 - Operating System：从《王道操作系统复习指导书》第2章 进程与线程完成 20 分钟，并写出 3 个关键点；验收：整理 FCFS/SJF/优先级/时间片调度对比表和 PV 模板。",
+        "Math II：做《660 题》高数篇：二重积分（填空题 + 选择题） 10 题，并订正错题。",
+        "Review 1 due item and mark whether it still feels weak."
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "main_tasks": [
+        {
+          "id": "T021",
+          "type": "exercise",
+          "subject": "408 - Operating System",
+          "task": "第2章 进程与线程",
+          "material": "王道操作系统复习指导书课后题",
+          "scope": "第2章 进程与线程",
+          "material_id": "MAT-WANGDAO-OS",
+          "catalog_units": [
+            "OS-02-01",
+            "OS-02-02",
+            "OS-02-03",
+            "OS-02-04"
+          ],
+          "page_range": "P50-P187",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P50-P187",
+          "quantity": "25 题，不限时",
+          "acceptance": "完成 25 题，标记概念缺口，并整理进程状态/调度/PV 模板",
+          "display_title": "王道操作系统复习指导书课后题 | 第2章 进程与线程 | 25 题，不限时 | 验收：完成 25 题，标记概念缺口，并整理进程状态/调度/PV 模板",
+          "output_or_acceptance": "完成 25 题，标记概念缺口，并整理进程状态/调度/PV 模板",
+          "depends_on": [
+            "T008",
+            "T009"
+          ],
+          "priority": 1,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:14"
+        },
+        {
+          "id": "T016",
+          "type": "exercise",
+          "subject": "Math II - Linear Algebra",
+          "task": "第5章 矩阵的对角化（第4-5节）",
+          "material": "李永乐线代基础篇讲义配套习题",
+          "scope": "第5章 矩阵的对角化（第4-5节）",
+          "material_id": "MAT-LIYONGLE-LA-BASE",
+          "catalog_units": [
+            "LYLA-05-04",
+            "LYLA-05-05"
+          ],
+          "page_range": "P172-P175",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P172-P175",
+          "quantity": "25 题，不限时",
+          "acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+          "display_title": "李永乐线代基础篇讲义配套习题 | 第5章 矩阵的对角化（第4-5节） | 25 题，不限时 | 验收：完成 25 题，写出对角化条件清单并订正错题",
+          "output_or_acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+          "depends_on": [
+            "T003"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "T020",
+          "type": "exercise",
+          "subject": "408 - Computer Organization",
+          "task": "第5章 中央处理器：5.4 控制器的功能和工作原理",
+          "material": "王道计算机组成原理复习指导书课后题",
+          "scope": "第5章 中央处理器：5.4 控制器的功能和工作原理",
+          "material_id": "MAT-WANGDAO-CO",
+          "catalog_units": [
+            "CO-05-04"
+          ],
+          "page_range": "P248-P262",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P248-P262",
+          "quantity": "20 题，不限时",
+          "acceptance": "完成控制器相关 20 题，订正全部错题，并整理硬布线/微程序控制器易混点",
+          "display_title": "王道计算机组成原理复习指导书课后题 | 第5章 中央处理器：5.4 控制器的功能和工作原理 | 20 题，不限时 | 验收：完成控制器相关 20 题，订正全部错题，并整理硬布线/微程序控制器易混点",
+          "output_or_acceptance": "完成控制器相关 20 题，订正全部错题，并整理硬布线/微程序控制器易混点",
+          "depends_on": [
+            "T007"
+          ],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:14"
+        }
+      ],
+      "review_tasks": [],
+      "optional_extra": [
+        {
+          "id": "T010",
+          "type": "course",
+          "subject": "408 - Computer Network",
+          "task": "学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口",
+          "material": "王道计算机网络复习指导书",
+          "scope": "第1章 计算机网络体系结构",
+          "material_id": "MAT-WANGDAO-CN",
+          "catalog_units": [
+            "CN-01-01",
+            "CN-01-02"
+          ],
+          "page_range": "P13-P40",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P13-P40",
+          "quantity": "45 分钟",
+          "acceptance": "整理分层模型、协议数据单元、典型协议表",
+          "display_title": "王道计算机网络复习指导书 | 第1章 计算机网络体系结构 | 45 分钟 | 学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口 | 输出：整理分层模型、协议数据单元、典型协议表 | 配套练习：王道计网体系结构章节课后题 20 题",
+          "output_or_acceptance": "整理分层模型、协议数据单元、典型协议表",
+          "depends_on": [],
+          "priority": 2,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:16"
+        },
+        {
+          "id": "T046",
+          "type": "course",
+          "subject": "Math II - Advanced Math",
+          "task": "在 660 二重积分专题订正后，学习第6章二重积分：计算二重积分、重积分换元法及与二重积分相关的综合题",
+          "material": "武忠祥高等数学辅导讲义强化篇",
+          "scope": "第6章 二重积分",
+          "material_id": "MAT-WZX-GS-FUDAO",
+          "catalog_units": [
+            "WZXFD-06"
+          ],
+          "page_range": "P200-P217",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P200-P217",
+          "quantity": "60 分钟",
+          "acceptance": "整理强化篇方法框架与 2 道代表题",
+          "display_title": "武忠祥高等数学辅导讲义强化篇 | 第6章 二重积分 | 60 分钟 | 在 660 二重积分专题订正后，学习第6章二重积分：计算二重积分、重积分换元法及与二重积分相关的综合题 | 输出：整理强化篇方法框架与 2 道代表题 | 配套练习：武忠祥高等数学辅导讲义配套严选题：第6章二重积分",
+          "output_or_acceptance": "整理强化篇方法框架与 2 道代表题",
+          "depends_on": [
+            "T014"
+          ],
+          "priority": 3,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:17"
+        },
+        {
+          "id": "T011",
+          "type": "course",
+          "subject": "English II",
+          "task": "完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分",
+          "material": "刘晓艳 88句",
+          "scope": "第1句-第3句",
+          "material_id": "MAT-LXY-88",
+          "catalog_units": [
+            "LXY88-001",
+            "LXY88-002",
+            "LXY88-003"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "40 分钟",
+          "acceptance": "拆解 3 个长难句并记录生词",
+          "display_title": "刘晓艳 88句 | 第1句-第3句 | 40 分钟 | 完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分 | 输出：拆解 3 个长难句并记录生词 | 配套练习：刘晓艳 88句：第1句-第3句逐句复盘",
+          "output_or_acceptance": "拆解 3 个长难句并记录生词",
+          "depends_on": [],
+          "priority": 3,
+          "dashboard_status": "missed",
+          "dashboard_updated": "2026-06-25T09:26:18"
+        }
+      ],
+      "minimum_version": [
+        "408 - Operating System：做《王道操作系统复习指导书课后题》第2章 进程与线程 8 题，并订正错题。",
+        "Math II - Linear Algebra：做《李永乐线代基础篇讲义配套习题》第5章 矩阵的对角化（第4-5节） 8 题，并订正错题。"
+      ]
+    },
+    {
+      "date": "2026-06-27",
+      "main_tasks": [
+        {
+          "id": "T010",
+          "type": "course",
+          "subject": "408 - Computer Network",
+          "task": "学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口",
+          "material": "王道计算机网络复习指导书",
+          "scope": "第1章 计算机网络体系结构",
+          "material_id": "MAT-WANGDAO-CN",
+          "catalog_units": [
+            "CN-01-01",
+            "CN-01-02"
+          ],
+          "page_range": "P13-P40",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P13-P40",
+          "quantity": "45 分钟",
+          "acceptance": "整理分层模型、协议数据单元、典型协议表",
+          "display_title": "王道计算机网络复习指导书 | 第1章 计算机网络体系结构 | 45 分钟 | 学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口 | 输出：整理分层模型、协议数据单元、典型协议表 | 配套练习：王道计网体系结构章节课后题 20 题",
+          "output_or_acceptance": "整理分层模型、协议数据单元、典型协议表",
+          "depends_on": [],
+          "priority": 2
+        },
+        {
+          "id": "T046",
+          "type": "course",
+          "subject": "Math II - Advanced Math",
+          "task": "在 660 二重积分专题订正后，学习第6章二重积分：计算二重积分、重积分换元法及与二重积分相关的综合题",
+          "material": "武忠祥高等数学辅导讲义强化篇",
+          "scope": "第6章 二重积分",
+          "material_id": "MAT-WZX-GS-FUDAO",
+          "catalog_units": [
+            "WZXFD-06"
+          ],
+          "page_range": "P200-P217",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P200-P217",
+          "quantity": "60 分钟",
+          "acceptance": "整理强化篇方法框架与 2 道代表题",
+          "display_title": "武忠祥高等数学辅导讲义强化篇 | 第6章 二重积分 | 60 分钟 | 在 660 二重积分专题订正后，学习第6章二重积分：计算二重积分、重积分换元法及与二重积分相关的综合题 | 输出：整理强化篇方法框架与 2 道代表题 | 配套练习：武忠祥高等数学辅导讲义配套严选题：第6章二重积分",
+          "output_or_acceptance": "整理强化篇方法框架与 2 道代表题",
+          "depends_on": [
+            "T014"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "T011",
+          "type": "course",
+          "subject": "English II",
+          "task": "完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分",
+          "material": "刘晓艳 88句",
+          "scope": "第1句-第3句",
+          "material_id": "MAT-LXY-88",
+          "catalog_units": [
+            "LXY88-001",
+            "LXY88-002",
+            "LXY88-003"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "40 分钟",
+          "acceptance": "拆解 3 个长难句并记录生词",
+          "display_title": "刘晓艳 88句 | 第1句-第3句 | 40 分钟 | 完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分 | 输出：拆解 3 个长难句并记录生词 | 配套练习：刘晓艳 88句：第1句-第3句逐句复盘",
+          "output_or_acceptance": "拆解 3 个长难句并记录生词",
+          "depends_on": [],
+          "priority": 3
+        }
+      ],
+      "review_tasks": [
+        {
+          "id": "T037",
+          "type": "review",
+          "subject": "408 - Computer Organization",
+          "task": "Cache mapping: direct, fully associative, set associative, address partition",
+          "material": "Weak point",
+          "scope": "Cache mapping: direct, fully associative, set associative, address partition",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，3 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | Cache mapping: direct, fully associative, set associative, address partition | 1 个复习项，3 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null
+        },
+        {
+          "id": "T042",
+          "type": "review",
+          "subject": "408 - Computer Organization",
+          "task": "pipeline: speedup, throughput, hazard, timing diagram problems",
+          "material": "Weak point",
+          "scope": "pipeline: speedup, throughput, hazard, timing diagram problems",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，3 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | pipeline: speedup, throughput, hazard, timing diagram problems | 1 个复习项，3 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null
+        },
+        {
+          "id": "T027",
+          "type": "review",
+          "subject": "408 - Data Structure",
+          "task": "B tree concepts, insertion/deletion/search details, representative choices",
+          "material": "Weak point",
+          "scope": "B tree concepts, insertion/deletion/search details, representative choices",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，3 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | B tree concepts, insertion/deletion/search details, representative choices | 1 个复习项，3 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null
+        },
+        {
+          "id": "T032",
+          "type": "review",
+          "subject": "408 - Data Structure",
+          "task": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+          "material": "Weak point",
+          "scope": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+          "material_id": "",
+          "catalog_units": [],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 个复习项，3 天间隔",
+          "acceptance": "",
+          "display_title": "Weak point | critical path: AOE network, earliest/latest time, slack, typical calculation | 1 个复习项，3 天间隔",
+          "output_or_acceptance": "",
+          "depends_on": [],
+          "priority": null
+        }
+      ],
+      "optional_extra": [
+        {
+          "id": "T018",
+          "type": "exercise",
+          "subject": "408 - Data Structure",
+          "task": "数据结构 第6章 图（关键路径） + 第7章 查找（B树/B+树） + 第8章 排序",
+          "material": "图灵 1800 选择题专项",
+          "scope": "数据结构 第6章 图（关键路径） + 第7章 查找（B树/B+树） + 第8章 排序",
+          "material_id": "MAT-TULING-1800",
+          "catalog_units": [
+            "TL1800-DS-06",
+            "TL1800-DS-07",
+            "TL1800-DS-08"
+          ],
+          "page_range": "P47-P61；P62-P74；P75-P90",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P47-P61；P62-P74；P75-P90",
+          "quantity": "30 题，不限时",
+          "acceptance": "完成 30 道选择题，标记 B 树/关键路径/排序薄弱点",
+          "display_title": "图灵 1800 选择题专项 | 数据结构 第6章 图（关键路径） + 第7章 查找（B树/B+树） + 第8章 排序 | 30 题，不限时 | 验收：完成 30 道选择题，标记 B 树/关键路径/排序薄弱点",
+          "output_or_acceptance": "完成 30 道选择题，标记 B 树/关键路径/排序薄弱点",
+          "depends_on": [
+            "T017"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "T012",
+          "type": "course",
+          "subject": "Politics",
+          "task": "完成徐涛核心考案马克思主义基本原理总框架：五科结构、马原在政治中的位置、首轮复习顺序",
+          "material": "徐涛核心考案",
+          "scope": "马克思主义基本原理",
+          "material_id": "MAT-XT-KXKA",
+          "catalog_units": [
+            "XTKX-01"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "30 分钟",
+          "acceptance": "写出政治五科一级框架，并整理马原首轮章节清单",
+          "display_title": "徐涛核心考案 | 马克思主义基本原理 | 30 分钟 | 完成徐涛核心考案马克思主义基本原理总框架：五科结构、马原在政治中的位置、首轮复习顺序 | 输出：写出政治五科一级框架，并整理马原首轮章节清单 | 配套练习：肖1000题：第一部分马克思主义基本原理对应选择题 10-20 题",
+          "output_or_acceptance": "写出政治五科一级框架，并整理马原首轮章节清单",
+          "depends_on": [],
+          "priority": 4
+        }
+      ],
+      "minimum_version": [
+        "408 - Computer Network：从《王道计算机网络复习指导书》第1章 计算机网络体系结构完成 20 分钟，并写出 3 个关键点；验收：整理分层模型、协议数据单元、典型协议表。",
+        "Math II - Advanced Math：从《武忠祥高等数学辅导讲义强化篇》第6章 二重积分完成 20 分钟，并写出 3 个关键点；验收：整理强化篇方法框架与 2 道代表题。",
+        "Review 1 due item and mark whether it still feels weak."
+      ]
+    },
+    {
+      "date": "2026-06-28",
+      "main_tasks": [
+        {
+          "id": "T022",
+          "type": "exercise",
+          "subject": "408 - Computer Network",
+          "task": "第1章 计算机网络体系结构",
+          "material": "王道计算机网络复习指导书课后题",
+          "scope": "第1章 计算机网络体系结构",
+          "material_id": "MAT-WANGDAO-CN",
+          "catalog_units": [
+            "CN-01-01",
+            "CN-01-02",
+            "CN-01-03"
+          ],
+          "page_range": "P13-P42",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P13-P42",
+          "quantity": "20 题，不限时",
+          "acceptance": "完成 20 题，订正概念题，并整理 OSI/TCP-IP 分层表",
+          "display_title": "王道计算机网络复习指导书课后题 | 第1章 计算机网络体系结构 | 20 题，不限时 | 验收：完成 20 题，订正概念题，并整理 OSI/TCP-IP 分层表",
+          "output_or_acceptance": "完成 20 题，订正概念题，并整理 OSI/TCP-IP 分层表",
+          "depends_on": [
+            "T010"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "T024",
+          "type": "exercise",
+          "subject": "English II",
+          "task": "基础阅读第 1 篇",
+          "material": "刘晓艳 58 篇基础阅读",
+          "scope": "基础阅读第 1 篇",
+          "material_id": "MAT-LXY-58",
+          "catalog_units": [
+            "LXY58-001"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "1 题，限时",
+          "acceptance": "限时完成 1 篇，定位错题证据，摘出 10 个单词和 3 个长难句",
+          "display_title": "刘晓艳 58 篇基础阅读 | 基础阅读第 1 篇 | 1 题，限时 | 验收：限时完成 1 篇，定位错题证据，摘出 10 个单词和 3 个长难句",
+          "output_or_acceptance": "限时完成 1 篇，定位错题证据，摘出 10 个单词和 3 个长难句",
+          "depends_on": [
+            "T011"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "T018",
+          "type": "exercise",
+          "subject": "408 - Data Structure",
+          "task": "数据结构 第6章 图（关键路径） + 第7章 查找（B树/B+树） + 第8章 排序",
+          "material": "图灵 1800 选择题专项",
+          "scope": "数据结构 第6章 图（关键路径） + 第7章 查找（B树/B+树） + 第8章 排序",
+          "material_id": "MAT-TULING-1800",
+          "catalog_units": [
+            "TL1800-DS-06",
+            "TL1800-DS-07",
+            "TL1800-DS-08"
+          ],
+          "page_range": "P47-P61；P62-P74；P75-P90",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "页码：P47-P61；P62-P74；P75-P90",
+          "quantity": "30 题，不限时",
+          "acceptance": "完成 30 道选择题，标记 B 树/关键路径/排序薄弱点",
+          "display_title": "图灵 1800 选择题专项 | 数据结构 第6章 图（关键路径） + 第7章 查找（B树/B+树） + 第8章 排序 | 30 题，不限时 | 验收：完成 30 道选择题，标记 B 树/关键路径/排序薄弱点",
+          "output_or_acceptance": "完成 30 道选择题，标记 B 树/关键路径/排序薄弱点",
+          "depends_on": [
+            "T017"
+          ],
+          "priority": 3
+        }
+      ],
+      "review_tasks": [],
+      "optional_extra": [
+        {
+          "id": "T012",
+          "type": "course",
+          "subject": "Politics",
+          "task": "完成徐涛核心考案马克思主义基本原理总框架：五科结构、马原在政治中的位置、首轮复习顺序",
+          "material": "徐涛核心考案",
+          "scope": "马克思主义基本原理",
+          "material_id": "MAT-XT-KXKA",
+          "catalog_units": [
+            "XTKX-01"
+          ],
+          "page_range": "",
+          "lecture_range": "",
+          "problem_range": "",
+          "precise_range": "",
+          "quantity": "30 分钟",
+          "acceptance": "写出政治五科一级框架，并整理马原首轮章节清单",
+          "display_title": "徐涛核心考案 | 马克思主义基本原理 | 30 分钟 | 完成徐涛核心考案马克思主义基本原理总框架：五科结构、马原在政治中的位置、首轮复习顺序 | 输出：写出政治五科一级框架，并整理马原首轮章节清单 | 配套练习：肖1000题：第一部分马克思主义基本原理对应选择题 10-20 题",
+          "output_or_acceptance": "写出政治五科一级框架，并整理马原首轮章节清单",
+          "depends_on": [],
+          "priority": 4
+        }
+      ],
+      "minimum_version": [
+        "408 - Computer Network：做《王道计算机网络复习指导书课后题》第1章 计算机网络体系结构 6 题，并订正错题。",
+        "English II：做《刘晓艳 58 篇基础阅读》基础阅读第 1 篇 5 题，并订正错题。"
+      ]
+    }
+  ],
+  "note": "Weekly plans simulate task completion for dependency ordering but do not update stored statuses.",
+  "committed_at": "2026-06-24"
+}

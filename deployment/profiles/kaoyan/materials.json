@@ -1,0 +1,6002 @@
+[
+  {
+    "id": "MAT-WANGDAO-DS",
+    "name": "王道数据结构复习指导书",
+    "kind": "book",
+    "subject": "408 - Data Structure",
+    "edition": "2025",
+    "teacher": "",
+    "source": "D:\\hyh-note\\考研备考\\408计算机\\参考书\\2025王道数据结构考研复习指导.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "pdf-outline:D:\\hyh-note\\考研备考\\408计算机\\参考书\\2025王道数据结构考研复习指导.pdf",
+    "catalog_precision": "chapter-section-page",
+    "catalog_units": [
+      {
+        "id": "DS-01",
+        "title": "第1章 绪论",
+        "page_range": "P15-P25",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-01-01",
+        "title": "1.1 数据结构的基本概念",
+        "page_range": "P15-P17",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-01",
+        "level": "section",
+        "parent_title": "第1章 绪论"
+      },
+      {
+        "id": "DS-01-02",
+        "title": "1.2 算法和算法评价",
+        "page_range": "P18-P25",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-01",
+        "level": "section",
+        "parent_title": "第1章 绪论"
+      },
+      {
+        "id": "DS-02",
+        "title": "第2章 线性表",
+        "page_range": "P26-P77",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-02-01",
+        "title": "2.1 线性表的定义和基本操作",
+        "page_range": "P26-P27",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-02",
+        "level": "section",
+        "parent_title": "第2章 线性表"
+      },
+      {
+        "id": "DS-02-02",
+        "title": "2.2 线性表的顺序表示",
+        "page_range": "P28-P43",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-02",
+        "level": "section",
+        "parent_title": "第2章 线性表"
+      },
+      {
+        "id": "DS-02-03",
+        "title": "2.3 线性表的链式表示",
+        "page_range": "P44-P77",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-02",
+        "level": "section",
+        "parent_title": "第2章 线性表"
+      },
+      {
+        "id": "DS-03",
+        "title": "第3章 栈、队列和数组",
+        "page_range": "P78-P126",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-03-01",
+        "title": "3.1 栈",
+        "page_range": "P78-P91",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-03",
+        "level": "section",
+        "parent_title": "第3章 栈、队列和数组"
+      },
+      {
+        "id": "DS-03-02",
+        "title": "3.2 队列",
+        "page_range": "P92-P105",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-03",
+        "level": "section",
+        "parent_title": "第3章 栈、队列和数组"
+      },
+      {
+        "id": "DS-03-03",
+        "title": "3.3 栈和队列的应用",
+        "page_range": "P106-P117",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-03",
+        "level": "section",
+        "parent_title": "第3章 栈、队列和数组"
+      },
+      {
+        "id": "DS-03-04",
+        "title": "3.4 数组和特殊矩阵",
+        "page_range": "P118-P126",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-03",
+        "level": "section",
+        "parent_title": "第3章 栈、队列和数组"
+      },
+      {
+        "id": "DS-04",
+        "title": "第4章 串",
+        "page_range": "P127-P141",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-04-01",
+        "title": "4.1 串的定义和实现",
+        "page_range": "P127-P128",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-04",
+        "level": "section",
+        "parent_title": "第4章 串"
+      },
+      {
+        "id": "DS-04-02",
+        "title": "4.2 串的模式匹配",
+        "page_range": "P129-P141",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-04",
+        "level": "section",
+        "parent_title": "第4章 串"
+      },
+      {
+        "id": "DS-05",
+        "title": "第5章 树与二叉树",
+        "page_range": "P142-P219",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-05-01",
+        "title": "5.1 树的基本概念",
+        "page_range": "P142-P147",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-05",
+        "level": "section",
+        "parent_title": "第5章 树与二叉树"
+      },
+      {
+        "id": "DS-05-02",
+        "title": "5.2 二叉树的概念",
+        "page_range": "P148-P158",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-05",
+        "level": "section",
+        "parent_title": "第5章 树与二叉树"
+      },
+      {
+        "id": "DS-05-03",
+        "title": "5.3 二叉树的遍历和线索二叉树",
+        "page_range": "P159-P192",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-05",
+        "level": "section",
+        "parent_title": "第5章 树与二叉树"
+      },
+      {
+        "id": "DS-05-04",
+        "title": "5.4 树、森林",
+        "page_range": "P193-P204",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-05",
+        "level": "section",
+        "parent_title": "第5章 树与二叉树"
+      },
+      {
+        "id": "DS-05-05",
+        "title": "5.5 树与二叉树的应用",
+        "page_range": "P205-P219",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-05",
+        "level": "section",
+        "parent_title": "第5章 树与二叉树"
+      },
+      {
+        "id": "DS-06",
+        "title": "第6章 图",
+        "page_range": "P220-P290",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-06-01",
+        "title": "6.1 图的基本概念",
+        "page_range": "P220-P227",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-06",
+        "level": "section",
+        "parent_title": "第6章 图"
+      },
+      {
+        "id": "DS-06-02",
+        "title": "6.2 图的存储及基本操作",
+        "page_range": "P228-P240",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-06",
+        "level": "section",
+        "parent_title": "第6章 图"
+      },
+      {
+        "id": "DS-06-03",
+        "title": "6.3 图的遍历",
+        "page_range": "P241-P252",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-06",
+        "level": "section",
+        "parent_title": "第6章 图"
+      },
+      {
+        "id": "DS-06-04",
+        "title": "6.4 图的应用",
+        "page_range": "P253-P290",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-06",
+        "level": "section",
+        "parent_title": "第6章 图"
+      },
+      {
+        "id": "DS-07",
+        "title": "第7章 查找",
+        "page_range": "P291-P358",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-07-01",
+        "title": "7.1 查找的基本概念",
+        "page_range": "P291",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-07",
+        "level": "section",
+        "parent_title": "第7章 查找"
+      },
+      {
+        "id": "DS-07-02",
+        "title": "7.2 顺序查找和折半查找",
+        "page_range": "P292-P304",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-07",
+        "level": "section",
+        "parent_title": "第7章 查找"
+      },
+      {
+        "id": "DS-07-03",
+        "title": "7.3 树形查找",
+        "page_range": "P305-P332",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-07",
+        "level": "section",
+        "parent_title": "第7章 查找"
+      },
+      {
+        "id": "DS-07-04",
+        "title": "7.4 B树和B+树",
+        "page_range": "P333-P344",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-07",
+        "level": "section",
+        "parent_title": "第7章 查找"
+      },
+      {
+        "id": "DS-07-05",
+        "title": "7.5 散列（Hash）表",
+        "page_range": "P345-P358",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-07",
+        "level": "section",
+        "parent_title": "第7章 查找"
+      },
+      {
+        "id": "DS-08",
+        "title": "第8章 排序",
+        "page_range": "P359-P420",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "DS-08-01",
+        "title": "8.1 排序的基本概念",
+        "page_range": "P360",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      },
+      {
+        "id": "DS-08-02",
+        "title": "8.2 插入排序",
+        "page_range": "P361-P368",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      },
+      {
+        "id": "DS-08-03",
+        "title": "8.3 交换排序",
+        "page_range": "P369-P379",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      },
+      {
+        "id": "DS-08-04",
+        "title": "8.4 选择排序",
+        "page_range": "P380-P390",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      },
+      {
+        "id": "DS-08-05",
+        "title": "8.5 归并排序、基数排序和计数排序",
+        "page_range": "P391-P400",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      },
+      {
+        "id": "DS-08-06",
+        "title": "8.6 各种内部排序算法的比较及应用",
+        "page_range": "P401-P407",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      },
+      {
+        "id": "DS-08-07",
+        "title": "8.7 外部排序",
+        "page_range": "P408-P420",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "DS-08",
+        "level": "section",
+        "parent_title": "第8章 排序"
+      }
+    ],
+    "notes": "由王道 PDF 书签目录导入。页码为 PDF 页序；做计划时可引用章级或节级单元。",
+    "updated": "2026-06-24",
+    "progress": {
+      "status": "done",
+      "completed_units": [
+        "DS-01",
+        "DS-02",
+        "DS-03",
+        "DS-04",
+        "DS-05",
+        "DS-06",
+        "DS-07",
+        "DS-08"
+      ],
+      "updated": "2026-06-24",
+      "note": "用户确认数据结构王道主书与课后题已完成"
+    }
+  },
+  {
+    "id": "MAT-WANGDAO-CO",
+    "name": "王道计算机组成原理复习指导书",
+    "kind": "book",
+    "subject": "408 - Computer Organization",
+    "edition": "2026",
+    "teacher": "",
+    "source": "D:\\hyh-note\\考研备考\\408计算机\\参考书\\2026年计算机组成原理考研复习指导.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "pdf-outline:D:\\hyh-note\\考研备考\\408计算机\\参考书\\2026年计算机组成原理考研复习指导.pdf",
+    "catalog_precision": "chapter-section-page",
+    "catalog_units": [
+      {
+        "id": "CO-01",
+        "title": "第1章 计算机系统概述",
+        "page_range": "P13-P36",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-01-01",
+        "title": "1.1 计算机发展历程①",
+        "page_range": "P13-P14",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "CO-01-02",
+        "title": "1.2 计算机系统层次结构",
+        "page_range": "P15-P23",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "CO-01-03",
+        "title": "1.3 计算机的性能指标",
+        "page_range": "P24-P34",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "CO-01-04",
+        "title": "1.4 本章小结",
+        "page_range": "P35-P36",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "CO-01-05",
+        "title": "1.5 常见问题和易混淆知识点",
+        "page_range": "P37-P94",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "CO-02",
+        "title": "第2章 数据的表示和运算",
+        "page_range": "P37-P94",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-02-01",
+        "title": "2.1 数制与编码",
+        "page_range": "P37-P49",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-02",
+        "level": "section",
+        "parent_title": "第2章 数据的表示和运算"
+      },
+      {
+        "id": "CO-02-02",
+        "title": "2.2 运算方法和运算电路",
+        "page_range": "P50-P67",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-02",
+        "level": "section",
+        "parent_title": "第2章 数据的表示和运算"
+      },
+      {
+        "id": "CO-02-03",
+        "title": "2.3 浮点数的表示与运算",
+        "page_range": "P68-P89",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-02",
+        "level": "section",
+        "parent_title": "第2章 数据的表示和运算"
+      },
+      {
+        "id": "CO-02-04",
+        "title": "2.4 本章小结",
+        "page_range": "P90-P94",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-02",
+        "level": "section",
+        "parent_title": "第2章 数据的表示和运算"
+      },
+      {
+        "id": "CO-02-05",
+        "title": "2.5 常见问题和易混淆知识点",
+        "page_range": "P95-P167",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-02",
+        "level": "section",
+        "parent_title": "第2章 数据的表示和运算"
+      },
+      {
+        "id": "CO-03",
+        "title": "第3章 存储系统",
+        "page_range": "P95-P167",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-03-01",
+        "title": "3.1 存储器概述",
+        "page_range": "P95-P96",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-02",
+        "title": "3.2 主存储器",
+        "page_range": "P97-P115",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-03",
+        "title": "3.3 主存储器与CPU的连接",
+        "page_range": "P116-P122",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-04",
+        "title": "3.4 外部存储器",
+        "page_range": "P123-P134",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-05",
+        "title": "3.5 高速缓冲存储器",
+        "page_range": "P135-P153",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-06",
+        "title": "3.6 虚拟存储器",
+        "page_range": "P154-P165",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-07",
+        "title": "3.7 本章小结",
+        "page_range": "P166-P167",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-03-08",
+        "title": "3.8 常见问题和易混淆知识点",
+        "page_range": "P168-P219",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-03",
+        "level": "section",
+        "parent_title": "第3章 存储系统"
+      },
+      {
+        "id": "CO-04",
+        "title": "第4章 指令系统",
+        "page_range": "P168-P219",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-04-01",
+        "title": "4.1 指令系统",
+        "page_range": "P168-P176",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-04",
+        "level": "section",
+        "parent_title": "第4章 指令系统"
+      },
+      {
+        "id": "CO-04-02",
+        "title": "4.2 指令的寻址方式",
+        "page_range": "P177-P194",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-04",
+        "level": "section",
+        "parent_title": "第4章 指令系统"
+      },
+      {
+        "id": "CO-04-03",
+        "title": "4.3 程序的机器级代码表示",
+        "page_range": "P195-P213",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-04",
+        "level": "section",
+        "parent_title": "第4章 指令系统"
+      },
+      {
+        "id": "CO-04-04",
+        "title": "4.4 CISC和RISC的基本概念",
+        "page_range": "P214-P215",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-04",
+        "level": "section",
+        "parent_title": "第4章 指令系统"
+      },
+      {
+        "id": "CO-04-05",
+        "title": "4.5 本章小结",
+        "page_range": "P216-P219",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-04",
+        "level": "section",
+        "parent_title": "第4章 指令系统"
+      },
+      {
+        "id": "CO-04-06",
+        "title": "4.6 常见问题和易混淆知识点",
+        "page_range": "P220-P292",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-04",
+        "level": "section",
+        "parent_title": "第4章 指令系统"
+      },
+      {
+        "id": "CO-05",
+        "title": "第5章 中央处理器",
+        "page_range": "P220-P292",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-05-01",
+        "title": "5.1 CPU的功能和基本结构",
+        "page_range": "P220-P224",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-02",
+        "title": "5.2 指令执行过程",
+        "page_range": "P225-P230",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-03",
+        "title": "5.3 数据通路的功能和基本结构",
+        "page_range": "P231-P247",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-04",
+        "title": "5.4 控制器的功能和工作原理",
+        "page_range": "P248-P262",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-05",
+        "title": "5.5 异常和中断机制",
+        "page_range": "P263-P265",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-06",
+        "title": "5.6 指令流水线",
+        "page_range": "P266-P288",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-07",
+        "title": "5.7 多处理器的基本概念",
+        "page_range": "P289-P290",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-08",
+        "title": "5.8 本章小结",
+        "page_range": "P291-P292",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-05-09",
+        "title": "5.9 常见问题和易混淆知识点",
+        "page_range": "P294-P310",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-05",
+        "level": "section",
+        "parent_title": "第5章 中央处理器"
+      },
+      {
+        "id": "CO-06",
+        "title": "第6章 总线",
+        "page_range": "P293-P310",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-06-01",
+        "title": "6.1 总线概述",
+        "page_range": "P293-P302",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-06",
+        "level": "section",
+        "parent_title": "第6章 总线"
+      },
+      {
+        "id": "CO-06-02",
+        "title": "6.2 总线事务和定时",
+        "page_range": "P303-P308",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-06",
+        "level": "section",
+        "parent_title": "第6章 总线"
+      },
+      {
+        "id": "CO-06-03",
+        "title": "6.3 本章小结",
+        "page_range": "P309-P310",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-06",
+        "level": "section",
+        "parent_title": "第6章 总线"
+      },
+      {
+        "id": "CO-06-04",
+        "title": "6.4 常见问题和易混淆知识点",
+        "page_range": "P311-P348",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-06",
+        "level": "section",
+        "parent_title": "第6章 总线"
+      },
+      {
+        "id": "CO-07",
+        "title": "第7章 输入/输出系统",
+        "page_range": "P311-P348",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CO-07-01",
+        "title": "7.1 I/O系统基本概念",
+        "page_range": "P311-P312",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-07",
+        "level": "section",
+        "parent_title": "第7章 输入/输出系统"
+      },
+      {
+        "id": "CO-07-02",
+        "title": "7.2 I/O接口",
+        "page_range": "P313-P317",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-07",
+        "level": "section",
+        "parent_title": "第7章 输入/输出系统"
+      },
+      {
+        "id": "CO-07-03",
+        "title": "7.3 I/O方式",
+        "page_range": "P318-P345",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-07",
+        "level": "section",
+        "parent_title": "第7章 输入/输出系统"
+      },
+      {
+        "id": "CO-07-04",
+        "title": "7.4 本章小结",
+        "page_range": "P346-P348",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-07",
+        "level": "section",
+        "parent_title": "第7章 输入/输出系统"
+      },
+      {
+        "id": "CO-07-05",
+        "title": "7.5 常见问题和易混淆知识点",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CO-07",
+        "level": "section",
+        "parent_title": "第7章 输入/输出系统"
+      }
+    ],
+    "notes": "由王道 PDF 书签目录导入。页码为 PDF 页序；做计划时可引用章级或节级单元。",
+    "updated": "2026-06-24",
+    "progress": {
+      "status": "active",
+      "completed_units": [
+        "CO-01",
+        "CO-02",
+        "CO-03",
+        "CO-04"
+      ],
+      "completed_sections": [
+        "CO-05-01",
+        "CO-05-02",
+        "CO-05-03"
+      ],
+      "current_unit": "CO-05-04",
+      "updated": "2026-06-24",
+      "note": "用户确认计组已学到第5章中央处理器的5.4控制器。第4章指令系统视为已完成。"
+    }
+  },
+  {
+    "id": "MAT-WANGDAO-OS",
+    "name": "王道操作系统复习指导书",
+    "kind": "book",
+    "subject": "408 - Operating System",
+    "edition": "2025",
+    "teacher": "",
+    "source": "D:\\hyh-note\\考研备考\\408计算机\\参考书\\2025王道操作系统考研复习指导.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "pdf-outline:D:\\hyh-note\\考研备考\\408计算机\\参考书\\2025王道操作系统考研复习指导.pdf",
+    "catalog_precision": "chapter-section-page",
+    "catalog_units": [
+      {
+        "id": "OS-01",
+        "title": "第1章 计算机系统概述",
+        "page_range": "P13-P49",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "OS-01-01",
+        "title": "1.1 操作系统的基本概念",
+        "page_range": "P13-P18",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-01-02",
+        "title": "1.2 操作系统发展历程",
+        "page_range": "P19-P26",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-01-03",
+        "title": "1.3 操作系统的运行环境",
+        "page_range": "P27-P38",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-01-04",
+        "title": "1.4 操作系统结构",
+        "page_range": "P39-P41",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-01-05",
+        "title": "1.5 操作系统引导",
+        "page_range": "P42",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-01-06",
+        "title": "1.6 虚拟机",
+        "page_range": "P43-P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-01-07",
+        "title": "1.7 本章疑难点",
+        "page_range": "P48-P49",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-01",
+        "level": "section",
+        "parent_title": "第1章 计算机系统概述"
+      },
+      {
+        "id": "OS-02",
+        "title": "第2章 进程与线程",
+        "page_range": "P50-P187",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "OS-02-01",
+        "title": "2.1 进程与线程",
+        "page_range": "P50-P76",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-02",
+        "level": "section",
+        "parent_title": "第2章 进程与线程"
+      },
+      {
+        "id": "OS-02-02",
+        "title": "2.2 CPU调度",
+        "page_range": "P77-P105",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-02",
+        "level": "section",
+        "parent_title": "第2章 进程与线程"
+      },
+      {
+        "id": "OS-02-03",
+        "title": "2.3 同步与互斥",
+        "page_range": "P106-P159",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-02",
+        "level": "section",
+        "parent_title": "第2章 进程与线程"
+      },
+      {
+        "id": "OS-02-04",
+        "title": "2.4 死锁",
+        "page_range": "P160-P186",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-02",
+        "level": "section",
+        "parent_title": "第2章 进程与线程"
+      },
+      {
+        "id": "OS-02-05",
+        "title": "2.5 本章疑难点",
+        "page_range": "P187",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-02",
+        "level": "section",
+        "parent_title": "第2章 进程与线程"
+      },
+      {
+        "id": "OS-03",
+        "title": "第3章 内存管理",
+        "page_range": "P188-P261",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "OS-03-01",
+        "title": "3.1 内存管理概念",
+        "page_range": "P188-P223",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-03",
+        "level": "section",
+        "parent_title": "第3章 内存管理"
+      },
+      {
+        "id": "OS-03-02",
+        "title": "3.2 虚拟内存管理",
+        "page_range": "P224-P260",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-03",
+        "level": "section",
+        "parent_title": "第3章 内存管理"
+      },
+      {
+        "id": "OS-03-03",
+        "title": "3.3 本章疑难点",
+        "page_range": "P261",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-03",
+        "level": "section",
+        "parent_title": "第3章 内存管理"
+      },
+      {
+        "id": "OS-04",
+        "title": "第4章 文件管理",
+        "page_range": "P262-P315",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "OS-04-01",
+        "title": "4.1 文件系统基础",
+        "page_range": "P262-P290",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-04",
+        "level": "section",
+        "parent_title": "第4章 文件管理"
+      },
+      {
+        "id": "OS-04-02",
+        "title": "4.2 目录",
+        "page_range": "P291-P303",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-04",
+        "level": "section",
+        "parent_title": "第4章 文件管理"
+      },
+      {
+        "id": "OS-04-03",
+        "title": "4.3 文件系统",
+        "page_range": "P304-P314",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-04",
+        "level": "section",
+        "parent_title": "第4章 文件管理"
+      },
+      {
+        "id": "OS-04-04",
+        "title": "4.4 本章疑难点",
+        "page_range": "P315",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-04",
+        "level": "section",
+        "parent_title": "第4章 文件管理"
+      },
+      {
+        "id": "OS-05",
+        "title": "第5章 输入/输出（I/O）管理",
+        "page_range": "P316-P368",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "OS-05-01",
+        "title": "5.1 I/O管理概述",
+        "page_range": "P316-P329",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-05",
+        "level": "section",
+        "parent_title": "第5章 输入/输出（I/O）管理"
+      },
+      {
+        "id": "OS-05-02",
+        "title": "5.2 设备独立性软件",
+        "page_range": "P330-P347",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-05",
+        "level": "section",
+        "parent_title": "第5章 输入/输出（I/O）管理"
+      },
+      {
+        "id": "OS-05-03",
+        "title": "5.3 磁盘和固态硬盘",
+        "page_range": "P348-P365",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-05",
+        "level": "section",
+        "parent_title": "第5章 输入/输出（I/O）管理"
+      },
+      {
+        "id": "OS-05-04",
+        "title": "5.4 本章疑难点",
+        "page_range": "P366-P368",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "OS-05",
+        "level": "section",
+        "parent_title": "第5章 输入/输出（I/O）管理"
+      }
+    ],
+    "notes": "由王道 PDF 书签目录导入。页码为 PDF 页序；做计划时可引用章级或节级单元。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-WANGDAO-CN",
+    "name": "王道计算机网络复习指导书",
+    "kind": "book",
+    "subject": "408 - Computer Network",
+    "edition": "2025",
+    "teacher": "",
+    "source": "D:\\hyh-note\\考研备考\\408计算机\\参考书\\2025王道计算机网络考研复习指导.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "pdf-outline:D:\\hyh-note\\考研备考\\408计算机\\参考书\\2025王道计算机网络考研复习指导.pdf",
+    "catalog_precision": "chapter-section-page",
+    "catalog_units": [
+      {
+        "id": "CN-01",
+        "title": "第1章 计算机网络体系结构",
+        "page_range": "P13-P42",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CN-01-01",
+        "title": "1.1 计算机网络概述",
+        "page_range": "P13-P25",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-01",
+        "level": "section",
+        "parent_title": "第1章 计算机网络体系结构"
+      },
+      {
+        "id": "CN-01-02",
+        "title": "1.2 计算机网络体系结构与参考模型",
+        "page_range": "P26-P40",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-01",
+        "level": "section",
+        "parent_title": "第1章 计算机网络体系结构"
+      },
+      {
+        "id": "CN-01-03",
+        "title": "1.3 本章小结及疑难点",
+        "page_range": "P41-P42",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-01",
+        "level": "section",
+        "parent_title": "第1章 计算机网络体系结构"
+      },
+      {
+        "id": "CN-02",
+        "title": "第2章 物理层",
+        "page_range": "P43-P64",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CN-02-01",
+        "title": "2.1 通信基础",
+        "page_range": "P43-P54",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-02",
+        "level": "section",
+        "parent_title": "第2章 物理层"
+      },
+      {
+        "id": "CN-02-02",
+        "title": "2.2 传输介质",
+        "page_range": "P55-P59",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-02",
+        "level": "section",
+        "parent_title": "第2章 物理层"
+      },
+      {
+        "id": "CN-02-03",
+        "title": "2.3 物理层设备",
+        "page_range": "P60-P62",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-02",
+        "level": "section",
+        "parent_title": "第2章 物理层"
+      },
+      {
+        "id": "CN-02-04",
+        "title": "2.4 本章小结及疑难点",
+        "page_range": "P63-P64",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-02",
+        "level": "section",
+        "parent_title": "第2章 物理层"
+      },
+      {
+        "id": "CN-03",
+        "title": "第3章 数据链路层",
+        "page_range": "P65-P139",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CN-03-01",
+        "title": "3.1 数据链路层的功能",
+        "page_range": "P65-P68",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-02",
+        "title": "3.2 组帧",
+        "page_range": "P69-P71",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-03",
+        "title": "3.3 差错控制",
+        "page_range": "P72-P76",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-04",
+        "title": "3.4 流量控制与可靠传输机制",
+        "page_range": "P77-P91",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-05",
+        "title": "3.5 介质访问控制",
+        "page_range": "P92-P111",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-06",
+        "title": "3.6 局域网",
+        "page_range": "P112-P126",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-07",
+        "title": "3.7 广域网",
+        "page_range": "P127-P130",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-08",
+        "title": "3.8 数据链路层设备",
+        "page_range": "P131-P137",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-03-09",
+        "title": "3.9 本章小结及疑难点",
+        "page_range": "P138-P139",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-03",
+        "level": "section",
+        "parent_title": "第3章 数据链路层"
+      },
+      {
+        "id": "CN-04",
+        "title": "第4章 网络层",
+        "page_range": "P140-P230",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CN-04-01",
+        "title": "4.1 网络层的功能",
+        "page_range": "P140-P150",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-02",
+        "title": "4.2 IPV4",
+        "page_range": "P151-P190",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-03",
+        "title": "4.3 IPV6",
+        "page_range": "P191-P195",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-04",
+        "title": "4.4 路由算法与路由协议",
+        "page_range": "P196-P214",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-05",
+        "title": "4.5 IP多播",
+        "page_range": "P215-P217",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-06",
+        "title": "4.6 移动IP",
+        "page_range": "P218-P219",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-07",
+        "title": "4.7 网络层设备",
+        "page_range": "P220-P228",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-04-08",
+        "title": "4.8 本章小结及疑难点",
+        "page_range": "P229-P230",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-04",
+        "level": "section",
+        "parent_title": "第4章 网络层"
+      },
+      {
+        "id": "CN-05",
+        "title": "第5章 传输层",
+        "page_range": "P231-P273",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CN-05-01",
+        "title": "5.1 传输层提供的服务",
+        "page_range": "P231-P235",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-05",
+        "level": "section",
+        "parent_title": "第5章 传输层"
+      },
+      {
+        "id": "CN-05-02",
+        "title": "5.2 UDP协议",
+        "page_range": "P236-P242",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-05",
+        "level": "section",
+        "parent_title": "第5章 传输层"
+      },
+      {
+        "id": "CN-05-03",
+        "title": "5.3 TCP协议",
+        "page_range": "P243-P270",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-05",
+        "level": "section",
+        "parent_title": "第5章 传输层"
+      },
+      {
+        "id": "CN-05-04",
+        "title": "5.4 本章小结及疑难点",
+        "page_range": "P271-P273",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-05",
+        "level": "section",
+        "parent_title": "第5章 传输层"
+      },
+      {
+        "id": "CN-06",
+        "title": "第6章 应用层",
+        "page_range": "P274-P310",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "CN-06-01",
+        "title": "6.1 网络应用模型",
+        "page_range": "P274-P276",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-06",
+        "level": "section",
+        "parent_title": "第6章 应用层"
+      },
+      {
+        "id": "CN-06-02",
+        "title": "6.2 域名系统（DNS）",
+        "page_range": "P277-P283",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-06",
+        "level": "section",
+        "parent_title": "第6章 应用层"
+      },
+      {
+        "id": "CN-06-03",
+        "title": "6.3 文件传输协议（FTP）",
+        "page_range": "P284-P289",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-06",
+        "level": "section",
+        "parent_title": "第6章 应用层"
+      },
+      {
+        "id": "CN-06-04",
+        "title": "6.4 电子邮件",
+        "page_range": "P290-P296",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-06",
+        "level": "section",
+        "parent_title": "第6章 应用层"
+      },
+      {
+        "id": "CN-06-05",
+        "title": "6.5 万维网（WWW）",
+        "page_range": "P297-P308",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-06",
+        "level": "section",
+        "parent_title": "第6章 应用层"
+      },
+      {
+        "id": "CN-06-06",
+        "title": "6.6 本章小结及疑难点",
+        "page_range": "P309-P310",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "CN-06",
+        "level": "section",
+        "parent_title": "第6章 应用层"
+      }
+    ],
+    "notes": "由王道 PDF 书签目录导入。页码为 PDF 页序；做计划时可引用章级或节级单元。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-TULING-1800",
+    "name": "图灵 1800 选择题专项",
+    "kind": "exercise-book",
+    "subject": "408",
+    "edition": "用户拍照目录，版本待确认",
+    "teacher": "",
+    "source": "用户提供目录照片：aea61f4501a484bd8b9976c0adc36575.jpg；89d204cad750eb964e89ef225d041b51.jpg",
+    "catalog_status": "partial",
+    "catalog_source": "user-photo:图灵1800目录照片 2026-06-24",
+    "catalog_precision": "chapter-question-type-page-partial",
+    "catalog_units": [
+      {
+        "id": "TL1800-DS-01",
+        "title": "数据结构 第1章 绪论",
+        "page_range": "P3-P8",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-01-C",
+        "title": "一、概念题",
+        "page_range": "P3",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-01-K",
+        "title": "二、考点题",
+        "page_range": "P5",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-02",
+        "title": "数据结构 第2章 线性表",
+        "page_range": "P9-P17",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-02-C",
+        "title": "一、概念题",
+        "page_range": "P9",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-02-K",
+        "title": "二、考点题",
+        "page_range": "P10",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-03",
+        "title": "数据结构 第3章 栈、队列和数组",
+        "page_range": "P18-P29",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-03-C",
+        "title": "一、概念题",
+        "page_range": "P18",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-03-K",
+        "title": "二、考点题",
+        "page_range": "P20",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-04",
+        "title": "数据结构 第4章 串",
+        "page_range": "P30-P32",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-04-C",
+        "title": "一、概念题",
+        "page_range": "P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-04-K",
+        "title": "二、考点题",
+        "page_range": "P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-05",
+        "title": "数据结构 第5章 树与二叉树",
+        "page_range": "P33-P46",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-05-C",
+        "title": "一、概念题",
+        "page_range": "P33",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-05",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-05-K",
+        "title": "二、考点题",
+        "page_range": "P35",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-05",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-06",
+        "title": "数据结构 第6章 图",
+        "page_range": "P47-P61",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-06-C",
+        "title": "一、概念题",
+        "page_range": "P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-06",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-06-K",
+        "title": "二、考点题",
+        "page_range": "P49",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-06",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-07",
+        "title": "数据结构 第7章 查找",
+        "page_range": "P62-P74",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-07-C",
+        "title": "一、概念题",
+        "page_range": "P62",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-07",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-07-K",
+        "title": "二、考点题",
+        "page_range": "P64",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-07",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-08",
+        "title": "数据结构 第8章 排序",
+        "page_range": "P75-P90",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-08-C",
+        "title": "一、概念题",
+        "page_range": "P75",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-08",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-DS-08-K",
+        "title": "二、考点题",
+        "page_range": "P77",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-DS-08",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-01",
+        "title": "计算机组成原理 第1章 计算机系统概述",
+        "page_range": "P91-P99",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-01-C",
+        "title": "一、概念题",
+        "page_range": "P91",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-01-K",
+        "title": "二、考点题",
+        "page_range": "P99",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-02",
+        "title": "计算机组成原理 第2章 数据的表示与运算",
+        "page_range": "P100-P114",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-02-C",
+        "title": "一、概念题",
+        "page_range": "P100",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-02-K",
+        "title": "二、考点题",
+        "page_range": "P102",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-03",
+        "title": "计算机组成原理 第3章 存储系统",
+        "page_range": "P115-P132",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-03-C",
+        "title": "一、概念题",
+        "page_range": "P115",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-03-K",
+        "title": "二、考点题",
+        "page_range": "P118",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-04",
+        "title": "计算机组成原理 第4章 指令系统",
+        "page_range": "P133-P143",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-04-C",
+        "title": "一、概念题",
+        "page_range": "P133",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-04-K",
+        "title": "二、考点题",
+        "page_range": "P135",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-05",
+        "title": "计算机组成原理 第5章 中央处理器",
+        "page_range": "P144-P160",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-05-C",
+        "title": "一、概念题",
+        "page_range": "P144",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-05",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-05-K",
+        "title": "二、考点题",
+        "page_range": "P149",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-05",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-06",
+        "title": "计算机组成原理 第6章 总线",
+        "page_range": "P161-P166",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-06-C",
+        "title": "一、概念题",
+        "page_range": "P161",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-06",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-06-K",
+        "title": "二、考点题",
+        "page_range": "P165",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-06",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-07",
+        "title": "计算机组成原理 第7章 输入/输出系统",
+        "page_range": "P167-P178",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-07-C",
+        "title": "一、概念题",
+        "page_range": "P167",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-07",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CO-07-K",
+        "title": "二、考点题",
+        "page_range": "P168",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CO-07",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-01",
+        "title": "操作系统 第1章 计算机系统概述",
+        "page_range": "P179-P188",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-01-C",
+        "title": "一、概念题",
+        "page_range": "P179",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-01-K",
+        "title": "二、考点题",
+        "page_range": "P181",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-02",
+        "title": "操作系统 第2章 进程与线程",
+        "page_range": "P189-P213",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-02-C",
+        "title": "一、概念题",
+        "page_range": "P189",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-02-K",
+        "title": "二、考点题",
+        "page_range": "P193",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-03",
+        "title": "操作系统 第3章 内存管理",
+        "page_range": "P214-P230",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-03-C",
+        "title": "一、概念题",
+        "page_range": "P214",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-03-K",
+        "title": "二、考点题",
+        "page_range": "P218",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-04",
+        "title": "操作系统 第4章 文件管理",
+        "page_range": "P231-P234",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-04-C",
+        "title": "一、概念题",
+        "page_range": "P231",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-OS-04-K",
+        "title": "二、考点题",
+        "page_range": "P234",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-OS-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-01",
+        "title": "计算机网络 第1章 计算机网络体系结构",
+        "page_range": "P251-P256",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-01-K",
+        "title": "二、考点题",
+        "page_range": "P257",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CN-01",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-02",
+        "title": "计算机网络 第2章 物理层",
+        "page_range": "P257-P263",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-02-K",
+        "title": "二、考点题",
+        "page_range": "P264",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CN-02",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-03",
+        "title": "计算机网络 第3章 数据链路层",
+        "page_range": "P264-P271",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-03-K",
+        "title": "二、考点题",
+        "page_range": "P272",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CN-03",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-04",
+        "title": "计算机网络 第4章 网络层",
+        "page_range": "P272-P286",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-04-K",
+        "title": "二、考点题",
+        "page_range": "P287",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CN-04",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-05",
+        "title": "计算机网络 第5章 传输层",
+        "page_range": "P287-P305",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-05-K",
+        "title": "二、考点题",
+        "page_range": "P306",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CN-05",
+        "level": "question-type",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-06",
+        "title": "计算机网络 第6章 应用层",
+        "page_range": "P306-P315",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter",
+        "source_note": ""
+      },
+      {
+        "id": "TL1800-CN-06-K",
+        "title": "二、考点题",
+        "page_range": "P315",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "TL1800-CN-06",
+        "level": "question-type",
+        "source_note": ""
+      }
+    ],
+    "notes": "由用户拍摄目录照片录入。数据结构、操作系统较清晰；计算机组成原理和计算机网络已录入可见页码，仍建议补拍完整清晰目录页后复核。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-WZX-GS-BASE",
+    "name": "27武忠祥《高数基础篇》",
+    "kind": "book",
+    "subject": "Math II - Advanced Math",
+    "edition": "2027",
+    "teacher": "武忠祥",
+    "source": "D:\\hyh-note\\考研备考\\数学二\\书籍\\27武忠祥《高数基础篇》.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "scanned-toc:D:\\hyh-note\\考研备考\\数学二\\书籍\\27武忠祥《高数基础篇》.pdf:PDF pages 14-19",
+    "catalog_precision": "chapter-book-page",
+    "catalog_units": [
+      {
+        "id": "WZXGSB-01",
+        "title": "第1章 函数、极限、连续",
+        "page_range": "P2-P41",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-02",
+        "title": "第2章 导数与微分",
+        "page_range": "P42-P58",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-03",
+        "title": "第3章 微分中值定理及导数应用",
+        "page_range": "P59-P73",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-04",
+        "title": "第4章 不定积分",
+        "page_range": "P74-P89",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-05",
+        "title": "第5章 定积分与反常积分",
+        "page_range": "P90-P110",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-06",
+        "title": "第6章 定积分的应用",
+        "page_range": "P111-P118",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-07",
+        "title": "第7章 微分方程",
+        "page_range": "P119-P133",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-08",
+        "title": "第8章 多元函数微分学",
+        "page_range": "P134-P153",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-09",
+        "title": "第9章 二重积分",
+        "page_range": "P154-P161",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-10",
+        "title": "第10章 无穷级数（仅数学一、三要求）",
+        "page_range": "P162-P180",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-11",
+        "title": "第11章 向量代数与空间解析几何及多元微分学在几何上的应用（仅数学一要求）",
+        "page_range": "P181-P190",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXGSB-12",
+        "title": "第12章 多元积分学及其应用（仅数学一要求）",
+        "page_range": "P191-P210",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      }
+    ],
+    "notes": "由扫描版目录页人工核读录入。页码为书内页码；计划默认使用章级。",
+    "updated": "2026-06-24",
+    "progress": {
+      "status": "done",
+      "completed_units": [
+        "WZXGSB-01",
+        "WZXGSB-02",
+        "WZXGSB-03",
+        "WZXGSB-04",
+        "WZXGSB-05",
+        "WZXGSB-06",
+        "WZXGSB-07",
+        "WZXGSB-08",
+        "WZXGSB-09",
+        "WZXGSB-10",
+        "WZXGSB-11",
+        "WZXGSB-12"
+      ],
+      "updated": "2026-06-24",
+      "note": "用户确认高数基础篇已完成"
+    }
+  },
+  {
+    "id": "MAT-WZX-GS-YANXUAN",
+    "name": "27武忠祥《高等数学基础篇严选题》",
+    "kind": "exercise-book",
+    "subject": "Math II - Advanced Math",
+    "edition": "2027",
+    "teacher": "武忠祥",
+    "source": "D:\\hyh-note\\考研备考\\数学二\\书籍\\27武忠祥《高数基础篇》严选题.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "scanned-toc:D:\\hyh-note\\考研备考\\数学二\\书籍\\27武忠祥《高数基础篇》严选题.pdf:PDF pages 4-5",
+    "catalog_precision": "chapter-book-page",
+    "catalog_units": [
+      {
+        "id": "WZXYX-01",
+        "title": "第1章 函数、极限、连续",
+        "page_range": "P1-P13",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-02",
+        "title": "第2章 导数与微分",
+        "page_range": "P14-P21",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-03",
+        "title": "第3章 微分中值定理及导数应用",
+        "page_range": "P22-P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-04",
+        "title": "第4章 不定积分",
+        "page_range": "P31-P35",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-05",
+        "title": "第5章 定积分与反常积分",
+        "page_range": "P37-P46",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-06",
+        "title": "第6章 定积分的应用",
+        "page_range": "P47-P52",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-07",
+        "title": "第7章 微分方程",
+        "page_range": "P53-P62",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-08",
+        "title": "第8章 多元函数微分学",
+        "page_range": "P63-P74",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-09",
+        "title": "第9章 二重积分",
+        "page_range": "P75-P82",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-10",
+        "title": "第10章 无穷级数",
+        "page_range": "P83-P93",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-11",
+        "title": "第11章 向量代数与空间解析几何及多元微分学在几何上的应用",
+        "page_range": "P95-P100",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXYX-12",
+        "title": "第12章 多元积分学及其应用",
+        "page_range": "P101-P108",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      }
+    ],
+    "notes": "由扫描版目录页人工核读录入。页码为书内页码；计划默认使用章级。",
+    "updated": "2026-06-24",
+    "progress": {
+      "status": "done",
+      "completed_units": [
+        "WZXYX-01",
+        "WZXYX-02",
+        "WZXYX-03",
+        "WZXYX-04",
+        "WZXYX-05",
+        "WZXYX-06",
+        "WZXYX-07",
+        "WZXYX-08",
+        "WZXYX-09",
+        "WZXYX-10",
+        "WZXYX-11",
+        "WZXYX-12"
+      ],
+      "updated": "2026-06-24",
+      "note": "用户确认武忠祥高数严选题基本做完/按完成处理"
+    }
+  },
+  {
+    "id": "MAT-660-GS",
+    "name": "《基础过关660》高数篇",
+    "kind": "exercise-book",
+    "subject": "Math II - Advanced Math",
+    "edition": "2027",
+    "teacher": "",
+    "source": "D:\\hyh-note\\考研备考\\数学二\\书籍\\《基础过关660》-高数篇 .pdf",
+    "catalog_status": "complete",
+    "catalog_source": "scanned-toc:D:\\hyh-note\\考研备考\\数学二\\书籍\\《基础过关660》-高数篇 .pdf:PDF page 15",
+    "catalog_precision": "topic-book-page",
+    "catalog_units": [
+      {
+        "id": "660GS-F01",
+        "title": "填空题：函数、极限、连续",
+        "page_range": "P1",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F02",
+        "title": "填空题：导数与微分",
+        "page_range": "P11",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F03",
+        "title": "填空题：微分中值定理及导数应用",
+        "page_range": "P21",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F04",
+        "title": "填空题：不定积分",
+        "page_range": "P24",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F05",
+        "title": "填空题：定积分与反常积分",
+        "page_range": "P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F06",
+        "title": "填空题：定积分的应用",
+        "page_range": "P43",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F07",
+        "title": "填空题：微分方程",
+        "page_range": "P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F08",
+        "title": "填空题：多元函数微分学",
+        "page_range": "P54",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-F09",
+        "title": "填空题：二重积分",
+        "page_range": "P62",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C01",
+        "title": "选择题：函数、极限、连续",
+        "page_range": "P70",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C02",
+        "title": "选择题：导数与微分",
+        "page_range": "P84",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C03",
+        "title": "选择题：微分中值定理及导数应用",
+        "page_range": "P97",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C04",
+        "title": "选择题：不定积分",
+        "page_range": "P104",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C05",
+        "title": "选择题：定积分与反常积分",
+        "page_range": "P107",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C06",
+        "title": "选择题：定积分的应用",
+        "page_range": "P121",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C07",
+        "title": "选择题：微分方程",
+        "page_range": "P126",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C08",
+        "title": "选择题：多元函数微分学",
+        "page_range": "P134",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660GS-C09",
+        "title": "选择题：二重积分",
+        "page_range": "P145",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      }
+    ],
+    "notes": "由扫描版目录页人工核读录入。分填空题与选择题专题；页码为书内页码。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-660-LA",
+    "name": "《基础过关660》线代篇",
+    "kind": "exercise-book",
+    "subject": "Math II - Linear Algebra",
+    "edition": "2027",
+    "teacher": "",
+    "source": "D:\\hyh-note\\考研备考\\数学二\\书籍\\《基础过关660》-线代篇.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "scanned-toc:D:\\hyh-note\\考研备考\\数学二\\书籍\\《基础过关660》-线代篇.pdf:PDF page 2",
+    "catalog_precision": "topic-book-page",
+    "catalog_units": [
+      {
+        "id": "660LA-F01",
+        "title": "填空题：行列式",
+        "page_range": "P1",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-F02",
+        "title": "填空题：矩阵",
+        "page_range": "P3",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-F03",
+        "title": "填空题：向量",
+        "page_range": "P11",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-F04",
+        "title": "填空题：线性方程组",
+        "page_range": "P17",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-F05",
+        "title": "填空题：特征值和特征向量",
+        "page_range": "P21",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-F06",
+        "title": "填空题：二次型",
+        "page_range": "P27",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "填空题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-C01",
+        "title": "选择题：行列式",
+        "page_range": "P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-C02",
+        "title": "选择题：矩阵",
+        "page_range": "P33",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-C03",
+        "title": "选择题：向量",
+        "page_range": "P46",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-C04",
+        "title": "选择题：线性方程组",
+        "page_range": "P54",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-C05",
+        "title": "选择题：特征值和特征向量",
+        "page_range": "P59",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      },
+      {
+        "id": "660LA-C06",
+        "title": "选择题：二次型",
+        "page_range": "P65",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "选择题",
+        "level": "topic"
+      }
+    ],
+    "notes": "由扫描版目录页人工核读录入。分填空题与选择题专题；页码为书内页码。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-LIYONGLE-LA-BASE",
+    "name": "李永乐《线性代数基础篇》",
+    "kind": "book",
+    "subject": "Math II - Linear Algebra",
+    "edition": "",
+    "teacher": "李永乐",
+    "source": "用户提供目录照片",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\b415a775dbce5fc94dcf788e93bed5a3.jpg;D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\fbecd13a3774b5019a45abd8caf01b37.jpg",
+    "catalog_precision": "chapter-section-page",
+    "catalog_units": [
+      {
+        "id": "LYLA-01",
+        "title": "第1章 行列式",
+        "page_range": "P1-P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYLA-01-01",
+        "title": "1.1 行列式的概念",
+        "page_range": "P2",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-01",
+        "level": "section",
+        "parent_title": "第1章 行列式"
+      },
+      {
+        "id": "LYLA-01-02",
+        "title": "1.2 行列式的性质",
+        "page_range": "P7",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-01",
+        "level": "section",
+        "parent_title": "第1章 行列式"
+      },
+      {
+        "id": "LYLA-01-03",
+        "title": "1.3 行列式的计算",
+        "page_range": "P11",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-01",
+        "level": "section",
+        "parent_title": "第1章 行列式"
+      },
+      {
+        "id": "LYLA-01-E",
+        "title": "例题解析",
+        "page_range": "P19",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-01",
+        "level": "section",
+        "parent_title": "第1章 行列式"
+      },
+      {
+        "id": "LYLA-02",
+        "title": "第2章 矩阵",
+        "page_range": "P31-P92",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYLA-02-01",
+        "title": "2.1 矩阵的概念与运算",
+        "page_range": "P32",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-02",
+        "level": "section",
+        "parent_title": "第2章 矩阵"
+      },
+      {
+        "id": "LYLA-02-02",
+        "title": "2.2 伴随矩阵、逆矩阵",
+        "page_range": "P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-02",
+        "level": "section",
+        "parent_title": "第2章 矩阵"
+      },
+      {
+        "id": "LYLA-02-03",
+        "title": "2.3 分块矩阵",
+        "page_range": "P56",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-02",
+        "level": "section",
+        "parent_title": "第2章 矩阵"
+      },
+      {
+        "id": "LYLA-02-04",
+        "title": "2.4 矩阵的初等变换",
+        "page_range": "P62",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-02",
+        "level": "section",
+        "parent_title": "第2章 矩阵"
+      },
+      {
+        "id": "LYLA-02-05",
+        "title": "2.5 矩阵的秩",
+        "page_range": "P71",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-02",
+        "level": "section",
+        "parent_title": "第2章 矩阵"
+      },
+      {
+        "id": "LYLA-02-E",
+        "title": "例题解析",
+        "page_range": "P77",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-02",
+        "level": "section",
+        "parent_title": "第2章 矩阵"
+      },
+      {
+        "id": "LYLA-03",
+        "title": "第3章 向量",
+        "page_range": "P93-P130",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYLA-03-01",
+        "title": "3.1 向量的概念与线性运算",
+        "page_range": "P94",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-03",
+        "level": "section",
+        "parent_title": "第3章 向量"
+      },
+      {
+        "id": "LYLA-03-02",
+        "title": "3.2 向量间的线性关系",
+        "page_range": "P95",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-03",
+        "level": "section",
+        "parent_title": "第3章 向量"
+      },
+      {
+        "id": "LYLA-03-03",
+        "title": "3.3 极大线性无关组与向量组的秩",
+        "page_range": "P105",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-03",
+        "level": "section",
+        "parent_title": "第3章 向量"
+      },
+      {
+        "id": "LYLA-03-04",
+        "title": "3.4 内积与正交规范化",
+        "page_range": "P111",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-03",
+        "level": "section",
+        "parent_title": "第3章 向量"
+      },
+      {
+        "id": "LYLA-03-05",
+        "title": "3.5 n维向量空间（仅数一）",
+        "page_range": "P115",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-03",
+        "level": "section",
+        "parent_title": "第3章 向量"
+      },
+      {
+        "id": "LYLA-03-E",
+        "title": "例题解析",
+        "page_range": "P120",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-03",
+        "level": "section",
+        "parent_title": "第3章 向量"
+      },
+      {
+        "id": "LYLA-04",
+        "title": "第4章 线性方程组",
+        "page_range": "P131-P160",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYLA-04-01",
+        "title": "4.1 线性方程组的表示形式及初等变换",
+        "page_range": "P132",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-04",
+        "level": "section",
+        "parent_title": "第4章 线性方程组"
+      },
+      {
+        "id": "LYLA-04-02",
+        "title": "4.2 线性方程组解的判定及性质",
+        "page_range": "P134",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-04",
+        "level": "section",
+        "parent_title": "第4章 线性方程组"
+      },
+      {
+        "id": "LYLA-04-03",
+        "title": "4.3 线性方程组解的结构",
+        "page_range": "P142",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-04",
+        "level": "section",
+        "parent_title": "第4章 线性方程组"
+      },
+      {
+        "id": "LYLA-04-E",
+        "title": "例题解析",
+        "page_range": "P150",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-04",
+        "level": "section",
+        "parent_title": "第4章 线性方程组"
+      },
+      {
+        "id": "LYLA-05",
+        "title": "第5章 特征值与特征向量",
+        "page_range": "P161-P182",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYLA-05-01",
+        "title": "5.1 特征值与特征向量的定义及性质",
+        "page_range": "P162",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-05",
+        "level": "section",
+        "parent_title": "第5章 特征值与特征向量"
+      },
+      {
+        "id": "LYLA-05-02",
+        "title": "5.2 特征值与特征向量的求法",
+        "page_range": "P162",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-05",
+        "level": "section",
+        "parent_title": "第5章 特征值与特征向量"
+      },
+      {
+        "id": "LYLA-05-03",
+        "title": "5.3 相似矩阵的概念和性质",
+        "page_range": "P167",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-05",
+        "level": "section",
+        "parent_title": "第5章 特征值与特征向量"
+      },
+      {
+        "id": "LYLA-05-04",
+        "title": "5.4 矩阵的对角化",
+        "page_range": "P172",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-05",
+        "level": "section",
+        "parent_title": "第5章 特征值与特征向量"
+      },
+      {
+        "id": "LYLA-05-05",
+        "title": "5.5 实对称矩阵的对角化",
+        "page_range": "P175",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-05",
+        "level": "section",
+        "parent_title": "第5章 特征值与特征向量"
+      },
+      {
+        "id": "LYLA-05-E",
+        "title": "例题解析",
+        "page_range": "P180",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-05",
+        "level": "section",
+        "parent_title": "第5章 特征值与特征向量"
+      },
+      {
+        "id": "LYLA-06",
+        "title": "第6章 二次型",
+        "page_range": "P183-P208",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYLA-06-01",
+        "title": "6.1 二次型及其矩阵",
+        "page_range": "P195",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-06",
+        "level": "section",
+        "parent_title": "第6章 二次型"
+      },
+      {
+        "id": "LYLA-06-02",
+        "title": "6.2 化二次型为标准形",
+        "page_range": "P195",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-06",
+        "level": "section",
+        "parent_title": "第6章 二次型"
+      },
+      {
+        "id": "LYLA-06-03",
+        "title": "6.3 正定二次型和正定矩阵",
+        "page_range": "P199",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-06",
+        "level": "section",
+        "parent_title": "第6章 二次型"
+      },
+      {
+        "id": "LYLA-06-E",
+        "title": "例题解析",
+        "page_range": "P205",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LYLA-06",
+        "level": "section",
+        "parent_title": "第6章 二次型"
+      }
+    ],
+    "notes": "由用户提供的《线性代数基础篇》目录照片人工核读录入。章级页码采用目录页可见范围，节级页码保留目录起始页，计划默认按章节或节组合安排。",
+    "updated": "2026-06-24",
+    "progress": {
+      "status": "done",
+      "completed_units": [
+        "LYLA-01",
+        "LYLA-02",
+        "LYLA-03",
+        "LYLA-04",
+        "LYLA-05",
+        "LYLA-06"
+      ],
+      "updated": "2026-06-24",
+      "note": "用户确认线代基础篇已完成"
+    }
+  },
+  {
+    "id": "MAT-WZX-GS-FUDAO",
+    "name": "武忠祥高等数学辅导讲义强化篇",
+    "kind": "book",
+    "subject": "Math II - Advanced Math",
+    "edition": "2026",
+    "teacher": "武忠祥",
+    "source": "用户提供目录照片",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\94f2c8bfb53e79f9172d0a0f9e52f626.jpg;D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\91d9d570aa027bd2857f644d26e94302.jpg;D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\1a1edf3c271e68c18115407f29a40579.jpg",
+    "catalog_precision": "chapter-book-page",
+    "catalog_units": [
+      {
+        "id": "WZXFD-01",
+        "title": "第1章 函数 极限 连续",
+        "page_range": "P3-P55",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-02",
+        "title": "第2章 一元函数微分学",
+        "page_range": "P56-P103",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-03",
+        "title": "第3章 一元函数积分学",
+        "page_range": "P104-P152",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-04",
+        "title": "第4章 常微分方程",
+        "page_range": "P153-P167",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-05",
+        "title": "第5章 多元函数微分学",
+        "page_range": "P168-P199",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-06",
+        "title": "第6章 二重积分",
+        "page_range": "P200-P217",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-07",
+        "title": "第7章 无穷级数（仅数学一、三）",
+        "page_range": "P218-P248",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-08",
+        "title": "第8章 向量代数与空间解析几何及多元微分学在几何上的应用（仅数学一）",
+        "page_range": "P249-P265",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFD-09",
+        "title": "第9章 多元函数积分学及其应用（仅数学一）",
+        "page_range": "P266-P294",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      }
+    ],
+    "notes": "由用户提供的辅导讲义目录照片人工核读录入。当前按真实章节做计划；书内细分题型已见目录，但默认不强制拆到题型层。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-WZX-GS-FUDAO-YX",
+    "name": "武忠祥高等数学辅导讲义配套严选题",
+    "kind": "exercise-book",
+    "subject": "Math II - Advanced Math",
+    "edition": "2027",
+    "teacher": "武忠祥",
+    "source": "用户提供目录照片",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\ff6dfe19251cb783244aff99bf2b90cf.jpg",
+    "catalog_precision": "chapter-book-page",
+    "catalog_units": [
+      {
+        "id": "WZXFDYX-01",
+        "title": "第1章 函数 极限 连续",
+        "page_range": "P1-P17",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-02",
+        "title": "第2章 一元函数微分学",
+        "page_range": "P18-P33",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-03",
+        "title": "第3章 一元函数积分学",
+        "page_range": "P34-P53",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-04",
+        "title": "第4章 常微分方程",
+        "page_range": "P54-P66",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-05",
+        "title": "第5章 多元函数微分学",
+        "page_range": "P67-P83",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-06",
+        "title": "第6章 二重积分",
+        "page_range": "P84-P98",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-07",
+        "title": "第7章 无穷级数（仅数学一、三）",
+        "page_range": "P99-P115",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-08",
+        "title": "第8章 向量代数与空间解析几何及多元微分学在几何上的应用（仅数学一）",
+        "page_range": "P116-P126",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "WZXFDYX-09",
+        "title": "第9章 多元函数积分学及其应用（仅数学一）",
+        "page_range": "P127-P141",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      }
+    ],
+    "notes": "由用户提供的严选题目录照片人工核读录入。当前按章节管理，答案解析部分不作为主计划单元。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-LIYONGLE-LA-FUDAO",
+    "name": "李永乐线性代数辅导讲义",
+    "kind": "book",
+    "subject": "Math II - Linear Algebra",
+    "edition": "2027",
+    "teacher": "李永乐",
+    "source": "用户提供目录照片",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\c57226abc4785e34563a218a7cf02c02.jpg;D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\6bfcf200c334c6c8ee329aeb5ae60db4.jpg;D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\599c9b8a04b9b971670df3da4ca3df68.jpg",
+    "catalog_precision": "chapter-book-page",
+    "catalog_units": [
+      {
+        "id": "LYFD-01",
+        "title": "第1章 行列式",
+        "page_range": "P1-P28",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFD-02",
+        "title": "第2章 矩阵",
+        "page_range": "P29-P66",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFD-03",
+        "title": "第3章 n维向量",
+        "page_range": "P67-P96",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFD-04",
+        "title": "第4章 线性方程组",
+        "page_range": "P97-P129",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFD-05",
+        "title": "第5章 特征值和特征向量",
+        "page_range": "P130-P161",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFD-06",
+        "title": "第6章 二次型",
+        "page_range": "P162-P192",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFD-APP",
+        "title": "附录 45分钟水平测试",
+        "page_range": "P193-P195",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "appendix"
+      }
+    ],
+    "notes": "由用户提供的线代辅导讲义目录照片人工核读录入。当前按真实章节管理；章节内的知识结构图、例题选讲、练习严选不再单独拆成计划单位。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-LIYONGLE-LA-FUDAO-YX",
+    "name": "李永乐线性代数辅导讲义配套严选题",
+    "kind": "exercise-book",
+    "subject": "Math II - Linear Algebra",
+    "edition": "2027",
+    "teacher": "李永乐",
+    "source": "用户提供目录照片",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\c21c2ea10d58ddc51fffd091c3d048a5.jpg",
+    "catalog_precision": "chapter-book-page",
+    "catalog_units": [
+      {
+        "id": "LYFDYX-01",
+        "title": "第1章 行列式",
+        "page_range": "P1-P11",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFDYX-02",
+        "title": "第2章 矩阵",
+        "page_range": "P12-P23",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFDYX-03",
+        "title": "第3章 n维向量",
+        "page_range": "P24-P34",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFDYX-04",
+        "title": "第4章 线性方程组",
+        "page_range": "P35-P45",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFDYX-05",
+        "title": "第5章 特征值和特征向量",
+        "page_range": "P46-P56",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFDYX-06",
+        "title": "第6章 二次型",
+        "page_range": "P57-P65",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "chapter"
+      },
+      {
+        "id": "LYFDYX-APP",
+        "title": "附录 45分钟水平测试",
+        "page_range": "P66-P71",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "appendix"
+      }
+    ],
+    "notes": "由用户提供的线代严选题目录照片人工核读录入。当前按章节管理，答案解析部分不作为主计划单元。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-LXY-88",
+    "name": "刘晓艳 88句",
+    "kind": "handout",
+    "subject": "English II",
+    "edition": "",
+    "teacher": "刘晓艳",
+    "source": "用户说明：目录按第1句至第88句顺序组织",
+    "catalog_status": "complete",
+    "catalog_source": "user-confirmed-sequential:2026-06-24",
+    "catalog_precision": "item-sequence",
+    "catalog_units": [
+      {
+        "id": "LXY88-001",
+        "title": "第1句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-002",
+        "title": "第2句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-003",
+        "title": "第3句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-004",
+        "title": "第4句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-005",
+        "title": "第5句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-006",
+        "title": "第6句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-007",
+        "title": "第7句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-008",
+        "title": "第8句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-009",
+        "title": "第9句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-010",
+        "title": "第10句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-011",
+        "title": "第11句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-012",
+        "title": "第12句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-013",
+        "title": "第13句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-014",
+        "title": "第14句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-015",
+        "title": "第15句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-016",
+        "title": "第16句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-017",
+        "title": "第17句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-018",
+        "title": "第18句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-019",
+        "title": "第19句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-020",
+        "title": "第20句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-021",
+        "title": "第21句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-022",
+        "title": "第22句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-023",
+        "title": "第23句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-024",
+        "title": "第24句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-025",
+        "title": "第25句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-026",
+        "title": "第26句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-027",
+        "title": "第27句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-028",
+        "title": "第28句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-029",
+        "title": "第29句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-030",
+        "title": "第30句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-031",
+        "title": "第31句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-032",
+        "title": "第32句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-033",
+        "title": "第33句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-034",
+        "title": "第34句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-035",
+        "title": "第35句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-036",
+        "title": "第36句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-037",
+        "title": "第37句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-038",
+        "title": "第38句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-039",
+        "title": "第39句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-040",
+        "title": "第40句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-041",
+        "title": "第41句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-042",
+        "title": "第42句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-043",
+        "title": "第43句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-044",
+        "title": "第44句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-045",
+        "title": "第45句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-046",
+        "title": "第46句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-047",
+        "title": "第47句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-048",
+        "title": "第48句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-049",
+        "title": "第49句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-050",
+        "title": "第50句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-051",
+        "title": "第51句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-052",
+        "title": "第52句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-053",
+        "title": "第53句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-054",
+        "title": "第54句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-055",
+        "title": "第55句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-056",
+        "title": "第56句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-057",
+        "title": "第57句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-058",
+        "title": "第58句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-059",
+        "title": "第59句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-060",
+        "title": "第60句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-061",
+        "title": "第61句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-062",
+        "title": "第62句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-063",
+        "title": "第63句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-064",
+        "title": "第64句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-065",
+        "title": "第65句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-066",
+        "title": "第66句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-067",
+        "title": "第67句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-068",
+        "title": "第68句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-069",
+        "title": "第69句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-070",
+        "title": "第70句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-071",
+        "title": "第71句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-072",
+        "title": "第72句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-073",
+        "title": "第73句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-074",
+        "title": "第74句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-075",
+        "title": "第75句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-076",
+        "title": "第76句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-077",
+        "title": "第77句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-078",
+        "title": "第78句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-079",
+        "title": "第79句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-080",
+        "title": "第80句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-081",
+        "title": "第81句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-082",
+        "title": "第82句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-083",
+        "title": "第83句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-084",
+        "title": "第84句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-085",
+        "title": "第85句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-086",
+        "title": "第86句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-087",
+        "title": "第87句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY88-088",
+        "title": "第88句",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      }
+    ],
+    "notes": "由用户明确说明目录按“第1句-第88句”顺序组织，因此按顺序项建立真实资料目录。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-LXY-58",
+    "name": "刘晓艳 58篇基础阅读",
+    "kind": "exercise-book",
+    "subject": "English II",
+    "edition": "",
+    "teacher": "刘晓艳",
+    "source": "用户说明：目录按第1篇至第58篇顺序组织",
+    "catalog_status": "complete",
+    "catalog_source": "user-confirmed-sequential:2026-06-24",
+    "catalog_precision": "item-sequence",
+    "catalog_units": [
+      {
+        "id": "LXY58-001",
+        "title": "第1篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-002",
+        "title": "第2篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-003",
+        "title": "第3篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-004",
+        "title": "第4篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-005",
+        "title": "第5篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-006",
+        "title": "第6篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-007",
+        "title": "第7篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-008",
+        "title": "第8篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-009",
+        "title": "第9篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-010",
+        "title": "第10篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-011",
+        "title": "第11篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-012",
+        "title": "第12篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-013",
+        "title": "第13篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-014",
+        "title": "第14篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-015",
+        "title": "第15篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-016",
+        "title": "第16篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-017",
+        "title": "第17篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-018",
+        "title": "第18篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-019",
+        "title": "第19篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-020",
+        "title": "第20篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-021",
+        "title": "第21篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-022",
+        "title": "第22篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-023",
+        "title": "第23篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-024",
+        "title": "第24篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-025",
+        "title": "第25篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-026",
+        "title": "第26篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-027",
+        "title": "第27篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-028",
+        "title": "第28篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-029",
+        "title": "第29篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-030",
+        "title": "第30篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-031",
+        "title": "第31篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-032",
+        "title": "第32篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-033",
+        "title": "第33篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-034",
+        "title": "第34篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-035",
+        "title": "第35篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-036",
+        "title": "第36篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-037",
+        "title": "第37篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-038",
+        "title": "第38篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-039",
+        "title": "第39篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-040",
+        "title": "第40篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-041",
+        "title": "第41篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-042",
+        "title": "第42篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-043",
+        "title": "第43篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-044",
+        "title": "第44篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-045",
+        "title": "第45篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-046",
+        "title": "第46篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-047",
+        "title": "第47篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-048",
+        "title": "第48篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-049",
+        "title": "第49篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-050",
+        "title": "第50篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-051",
+        "title": "第51篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-052",
+        "title": "第52篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-053",
+        "title": "第53篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-054",
+        "title": "第54篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-055",
+        "title": "第55篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-056",
+        "title": "第56篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-057",
+        "title": "第57篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      },
+      {
+        "id": "LXY58-058",
+        "title": "第58篇",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "item"
+      }
+    ],
+    "notes": "由用户明确说明目录按“第1篇-第58篇”顺序组织，因此按顺序项建立真实资料目录。",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "MAT-330-M1",
+    "name": "数一 330题",
+    "kind": "exercise-book",
+    "subject": "Math I - Supplemental",
+    "edition": "",
+    "teacher": "",
+    "source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\15b927039fa903a0dc704ff7cc891df8.jpg",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:2026-06-24 数一330题目录",
+    "catalog_units": [
+      {
+        "id": "M1330-GS-01",
+        "title": "函数、极限、连续",
+        "page_range": "P3-P8",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-02",
+        "title": "一元函数微分学",
+        "page_range": "P9-P24",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-03",
+        "title": "一元函数积分学",
+        "page_range": "P25-P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-04",
+        "title": "多元函数微分学",
+        "page_range": "P48-P55",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-05",
+        "title": "向量代数与空间解析几何",
+        "page_range": "P56-P56",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-06",
+        "title": "多元函数积分学",
+        "page_range": "P57-P69",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-07",
+        "title": "无穷级数",
+        "page_range": "P70-P76",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-GS-08",
+        "title": "微分方程",
+        "page_range": "P77-P94",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-LA-01",
+        "title": "行列式",
+        "page_range": "P95-P95",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-LA-02",
+        "title": "矩阵",
+        "page_range": "P96-P100",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-LA-03",
+        "title": "向量",
+        "page_range": "P101-P106",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-LA-04",
+        "title": "线性方程组",
+        "page_range": "P107-P113",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-LA-05",
+        "title": "特征值和特征向量",
+        "page_range": "P114-P123",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-LA-06",
+        "title": "二次型",
+        "page_range": "P124-P134",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-01",
+        "title": "随机事件和概率",
+        "page_range": "P135-P137",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-02",
+        "title": "随机变量及其分布",
+        "page_range": "P138-P140",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-03",
+        "title": "多维随机变量及其分布",
+        "page_range": "P141-P151",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-04",
+        "title": "随机变量的数字特征",
+        "page_range": "P152-P161",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-05",
+        "title": "大数定律和中心极限定理",
+        "page_range": "P162-P163",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-06",
+        "title": "数理统计的基本概念",
+        "page_range": "P164-P166",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-07",
+        "title": "参数估计",
+        "page_range": "P167-P175",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "M1330-PR-08",
+        "title": "假设检验",
+        "page_range": "P176-终页待补",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      }
+    ],
+    "notes": "辅助习题册，非主线使用；仅在主线题册完成、周计划有余量或专项补弱时再调入。目录来自用户实拍，按大章精度建档。",
+    "created": "2026-06-24"
+  },
+  {
+    "id": "MAT-LILIN-880-M1",
+    "name": "李林 880题（数一）",
+    "kind": "exercise-book",
+    "subject": "Math I - Supplemental",
+    "edition": "",
+    "teacher": "",
+    "source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\da90e3aaa994b92c027caf564085fc60.jpg;D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\a598567a59b16227b0f94f1f3a270efb.jpg",
+    "catalog_status": "complete",
+    "catalog_source": "user-photo:2026-06-24 李林880题目录",
+    "catalog_units": [
+      {
+        "id": "LL880-01",
+        "title": "第一章 函数、极限、连续",
+        "page_range": "P1-P6",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-01-A",
+        "title": "第一章 基础题",
+        "page_range": "P1-P1",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-01"
+      },
+      {
+        "id": "LL880-01-B",
+        "title": "第一章 综合题",
+        "page_range": "P1-P2",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-01"
+      },
+      {
+        "id": "LL880-01-C",
+        "title": "第一章 拓展题",
+        "page_range": "P3-P6",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-01"
+      },
+      {
+        "id": "LL880-02",
+        "title": "第二章 一元函数微分学及其应用",
+        "page_range": "P7-P16",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-02-A",
+        "title": "第二章 基础题",
+        "page_range": "P7-P10",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-02"
+      },
+      {
+        "id": "LL880-02-B",
+        "title": "第二章 综合题",
+        "page_range": "P11-P15",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-02"
+      },
+      {
+        "id": "LL880-02-C",
+        "title": "第二章 拓展题",
+        "page_range": "P16-P16",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-02"
+      },
+      {
+        "id": "LL880-03",
+        "title": "第三章 一元函数积分学及其应用",
+        "page_range": "P17-P28",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-03-A",
+        "title": "第三章 基础题",
+        "page_range": "P17-P20",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-03"
+      },
+      {
+        "id": "LL880-03-B",
+        "title": "第三章 综合题",
+        "page_range": "P21-P25",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-03"
+      },
+      {
+        "id": "LL880-03-C",
+        "title": "第三章 拓展题",
+        "page_range": "P26-P28",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-03"
+      },
+      {
+        "id": "LL880-04",
+        "title": "第四章 空间解析几何",
+        "page_range": "P29-P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-04-A",
+        "title": "第四章 基础题",
+        "page_range": "P29-P29",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-04"
+      },
+      {
+        "id": "LL880-04-C",
+        "title": "第四章 拓展题",
+        "page_range": "P30-P30",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-04"
+      },
+      {
+        "id": "LL880-05",
+        "title": "第五章 多元函数微分学及其应用",
+        "page_range": "P31-P36",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-05-A",
+        "title": "第五章 基础题",
+        "page_range": "P31-P32",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-05"
+      },
+      {
+        "id": "LL880-05-B",
+        "title": "第五章 综合题",
+        "page_range": "P33-P35",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-05"
+      },
+      {
+        "id": "LL880-05-C",
+        "title": "第五章 拓展题",
+        "page_range": "P36-P36",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-05"
+      },
+      {
+        "id": "LL880-06",
+        "title": "第六章 重积分及其应用",
+        "page_range": "P37-P42",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-06-A",
+        "title": "第六章 基础题",
+        "page_range": "P37-P38",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-06"
+      },
+      {
+        "id": "LL880-06-B",
+        "title": "第六章 综合题",
+        "page_range": "P39-P41",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-06"
+      },
+      {
+        "id": "LL880-06-C",
+        "title": "第六章 拓展题",
+        "page_range": "P42-P42",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-06"
+      },
+      {
+        "id": "LL880-07",
+        "title": "第七章 微分方程及其应用",
+        "page_range": "P43-P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-07-A",
+        "title": "第七章 基础题",
+        "page_range": "P43-P43",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-07"
+      },
+      {
+        "id": "LL880-07-B",
+        "title": "第七章 综合题",
+        "page_range": "P44-P46",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-07"
+      },
+      {
+        "id": "LL880-07-C",
+        "title": "第七章 拓展题",
+        "page_range": "P47-P47",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-07"
+      },
+      {
+        "id": "LL880-08",
+        "title": "第八章 无穷级数",
+        "page_range": "P48-P53",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-08-A",
+        "title": "第八章 基础题",
+        "page_range": "P48-P50",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-08"
+      },
+      {
+        "id": "LL880-08-B",
+        "title": "第八章 综合题",
+        "page_range": "P51-P52",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-08"
+      },
+      {
+        "id": "LL880-08-C",
+        "title": "第八章 拓展题",
+        "page_range": "P53-P53",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-08"
+      },
+      {
+        "id": "LL880-09",
+        "title": "第九章 曲线积分与曲面积分",
+        "page_range": "P54-P59",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-09-A",
+        "title": "第九章 基础题",
+        "page_range": "P54-P55",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-09"
+      },
+      {
+        "id": "LL880-09-B",
+        "title": "第九章 综合题",
+        "page_range": "P56-P58",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-09"
+      },
+      {
+        "id": "LL880-09-C",
+        "title": "第九章 拓展题",
+        "page_range": "P59-P59",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-09"
+      },
+      {
+        "id": "LL880-10",
+        "title": "第十章 行列式",
+        "page_range": "P60-P63",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-10-A",
+        "title": "第十章 基础题",
+        "page_range": "P60-P60",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-10"
+      },
+      {
+        "id": "LL880-10-B",
+        "title": "第十章 综合题",
+        "page_range": "P61-P62",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-10"
+      },
+      {
+        "id": "LL880-10-C",
+        "title": "第十章 拓展题",
+        "page_range": "P63-P63",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-10"
+      },
+      {
+        "id": "LL880-11",
+        "title": "第十一章 矩阵",
+        "page_range": "P64-P67",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-11-A",
+        "title": "第十一章 基础题",
+        "page_range": "P64-P65",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-11"
+      },
+      {
+        "id": "LL880-11-B",
+        "title": "第十一章 综合题",
+        "page_range": "P66-P66",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-11"
+      },
+      {
+        "id": "LL880-11-C",
+        "title": "第十一章 拓展题",
+        "page_range": "P67-P67",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-11"
+      },
+      {
+        "id": "LL880-12",
+        "title": "第十二章 向量",
+        "page_range": "P68-P71",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-12-A",
+        "title": "第十二章 基础题",
+        "page_range": "P68-P68",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-12"
+      },
+      {
+        "id": "LL880-12-B",
+        "title": "第十二章 综合题",
+        "page_range": "P69-P70",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-12"
+      },
+      {
+        "id": "LL880-12-C",
+        "title": "第十二章 拓展题",
+        "page_range": "P71-P71",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-12"
+      },
+      {
+        "id": "LL880-13",
+        "title": "第十三章 线性方程组",
+        "page_range": "P72-P75",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-13-A",
+        "title": "第十三章 基础题",
+        "page_range": "P72-P72",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-13"
+      },
+      {
+        "id": "LL880-13-B",
+        "title": "第十三章 综合题",
+        "page_range": "P73-P74",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-13"
+      },
+      {
+        "id": "LL880-13-C",
+        "title": "第十三章 拓展题",
+        "page_range": "P75-P75",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-13"
+      },
+      {
+        "id": "LL880-14",
+        "title": "第十四章 相似矩阵",
+        "page_range": "P76-P81",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-14-A",
+        "title": "第十四章 基础题",
+        "page_range": "P76-P77",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-14"
+      },
+      {
+        "id": "LL880-14-B",
+        "title": "第十四章 综合题",
+        "page_range": "P78-P80",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-14"
+      },
+      {
+        "id": "LL880-14-C",
+        "title": "第十四章 拓展题",
+        "page_range": "P81-P81",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-14"
+      },
+      {
+        "id": "LL880-15",
+        "title": "第十五章 二次型",
+        "page_range": "P82-P86",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-15-A",
+        "title": "第十五章 基础题",
+        "page_range": "P82-P82",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-15"
+      },
+      {
+        "id": "LL880-15-B",
+        "title": "第十五章 综合题",
+        "page_range": "P83-P85",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-15"
+      },
+      {
+        "id": "LL880-15-C",
+        "title": "第十五章 拓展题",
+        "page_range": "P86-P86",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-15"
+      },
+      {
+        "id": "LL880-16",
+        "title": "第十六章 随机事件及其概率",
+        "page_range": "P87-P87",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": ""
+      },
+      {
+        "id": "LL880-16-A",
+        "title": "第十六章 基础题",
+        "page_range": "P87-P87",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "LL880-16"
+      }
+    ],
+    "notes": "辅助习题册，非主线使用；仅在主线题册完成、周计划有余量或专项补弱时再调入。目录来自用户实拍，当前先按章节与题型层级建档。",
+    "created": "2026-06-24"
+  },
+  {
+    "id": "MAT-XT-KXKA",
+    "name": "2027考研政治核心考案（徐涛）",
+    "kind": "book",
+    "subject": "Politics",
+    "edition": "2027",
+    "teacher": "徐涛",
+    "source": "D:\\hyh-note\\考研备考\\政治\\参考书籍\\2027考研政治--核心考案--徐涛.pdf",
+    "catalog_status": "partial",
+    "catalog_source": "user-local-pdf:D:\\hyh-note\\考研备考\\政治\\参考书籍\\2027考研政治--核心考案--徐涛.pdf；按政治五科主目录保守建档，后续可补细分章",
+    "catalog_precision": "subject-part",
+    "catalog_units": [
+      {
+        "id": "XTKX-01",
+        "title": "马克思主义基本原理",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "XTKX-02",
+        "title": "毛泽东思想和中国特色社会主义理论体系概论",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "XTKX-03",
+        "title": "习近平新时代中国特色社会主义思想概论",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "XTKX-04",
+        "title": "中国近现代史纲要",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "XTKX-05",
+        "title": "思想道德与法治",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      }
+    ],
+    "notes": "政治主线教材。当前先按五科主目录建档，用于章节级计划；后续如拿到清晰目录页或 OCR，可继续补细分章节与页码。",
+    "created": "2026-06-24"
+  },
+  {
+    "id": "MAT-X1000-2027",
+    "name": "27版肖1000试题分册",
+    "kind": "exercise-book",
+    "subject": "Politics",
+    "edition": "2027",
+    "teacher": "肖秀荣",
+    "source": "D:\\hyh-note\\考研备考\\政治\\参考书籍\\27版肖1000试题分册.pdf",
+    "catalog_status": "complete",
+    "catalog_source": "pdf-text-toc:D:\\hyh-note\\考研备考\\政治\\参考书籍\\27版肖1000试题分册.pdf:目录页",
+    "catalog_precision": "part-question-type-page",
+    "catalog_units": [
+      {
+        "id": "X1000-01",
+        "title": "第一部分 马克思主义基本原理",
+        "page_range": "P1-P64",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "X1000-01-01",
+        "title": "单项选择题",
+        "page_range": "P1-P24",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-01",
+        "level": "section"
+      },
+      {
+        "id": "X1000-01-02",
+        "title": "多项选择题",
+        "page_range": "P25-P58",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-01",
+        "level": "section"
+      },
+      {
+        "id": "X1000-01-03",
+        "title": "材料分析题",
+        "page_range": "P59-P64",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-01",
+        "level": "section"
+      },
+      {
+        "id": "X1000-02",
+        "title": "第二部分 毛泽东思想和中国特色社会主义理论体系概论",
+        "page_range": "P65-P81",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "X1000-02-01",
+        "title": "单项选择题",
+        "page_range": "P65-P71",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-02",
+        "level": "section"
+      },
+      {
+        "id": "X1000-02-02",
+        "title": "多项选择题",
+        "page_range": "P72-P80",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-02",
+        "level": "section"
+      },
+      {
+        "id": "X1000-02-03",
+        "title": "材料分析题",
+        "page_range": "P81-P81",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-02",
+        "level": "section"
+      },
+      {
+        "id": "X1000-03",
+        "title": "第三部分 习近平新时代中国特色社会主义思想概论",
+        "page_range": "P82-P116",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "X1000-03-01",
+        "title": "单项选择题",
+        "page_range": "P82-P92",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-03",
+        "level": "section"
+      },
+      {
+        "id": "X1000-03-02",
+        "title": "多项选择题",
+        "page_range": "P93-P111",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-03",
+        "level": "section"
+      },
+      {
+        "id": "X1000-03-03",
+        "title": "材料分析题",
+        "page_range": "P112-P116",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-03",
+        "level": "section"
+      },
+      {
+        "id": "X1000-04",
+        "title": "第四部分 中国近现代史纲要",
+        "page_range": "P117-P156",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "X1000-04-01",
+        "title": "单项选择题",
+        "page_range": "P117-P133",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-04",
+        "level": "section"
+      },
+      {
+        "id": "X1000-04-02",
+        "title": "多项选择题",
+        "page_range": "P134-P152",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-04",
+        "level": "section"
+      },
+      {
+        "id": "X1000-04-03",
+        "title": "材料分析题",
+        "page_range": "P153-P156",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-04",
+        "level": "section"
+      },
+      {
+        "id": "X1000-05",
+        "title": "第五部分 思想道德与法治",
+        "page_range": "P157-P176",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "",
+        "level": "part"
+      },
+      {
+        "id": "X1000-05-01",
+        "title": "单项选择题",
+        "page_range": "P157-P163",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-05",
+        "level": "section"
+      },
+      {
+        "id": "X1000-05-02",
+        "title": "多项选择题",
+        "page_range": "P164-P175",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-05",
+        "level": "section"
+      },
+      {
+        "id": "X1000-05-03",
+        "title": "材料分析题",
+        "page_range": "P176-P176",
+        "lecture_range": "",
+        "problem_range": "",
+        "parent": "X1000-05",
+        "level": "section"
+      }
+    ],
+    "notes": "政治主线题册。当前用于基础阶段按学科分块做题，不接入解析分册。",
+    "created": "2026-06-24"
+  },
+  {
+    "id": "MAT-BBDC-APP",
+    "name": "不背单词 App",
+    "kind": "app",
+    "subject": "English II",
+    "edition": "",
+    "teacher": "",
+    "source": "user-photo:D:\\微信\\xwechat_files\\wxid_b23tj4i1sbfd22_12c0\\temp\\RWTemp\\2026-06\\9e20f478899dc29eb19741386f9343c8\\5cf6eac4986169d00aaba09ae745483f.jpg",
+    "catalog_status": "partial",
+    "catalog_source": "user-photo:2026-06-24 不背单词 App 当前词库界面",
+    "catalog_precision": "app-queue",
+    "catalog_units": [
+      {
+        "id": "BBDC-LEARN",
+        "title": "Learn 新词队列",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "当前剩余 6680 词",
+        "parent": "",
+        "level": "queue"
+      },
+      {
+        "id": "BBDC-REVIEW",
+        "title": "Review 复习队列",
+        "page_range": "",
+        "lecture_range": "",
+        "problem_range": "当前待复习 240 词",
+        "parent": "",
+        "level": "queue"
+      }
+    ],
+    "notes": "英语词汇主线 App。当前依据用户截图建档：Learn 6680，Review 240。后续按新截图滚动更新队列数量。",
+    "created": "2026-06-24"
+  }
+]

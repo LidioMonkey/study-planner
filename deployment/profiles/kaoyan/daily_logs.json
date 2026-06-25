@@ -1,0 +1,193 @@
+[
+  {
+    "date": "2026-06-24",
+    "task_id": "T001",
+    "status": "done",
+    "accuracy": null,
+    "note": "High math foundation course line is completed; keep 660 and strengthening as next phase."
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T005",
+    "status": "done",
+    "accuracy": null,
+    "note": "Data structure course line is completed; keep exercises, Turing 1800, and weak-point review."
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T013",
+    "status": "done",
+    "accuracy": null,
+    "note": "High math selected-problem tail treated as completed based on user correction."
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T002",
+    "status": "done",
+    "accuracy": null,
+    "note": "用户确认线代基础篇已完成。"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T003",
+    "status": "done",
+    "accuracy": null,
+    "note": "用户确认线代基础篇已完成。"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T004",
+    "status": "done",
+    "accuracy": null,
+    "note": "用户确认线代基础篇已完成。"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T017",
+    "status": "done",
+    "accuracy": null,
+    "note": "用户确认数据结构王道课后题已完成。"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T006",
+    "status": "done",
+    "accuracy": null,
+    "note": "用户确认计组已推进到CPU章节控制器，第4章指令系统视为完成。"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T019",
+    "status": "done",
+    "accuracy": null,
+    "note": "用户确认计组已推进到CPU章节控制器，第4章指令系统课后题视为完成。"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T015",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T016",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T014",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T023",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T007",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-26",
+    "task_id": "T010",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-26",
+    "task_id": "T046",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-26",
+    "task_id": "T011",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-24",
+    "task_id": "T008",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-25",
+    "task_id": "T009",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-25",
+    "task_id": "T014",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-25",
+    "task_id": "T026",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-25",
+    "task_id": "T036",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-25",
+    "task_id": "T041",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-26",
+    "task_id": "T021",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  },
+  {
+    "date": "2026-06-26",
+    "task_id": "T020",
+    "status": "missed",
+    "accuracy": null,
+    "error_causes": [],
+    "note": "HTML 看板取消勾选同步"
+  }
+]

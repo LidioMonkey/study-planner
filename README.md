@@ -87,7 +87,6 @@ material_id + catalog_units
 
 - 主线任务：必须保护的推进任务
 - 复习任务：到期复习、错题回炉、公式/单词/框架
-- 保底任务：低能量或被打断时的最低完成版本
 - 加餐任务：有余力再做，不计入失败
 
 默认周期是“当天到本周日”，而不是强行 7 天。
@@ -557,6 +556,78 @@ Hermes 或其它 agent 推荐流程：
 5. 每次数据变化后运行 `study_dashboard.py`
 6. 本地浏览使用 `study_dashboard_launch.py`
 7. 不要重新手写 HTML/API，优先复用内置脚本
+
+## 打包迁移与 Linux / Hermes 部署
+
+仓库内现在自带一个可迁移部署包：
+
+```text
+deployment/
+  README.md
+  restore_to_codex_home.sh
+  generate_domain_dashboard.sh
+  domain-deploy.md
+  hermes-prompt.md
+  hermes-domain-prompt.md
+  nginx.study-planner.conf.example
+  profiles/
+    kaoyan/
+```
+
+其中：
+
+- `deployment/profiles/kaoyan/` 是当前学习档案快照，包含周计划、进度、资料目录、复习队列等真实数据
+- `deployment/restore_to_codex_home.sh` 用于把该档案恢复到目标机器的 `~/.codex/study-planner/profiles/kaoyan/`
+- `deployment/generate_domain_dashboard.sh` 用于把 HTML 看板生成到 Linux 服务器域名站点目录
+- `deployment/hermes-prompt.md` 是 Linux/Hermes 本地部署的严格提示词
+- `deployment/hermes-domain-prompt.md` 是 Linux/Hermes 域名部署的严格提示词
+- `deployment/nginx.study-planner.conf.example` 是 Nginx 反代示例
+
+Linux 上恢复档案：
+
+```bash
+bash deployment/restore_to_codex_home.sh kaoyan
+```
+
+部署到域名站点目录：
+
+```bash
+bash deployment/generate_domain_dashboard.sh kaoyan /var/www/study-planner/kaoyan
+```
+
+## 迁移注意事项
+
+`deployment/profiles/kaoyan/obsidian.json` 当前包含 Windows 本机路径：
+
+```json
+{
+  "vault": "D:\\hyh-note",
+  "study_root": "Study Planner"
+}
+```
+
+这个路径在 Linux 上无效。Hermes 或其它 agent 在 Linux 上部署时：
+
+1. 不能继续使用这个 Windows 路径
+2. 不能擅自猜测新的 Linux vault 路径
+3. 必须在拿到真实 Linux vault 路径后，显式改写 `obsidian.json` 或在执行命令时传入 `--vault`
+4. 在路径未确认之前，不要运行任何 Obsidian import/export 命令
+
+## 域名部署建议
+
+推荐结构：
+
+```text
+https://study.example.com/      -> 静态 HTML 看板
+https://study.example.com/api/  -> 反代到 127.0.0.1:8790/api/
+```
+
+推荐保持 Python 本地写入服务仅监听 `127.0.0.1`，再通过 Nginx 反代 `/api/`。如果域名页面需要直接写入本地档案，务必设置：
+
+```bash
+export STUDY_DASHBOARD_ORIGINS="https://study.example.com"
+python scripts/study_dashboard_server.py --profile kaoyan --host 127.0.0.1 --port 8790 --out-dir /var/www/study-planner/kaoyan
+```
 
 ## 文件结构
 

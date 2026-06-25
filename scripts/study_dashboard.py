@@ -143,7 +143,7 @@ def render_html(data: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>学习任务看板</title>
+  <title>2027 考研</title>
   <style>
     :root {{
       --ink:#18211c; --muted:#66736b; --paper:#f7f4ed; --panel:#fffdf7;
@@ -160,60 +160,145 @@ def render_html(data: dict) -> str:
       letter-spacing:0;
     }}
     header {{
-      padding:28px clamp(18px,4vw,56px) 18px;
-      border-bottom:2px solid var(--black);
-      background:rgba(247,244,237,.92);
-      position:sticky; top:0; z-index:10; backdrop-filter:blur(8px);
+      padding:0 clamp(14px,2.4vw,32px) 16px;
+      border-bottom:1px solid rgba(16,21,17,.35);
+      background:var(--paper);
     }}
-    .topline {{ display:flex; justify-content:space-between; gap:18px; align-items:flex-end; flex-wrap:wrap; }}
-    h1 {{ margin:0; font-size:clamp(28px,4.5vw,54px); line-height:.95; font-weight:900; }}
-    .stamp {{ border:2px solid var(--black); padding:8px 12px; font-weight:800; background:#efe3c8; }}
-    .countdown {{ text-align:right; min-width:260px; }}
-    .countdown-label {{ color:var(--muted); font-size:12px; font-weight:800; }}
-    .countdown-seconds {{ font-size:24px; line-height:1; font-weight:900; font-variant-numeric:tabular-nums; }}
-    .countdown-sub {{ color:var(--muted); font-size:12px; margin-top:4px; }}
-    nav {{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }}
+    .exam-hero {{
+      position:relative; overflow:hidden; min-height:310px; border-radius:0 0 14px 14px;
+      background:
+        linear-gradient(90deg, rgba(16,21,17,.04) 1px, transparent 1px) 0 0/80px 60px,
+        linear-gradient(rgba(16,21,17,.03) 1px, transparent 1px) 0 0/80px 60px,
+        radial-gradient(circle at 75% 18%, rgba(209,166,74,.12), transparent 32%),
+        var(--paper);
+      color:var(--ink); padding:24px clamp(22px,3.2vw,42px) 26px;
+      box-shadow:0 18px 36px rgba(16,21,17,.08);
+    }}
+    .exam-kicker {{
+      color:var(--muted); font-size:14px; letter-spacing:8px; text-transform:uppercase; font-weight:700;
+    }}
+    .exam-title {{ margin:12px 0 38px; font-size:clamp(58px,8vw,104px); line-height:.85; font-weight:900; letter-spacing:0; }}
+    .hero-countdown {{ display:flex; align-items:end; gap:28px; flex-wrap:wrap; }}
+    .time-block {{ min-width:112px; }}
+    .time-value {{
+      font-size:clamp(54px,6.5vw,86px); line-height:.86; font-weight:900; font-variant-numeric:tabular-nums;
+      color:var(--ink);
+    }}
+    .time-label {{ color:var(--muted); font-size:12px; text-align:center; margin-top:12px; }}
+    .time-sep {{ color:#6f675d; font-size:42px; font-weight:900; padding-bottom:23px; }}
+    .exam-sub {{ color:var(--muted); font-size:14px; padding-bottom:20px; }}
+    nav {{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }}
     nav button {{
       border:1px solid var(--black); background:var(--panel); padding:9px 12px; cursor:pointer;
       font-weight:800; border-radius:0; min-height:38px;
     }}
     nav button.active {{ background:var(--black); color:var(--paper); }}
-    main {{ padding:24px clamp(14px,3vw,44px) 48px; max-width:1500px; margin:auto; }}
+    main {{ padding:24px clamp(18px,2.4vw,40px) 48px; width:100%; max-width:none; margin:0; }}
     .grid {{ display:grid; gap:14px; }}
     .stats {{ grid-template-columns:repeat(4,minmax(0,1fr)); }}
     .two {{ grid-template-columns:1.2fr .8fr; }}
     .three {{ grid-template-columns:repeat(3,minmax(0,1fr)); }}
     .card {{
-      background:var(--panel); border:2px solid var(--black); padding:16px; box-shadow:5px 5px 0 var(--black);
+      background:linear-gradient(180deg, #fffdf8 0%, #fbf6ec 100%); border:1px solid rgba(29,36,31,.55); padding:16px 16px 14px; box-shadow:0 10px 24px rgba(16,21,17,.08);
+      border-radius:8px;
       min-width:0;
     }}
-    .card h2, .card h3 {{ margin:0 0 12px; line-height:1.1; }}
-    .metric {{ font-size:32px; font-weight:900; line-height:1; }}
-    .label {{ color:var(--muted); font-size:13px; margin-top:6px; }}
-    .bar {{ height:12px; border:1px solid var(--black); background:#eee2cf; overflow:hidden; margin:8px 0; }}
-    .bar > i {{ display:block; height:100%; background:var(--green); }}
-    .pill {{ display:inline-flex; align-items:center; border:1px solid var(--black); padding:4px 7px; margin:2px; font-size:12px; font-weight:800; background:#efe3c8; }}
+    .card h2, .card h3 {{ margin:0 0 12px; line-height:1.15; }}
+    .card h2 {{ font-size:18px; }}
+    .card h3 {{ font-size:15px; }}
+    .metric {{ font-size:30px; font-weight:900; line-height:1; }}
+    .label {{ color:var(--muted); font-size:12px; margin-top:6px; }}
+    .bar {{ height:8px; border:1px solid rgba(29,36,31,.5); background:#eee2cf; overflow:hidden; margin:8px 0; border-radius:999px; }}
+    .bar > i {{ display:block; height:100%; background:linear-gradient(90deg, #3f6f4a, #88a95e); }}
+    .pill {{ display:inline-flex; align-items:center; border:1px solid rgba(29,36,31,.55); padding:4px 7px; margin:2px; font-size:12px; font-weight:800; background:#efe3c8; border-radius:999px; }}
     .pill.red {{ background:#ecd0c8; }} .pill.blue {{ background:#d4e2ef; }} .pill.green {{ background:#d6e6d6; }}
+    .subject-board {{ display:grid; gap:16px; }}
+    .subject-card {{
+      position:relative; overflow:hidden; padding:18px;
+      background:linear-gradient(180deg,#fffdfa 0%,#fbf5e9 100%);
+    }}
+    .subject-card::before {{
+      content:""; position:absolute; inset:0 auto 0 0; width:5px;
+      background:linear-gradient(180deg,#315f43,#d1a64a); opacity:.9;
+    }}
+    .subject-head {{
+      display:grid; grid-template-columns:minmax(0,1fr) 180px; gap:18px; align-items:start;
+      margin:0 0 14px 0; padding-left:8px;
+    }}
+    .subject-head h2 {{ font-size:23px; margin-bottom:5px; }}
+    .subject-head .metric {{ font-size:30px; text-align:right; }}
+    .subject-score {{ display:grid; justify-items:end; gap:4px; }}
+    .subject-score .bar {{ width:170px; margin:2px 0 0; }}
+    .resource-groups {{ display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:12px; padding-left:8px; }}
+    .resource-group {{
+      grid-column:span 6; border:1px solid #d9cdbd; background:rgba(255,255,255,.74); border-radius:8px; padding:12px; min-width:0;
+      box-shadow:0 6px 14px rgba(42,35,24,.04);
+    }}
+    .resource-group.is-wide {{ grid-column:1 / -1; }}
+    .resource-group h3 {{ display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:10px; font-size:16px; }}
+    .resource-list {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:10px; }}
+    .resource-row {{ border:1px solid #ded3c4; background:#fffdfa; border-radius:8px; padding:12px; display:grid; gap:7px; }}
+    .resource-title {{ font-weight:900; line-height:1.35; overflow-wrap:break-word; font-size:16px; }}
+    .resource-meta {{ color:var(--muted); font-size:12px; line-height:1.5; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }}
+    .resource-status {{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }}
+    .chapter-strip {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(26px,1fr)); gap:4px; margin-top:2px; }}
+    .chapter-dot {{
+      height:18px; border:1px solid transparent; background:#eee3d1; font-size:0; display:block; min-width:0; border-radius:5px;
+      box-shadow:inset 0 0 0 1px rgba(29,36,31,.12);
+    }}
+    .chapter-dot::after {{ content:attr(data-label); font-size:10px; color:rgba(29,36,31,.55); display:flex; align-items:center; justify-content:center; height:100%; }}
+    .chapter-dot.done {{ background:#cfe1cf; border-color:#8daf92; }}
+    .chapter-dot.pending {{ background:#f2e7d7; }}
     table {{ width:100%; border-collapse:collapse; font-size:14px; }}
     th,td {{ border-bottom:1px solid var(--line); padding:9px 6px; text-align:left; vertical-align:top; }}
     th {{ color:var(--muted); font-size:12px; text-transform:uppercase; }}
     .section {{ display:none; }} .section.active {{ display:block; }}
-    .day {{ border-left:6px solid var(--black); margin-bottom:12px; }}
-    .day-head {{ display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap; }}
-    .day-progress {{ min-width:92px; text-align:right; font-weight:900; }}
-    .todo-groups {{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }}
-    .todo-group {{ border-top:2px solid var(--black); padding-top:10px; min-width:0; }}
-    .todo-group h3 {{ display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:15px; }}
-    .todo-list {{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }}
+    #week {{ overflow-x:auto; padding-bottom:8px; }}
+    .week-grid {{ display:grid; grid-template-columns:1fr; gap:18px; align-items:start; min-width:1320px; }}
+    .day {{
+      margin-bottom:0;
+      border-left:none;
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:16px;
+    }}
+    .day::before {{
+      content:"";
+      position:absolute;
+      left:0; top:0; right:0;
+      height:4px;
+      background:linear-gradient(90deg, var(--green) 0%, #7ea98d 100%);
+    }}
+    .day-head {{ display:grid; gap:12px; align-content:start; padding-top:10px; }}
+    .day-head h2 {{ font-size:20px; }}
+    .day-progress {{
+      width:max-content; min-width:72px; text-align:left; font-weight:900; font-size:13px;
+      color:#355641; background:#edf4ec; border:1px solid #bfd2c2; padding:6px 8px; border-radius:999px;
+    }}
+    .todo-groups {{ display:grid; grid-template-columns:1fr; gap:12px; align-items:start; }}
+    .todo-group {{
+      border:1px solid #ddd3c4; padding:12px; min-width:0; border-radius:8px;
+      background:rgba(255,255,255,.72);
+      display:grid; grid-template-columns:132px 1fr; gap:12px; align-items:start;
+    }}
+    .todo-group.is-empty {{ display:none; }}
+    .todo-group h3 {{ display:grid; gap:8px; align-content:start; font-size:14px; margin:0; }}
+    .todo-group h3 .pill {{ width:max-content; margin:0; }}
+    .todo-list {{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(480px,1fr)); gap:10px; }}
     .todo-item {{ margin:0; }}
     .todo-item label {{
       display:grid; grid-template-columns:24px 1fr; gap:9px; align-items:start;
-      border:1px solid var(--line); background:#fbf5e8; padding:9px; cursor:pointer; min-height:44px;
+      border:1px solid #ddd4c7; background:#fffdfa; padding:11px 12px 10px; cursor:pointer; min-height:44px; border-radius:8px;
     }}
     .todo-item input {{ width:18px; height:18px; margin:1px 0 0; accent-color:var(--green); cursor:pointer; }}
-    .todo-title {{ font-weight:800; line-height:1.35; overflow-wrap:anywhere; }}
+    .todo-title {{ display:block; font-weight:800; font-size:16px; line-height:1.42; overflow-wrap:break-word; word-break:normal; }}
     .todo-meta {{ color:var(--muted); font-size:12px; margin-top:3px; }}
-    .todo-detail {{ display:grid; gap:2px; color:var(--muted); font-size:12px; margin-top:6px; line-height:1.45; }}
+    .todo-detail {{ display:grid; gap:2px; color:var(--muted); font-size:12px; margin-top:7px; line-height:1.45; }}
+    .todo-detail .extra-detail {{ display:none; }}
+    .todo-item label:hover .extra-detail,
+    .todo-item label:focus-within .extra-detail {{ display:block; }}
     .todo-item.done label {{ background:#e6eadf; }}
     .todo-item.done .todo-title {{ text-decoration:line-through; color:var(--muted); }}
     .sync-state {{ margin-top:6px; font-size:12px; font-weight:800; }}
@@ -238,19 +323,47 @@ def render_html(data: dict) -> str:
     .deploy {{ grid-template-columns:1fr 1fr; }}
     .command {{ background:#141814; color:#f5f0e7; padding:12px; overflow:auto; border:2px solid var(--black); }}
     .muted {{ color:var(--muted); }}
-    @media (max-width:1100px) {{ .todo-groups {{ grid-template-columns:repeat(2,minmax(0,1fr)); }} }}
-    @media (max-width:900px) {{ .stats,.two,.three,.deploy,.calendar {{ grid-template-columns:1fr; }} header {{ position:static; }} }}
-    @media (max-width:640px) {{ .todo-groups {{ grid-template-columns:1fr; }} .day-progress {{ text-align:left; }} }}
+    .overview-grid {{ display:grid; grid-template-columns:1.15fr .85fr; gap:14px; }}
+    .overview-side {{ display:grid; gap:14px; }}
+    .donut-board {{ display:grid; grid-template-columns:220px 1fr; gap:20px; align-items:center; }}
+    .donut {{
+      width:210px; aspect-ratio:1; border-radius:50%;
+      background:conic-gradient(var(--green) calc(var(--p)*1%), #eadfcd 0);
+      display:grid; place-items:center; box-shadow:inset 0 0 0 1px rgba(29,36,31,.45);
+    }}
+    .donut::before {{ content:""; width:132px; aspect-ratio:1; border-radius:50%; background:#fffdf8; box-shadow:inset 0 0 0 1px var(--line); }}
+    .donut-label {{ position:absolute; text-align:center; font-weight:900; }}
+    .donut-wrap {{ position:relative; display:grid; place-items:center; }}
+    .subject-progress-list {{ display:grid; gap:10px; }}
+    .subject-progress-row {{ display:grid; grid-template-columns:92px 1fr 54px; gap:10px; align-items:center; }}
+    .today-list {{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }}
+    .today-card {{ border:1px solid #ddd3c4; background:#fffdfa; border-radius:8px; padding:11px 12px; }}
+    .today-card b {{ display:block; font-size:15px; margin-bottom:4px; }}
+    .today-card span {{ display:block; color:var(--muted); font-size:12px; line-height:1.45; }}
+    .risk-list {{ display:grid; gap:8px; }}
+    .risk-item {{ display:flex; justify-content:space-between; gap:12px; border-bottom:1px solid var(--line); padding:7px 0; }}
+    @media (max-width:1500px) {{ .todo-list {{ grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); }} }}
+    @media (max-width:1200px) {{ .week-grid {{ grid-template-columns:1fr; }} }}
+    @media (max-width:1100px) {{ .day {{ grid-template-columns:1fr; }} .todo-group {{ grid-template-columns:1fr; }} .todo-list {{ grid-template-columns:1fr; }} }}
+    @media (max-width:900px) {{ .stats,.two,.three,.deploy,.calendar,.resource-groups,.overview-grid,.donut-board {{ grid-template-columns:1fr; }} header {{ position:static; }} .exam-hero {{ min-height:0; }} .time-block {{ min-width:86px; }} }}
+    @media (max-width:640px) {{ .day-progress {{ text-align:left; }} }}
   </style>
 </head>
 <body>
   <header>
-    <div class="topline">
-      <div>
-        <h1>学习任务看板</h1>
-        <div class="muted">任务清单优先 · 真实目录驱动 · 复习回炉 · 进度追踪</div>
+    <div class="exam-hero">
+      <div class="exam-kicker">Graduate Entrance Exam</div>
+      <div class="exam-title">2027 考研</div>
+      <div class="hero-countdown" id="heroCountdown">
+        <div class="time-block"><div class="time-value">--</div><div class="time-label">天</div></div>
+        <div class="time-sep">:</div>
+        <div class="time-block"><div class="time-value">--</div><div class="time-label">时</div></div>
+        <div class="time-sep">:</div>
+        <div class="time-block"><div class="time-value">--</div><div class="time-label">分</div></div>
+        <div class="time-sep">:</div>
+        <div class="time-block"><div class="time-value">--</div><div class="time-label">秒</div></div>
+        <div class="exam-sub" id="heroSub">距 2027 考研初试</div>
       </div>
-      <div class="stamp" id="stamp"></div>
     </div>
     <nav id="tabs"></nav>
   </header>
@@ -261,10 +374,11 @@ def render_html(data: dict) -> str:
     const API_BASE = DATA.apiBase || "http://127.0.0.1:8790";
     const tabs = [
       ["overview","总览"],["week","本周"],["subjects","科目"],["reviews","复习"],
-      ["materials","资料目录"],["mistakes","错题/真题"],["mistakeCalendar","错题回炉"],["diagnostics","高级诊断"],["deploy","部署"]
+      ["materials","资料目录"],["mistakes","错题/真题"],["diagnostics","高级诊断"],["deploy","部署"]
     ];
     const app = document.getElementById("app");
-    const stamp = document.getElementById("stamp");
+    const heroCountdown = document.getElementById("heroCountdown");
+    const heroSub = document.getElementById("heroSub");
     document.getElementById("tabs").innerHTML = tabs.map((t,i)=>`<button class="${{i===0?'active':''}}" data-tab="${{t[0]}}">${{t[1]}}</button>`).join("");
     document.getElementById("tabs").onclick = e => {{
       if(e.target.tagName !== "BUTTON") return;
@@ -275,6 +389,10 @@ def render_html(data: dict) -> str:
     const pct = (done,total)=> total ? Math.round(done/total*1000)/10 : 0;
     const pad2 = n => String(n).padStart(2, "0");
     function getCountdownTarget() {{
+      if (DATA.goals?.deadline) {{
+        const end = new Date(DATA.goals.deadline + "T23:59:59");
+        return {{ date:end, label:"距 2027 考研初试", target:`${{DATA.goals.deadline}} 23:59:59` }};
+      }}
       const weekStart = DATA.currentWeek?.start;
       const weekDays = DATA.currentWeek?.days || 0;
       if (weekStart && weekDays) {{
@@ -283,16 +401,13 @@ def render_html(data: dict) -> str:
         end.setHours(23, 59, 59, 999);
         return {{ date:end, label:"本周期剩余", target:`${{ymd(end)}} 23:59:59` }};
       }}
-      if (DATA.goals?.deadline) {{
-        const end = new Date(DATA.goals.deadline + "T23:59:59");
-        return {{ date:end, label:"目标截止剩余", target:`${{DATA.goals.deadline}} 23:59:59` }};
-      }}
       return null;
     }}
     function renderTopCountdown() {{
       const target = getCountdownTarget();
       if (!target) {{
-        stamp.innerHTML = `<div class="countdown"><div class="countdown-label">档案 ${{esc(PROFILE)}}</div><div class="countdown-sub">尚未设置周期或截止日期</div></div>`;
+        heroCountdown.querySelectorAll(".time-value").forEach(node => node.textContent = "--");
+        heroSub.textContent = `档案 ${{PROFILE}} · 尚未设置截止日期`;
         return;
       }}
       const ms = Math.max(target.date - new Date(), 0);
@@ -301,7 +416,9 @@ def render_html(data: dict) -> str:
       const hours = Math.floor((totalSeconds % 86400) / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
-      stamp.innerHTML = `<div class="countdown"><div class="countdown-label">${{target.label}} · 档案 ${{esc(PROFILE)}}</div><div class="countdown-seconds">${{days}}天 ${{pad2(hours)}}:${{pad2(minutes)}}:${{pad2(seconds)}}</div><div class="countdown-sub">目标 ${{esc(target.target)}} · 生成 ${{esc(DATA.generated)}}</div></div>`;
+      const values = [days, pad2(hours), pad2(minutes), pad2(seconds)];
+      heroCountdown.querySelectorAll(".time-value").forEach((node, index) => node.textContent = values[index]);
+      heroSub.textContent = `${{target.label}} · 目标 ${{target.target}}`;
     }}
     const mapText = {{
       "foundation-close":"基础后段", "strengthening":"强化阶段", "past-exam":"真题阶段", "sprint":"冲刺阶段",
@@ -323,14 +440,14 @@ def render_html(data: dict) -> str:
       "Liu Xiaoyan materials":"刘晓艳资料", "Liu Xiaoyan 58 readings":"刘晓艳 58 篇阅读",
       "Xu Tao intro route":"徐涛导学路线", "Xiao 1000":"肖秀荣 1000 题",
       "Weak point":"薄弱点", "Double integrals":"二重积分", "Eigenvalues and eigenvectors":"特征值与特征向量",
-      "Instruction system tail":"指令系统尾巴", "Processes and threads":"进程与线程",
+      "Instruction system tail":"第4章 指令系统", "Processes and threads":"进程与线程",
       "Scheduling and PV":"调度与 PV", "Architecture and layering":"体系结构与分层",
       "Long sentences":"长难句", "Framework warm-up":"框架预热", "Sorting":"排序",
       "CPU":"CPU", "Quadratic forms":"二次型", "Advanced math strengthening phase":"高数强化阶段"
     }};
     const phraseMap = [
-      ["repair exercises after finishing the course section","补齐课后习题并修补听课后的漏洞"],
-      ["close double-integral foundation tail","收口二重积分基础尾巴"],
+      ["repair exercises after finishing the course section","完成课后习题并订正错题"],
+      ["close double-integral foundation tail","完成二重积分基础章节"],
       ["summary of computation regions and coordinate choices","计算区域与坐标选择总结"],
       ["finish remaining selected problems","完成剩余严选题"],
       ["wrong-question notes and method summary","错题笔记与方法总结"],
@@ -359,40 +476,40 @@ def render_html(data: dict) -> str:
       ["light multiple-choice warm-up after materials are ready","资料到位后轻量选择题预热"],
       ["method framework and representative-problem notes","方法框架与代表题笔记"],
       ["matching strengthening-guide problems","配套强化讲义习题"],
-      ["start OS from process/thread basics","从进程与线程基础启动"],
-      ["clear remaining instruction-system exercises","清掉指令系统习题尾巴"],
+      ["start OS from process/thread basics","学习进程与线程基础"],
+      ["clear remaining instruction-system exercises","完成指令系统习题订正"],
       ["entry route for scheduling and PV problems","调度与 PV 问题入门"],
       ["eigenvalues and eigenvectors","特征值与特征向量"],
-      ["instruction system tail","指令系统尾巴"],
+      ["instruction system tail","第4章 指令系统"],
       ["process threads scheduling PV","进程线程、调度与 PV"],
       ["sorting","排序"],
-      ["start diagonalization after eigenvalue exercise repair","特征值习题修补后启动矩阵对角化"],
-      ["advanced math launch after double-integral close","高数 660 启动"],
+      ["start diagonalization after eigenvalue exercise repair","完成特征值习题后学习矩阵对角化"],
+      ["advanced math launch after double-integral close","进入高数 660 二重积分题组"],
       ["second pass vocabulary","词汇二刷"],
-      ["start central processor unit chapter","启动中央处理器章节"],
+      ["start central processor unit chapter","学习中央处理器章节"],
       ["matrix diagonalization","矩阵对角化"],
       ["architecture and layering","体系结构与分层模型"],
-      ["start CN from architecture and layered model","从体系结构与分层模型启动计网"],
-      ["start long-sentence foundation","启动长难句基础"],
+      ["start CN from architecture and layered model","学习计网体系结构与分层模型"],
+      ["start long-sentence foundation","学习长难句基础"],
       ["finish first-round linear algebra tail","线代一轮收尾"],
-      ["foundation reading launch","基础阅读启动"],
+      ["foundation reading launch","基础阅读第1篇"],
       ["data structure weak-topic selective choices","数据结构弱点专项选择题"],
-      ["start strengthening guide after 660 launch","660 启动后进入高数强化讲义"],
-      ["double-integral tail","二重积分收尾"],
-      ["warm-up after framework starts","框架启动后的预热"],
+      ["start strengthening guide after 660 launch","完成 660 后进入高数强化讲义"],
+      ["double-integral tail","二重积分章节"],
+      ["warm-up after framework starts","完成框架学习后的选择题巩固"],
       ["finish remaining problems, correct mistakes, summarize region-choice patterns","完成剩余题目，订正错题，总结积分区域选择模式"],
       ["correct all wrong questions and mark concept/calculation/method causes","订正全部错题，并标记概念、计算、方法错因"],
       ["repair post-course gap, correct all mistakes, summarize conditions","修补课后缺口，订正全部错题，总结适用条件"],
       ["write diagonalization condition checklist and correct mistakes","写出对角化条件清单并订正错题"],
       ["correct all wrong choices and compare sorting algorithms","订正全部错选题，并比较排序算法"],
-      ["start selective practice after Wangdao sorting, tag weak topics","王道排序后启动专项选择题，并标记薄弱点"],
-      ["clear remaining tail and correct mistakes","清掉剩余尾巴并订正错题"],
+      ["start selective practice after Wangdao sorting, tag weak topics","王道排序后完成选择题巩固，并标记薄弱点"],
+      ["clear remaining tail and correct mistakes","完成剩余题目并订正错题"],
       ["match CPU framework with questions and correct mistakes","用题目校准 CPU 框架并订正错题"],
       ["build OS entry confidence and tag conceptual gaps","建立 OS 入门信心，并标记概念缺口"],
-      ["start CN from zero and correct conceptual questions","从零启动计网，并订正概念题"],
+      ["start CN from zero and correct conceptual questions","学习计网第1章并订正概念题"],
       ["finish daily push and mark stubborn words","完成每日推词，并标记顽固词"],
       ["finish one passage, locate wrong-answer evidence, extract 10 words and 3 long sentences","完成 1 篇阅读，定位错因证据，摘出 10 个单词和 3 个长难句"],
-      ["record confusing knowledge points; low priority before formal start","记录混淆知识点；正式启动前低优先级处理"],
+      ["record confusing knowledge points; low priority before formal start","记录混淆知识点；首轮前低优先级处理"],
       ["B tree concepts, insertion/deletion/search details, representative choices","B 树：插入、删除、查找与典型选择题"],
       ["critical path: AOE network, earliest/latest time, slack, typical calculation","关键路径：AOE 网、最早/最迟时间、时差与计算"],
       ["Cache mapping: direct, fully associative, set associative, address partition","Cache 映射：直接、全相联、组相联与地址划分"],
@@ -415,7 +532,7 @@ def render_html(data: dict) -> str:
       ["do 6 questions from","做 6 题，来源"],
       ["Review 1 due item and mark whether it still feels weak.","复习 1 个到期项目，并标记是否仍薄弱"],
       ["Complete one 25-minute focused study task and log the result.","完成 1 个 25 分钟专注学习任务并记录结果"],
-      ["Close first-round gaps and start blank subjects.","收口一轮漏洞，并启动空白科目"],
+      ["Close first-round gaps and start blank subjects.","完成一轮缺口处理，并安排空白科目章节"],
       ["Keep course ratio at or below 40%.","课程占比控制在 40% 以内"],
       ["Every course slice must pair with output and practice.","每个课程切片必须绑定输出和练习"],
       ["Course input is within cap. Keep pairing courses with exercises and review.","课程输入占比正常。继续保证课程、习题和复习配套。"],
@@ -475,7 +592,7 @@ def render_html(data: dict) -> str:
       return unit ? `${{unitId}}（${{zh(unit.title)}}）` : zh(unitId);
     }}
     const todoKey = (date, layer, item, index) => `${{PROFILE}}-week-${{DATA.currentWeek.start || "current"}}:${{date}}:${{layer}}:${{item?.id || index}}`;
-    const layerText = {{ main:"主线任务", review:"复习任务", extra:"加餐任务", minimum:"保底任务" }};
+    const layerText = {{ main:"主线任务", review:"复习任务", extra:"加餐任务" }};
     function todoTitle(item) {{
       if (typeof item === "string") return zh(item);
       const action = item.task || item.slice || item.scope || item.chapter_or_scope || item.content || item.id;
@@ -484,19 +601,28 @@ def render_html(data: dict) -> str:
     function todoItem(date, layer, item, index) {{
       const key = todoKey(date, layer, item, index);
       const title = todoTitle(item);
-      const meta = typeof item === "string" ? "保底版本" : `${{zh(item.type)}}${{item.id ? " · " + item.id : ""}}${{item.priority ? " · 优先级 " + item.priority : ""}}`;
-      const details = typeof item === "string" ? "" : [
+      const meta = typeof item === "string" ? "文本任务" : `${{zh(item.type)}}${{item.id ? " · " + item.id : ""}}${{item.priority ? " · 优先级 " + item.priority : ""}}`;
+      const primaryDetails = typeof item === "string" ? [] : [
         item.material ? `资料：${{zh(item.material)}}` : "",
+        item.scope ? `范围：${{zh(item.scope)}}` : "",
+        item.quantity ? `数量：${{zh(item.quantity)}}` : "",
+        item.acceptance || item.output_or_acceptance ? `验收：${{zh(item.acceptance || item.output_or_acceptance)}}` : ""
+      ].filter(Boolean);
+      const extraDetails = typeof item === "string" ? [] : [
+        item.knowledge_point ? `知识点：${{zh(item.knowledge_point)}}` : "",
+        item.review_kind === "mistake" ? "类型：错题回炉" : (item.type === "review" ? "类型：知识点复习" : ""),
+        item.prompt_items?.length ? `提问：${{item.prompt_items.map(zh).join(" / ")}}` : "",
         item.material_id ? `目录资料：${{materialLabel(item.material_id)}}` : "目录资料：未绑定真实目录",
         item.catalog_units?.length ? `目录单元：${{item.catalog_units.map(unit=>catalogUnitLabel(item.material_id, unit)).join("、")}}` : "目录单元：未指定",
-        item.scope ? `范围：${{zh(item.scope)}}` : "",
         item.precise_range ? `精确范围：${{zh(item.precise_range)}}` : "",
         item.page_range ? `页码：${{zh(item.page_range)}}` : "",
         item.lecture_range ? `讲次：${{zh(item.lecture_range)}}` : "",
-        item.problem_range ? `题号：${{zh(item.problem_range)}}` : "",
-        item.quantity ? `数量：${{zh(item.quantity)}}` : "",
-        item.acceptance || item.output_or_acceptance ? `验收：${{zh(item.acceptance || item.output_or_acceptance)}}` : ""
-      ].filter(Boolean).map(line=>`<span>${{esc(line)}}</span>`).join("");
+        item.problem_range ? `题号：${{zh(item.problem_range)}}` : ""
+      ].filter(Boolean);
+      const details = [
+        ...primaryDetails.map(line=>`<span>${{esc(line)}}</span>`),
+        ...extraDetails.map(line=>`<span class="extra-detail">${{esc(line)}}</span>`)
+      ].join("");
       const raw = typeof item === "string" ? {{ text:item }} : item;
       const currentStatus = typeof item === "string" ? "" : (item.dashboard_status || "");
       return `<li class="todo-item" data-todo-item data-key="${{esc(key)}}" data-date="${{esc(date)}}" data-layer="${{esc(layer)}}" data-layer-name="${{esc(layerText[layer] || layer)}}" data-title="${{esc(title)}}" data-meta="${{esc(meta)}}" data-current-status="${{esc(currentStatus)}}" data-raw="${{esc(JSON.stringify(raw))}}">
@@ -507,15 +633,96 @@ def render_html(data: dict) -> str:
       </li>`;
     }}
     function todoGroup(title, date, layer, items) {{
-      const list = items && items.length ? items.map((item,index)=>todoItem(date, layer, item, index)).join("") : `<li class="muted">无</li>`;
-      return `<div class="todo-group" data-todo-group><h3>${{title}} <span class="pill" data-group-count>0/0</span></h3><ul class="todo-list">${{list}}</ul></div>`;
+      const hasItems = items && items.length;
+      const list = hasItems ? items.map((item,index)=>todoItem(date, layer, item, index)).join("") : "";
+      return `<div class="todo-group ${{hasItems ? "" : "is-empty"}}" data-todo-group><h3><span>${{title}}</span><span class="pill" data-group-count>0/0</span></h3><ul class="todo-list">${{list}}</ul></div>`;
     }}
     function metric(label,value,sub) {{ return `<div class="card"><div class="metric">${{esc(zh(value))}}</div><div class="label">${{label}}</div>${{sub?`<div class="muted">${{esc(zh(sub))}}</div>`:""}}</div>`; }}
+    function dayTasksFor(dateText) {{
+      const day = (DATA.currentWeek.plan || []).find(d => d.date === dateText) || (DATA.currentWeek.plan || [])[0] || {{}};
+      return [...(day.main_tasks || []), ...(day.review_tasks || []), ...(day.optional_extra || [])];
+    }}
+    function currentWeekSubjectProgress() {{
+      const rows = {{}};
+      const addItem = (item, isDone) => {{
+        const subject = item?.subject || "未分类";
+        rows[subject] ??= {{ done: 0, total: 0 }};
+        rows[subject].total += 1;
+        if (isDone) rows[subject].done += 1;
+      }};
+      const domItems = [...document.querySelectorAll("[data-todo-item]")];
+      if (domItems.length) {{
+        domItems.forEach(item => {{
+          let raw = {{}};
+          try {{ raw = JSON.parse(item.dataset.raw || "{{}}"); }} catch {{}}
+          const check = item.querySelector("[data-todo-check]");
+          addItem(raw, Boolean(check?.checked));
+        }});
+        return rows;
+      }}
+      for (const day of DATA.currentWeek.plan || []) {{
+        for (const item of [...(day.main_tasks || []), ...(day.review_tasks || []), ...(day.optional_extra || [])]) {{
+          addItem(item, item?.dashboard_status === "done");
+        }}
+      }}
+      return rows;
+    }}
+    function subjectProgressRows(inv) {{
+      return Object.entries(inv).map(([subject,row]) => {{
+        const done = row.done || 0;
+        const total = done + (row.pending || 0) + (row.partial || 0) + (row.missed || 0);
+        return `<div class="subject-progress-row"><b>${{esc(zh(subject))}}</b><div class="bar"><i style="width:${{pct(done,total)}}%"></i></div><span>${{Math.round(pct(done,total))}}%</span></div>`;
+      }}).join("");
+    }}
+    function weekSubjectProgressRows(rows) {{
+      const entries = Object.entries(rows).sort((a, b) => {{
+        const aPct = pct(a[1].done || 0, a[1].total || 0);
+        const bPct = pct(b[1].done || 0, b[1].total || 0);
+        return bPct - aPct || String(a[0]).localeCompare(String(b[0]));
+      }});
+      return entries.length
+        ? entries.map(([subject, row]) => `<div class="subject-progress-row"><b>${{esc(zh(subject))}}</b><div class="bar"><i style="width:${{pct(row.done || 0, row.total || 0)}}%"></i></div><span>${{(row.done || 0)}}/${{(row.total || 0)}}</span></div>`).join("")
+        : `<div class="muted">本周暂无已排科目任务。</div>`;
+    }}
+    function todayCard(item) {{
+      const title = todoTitle(item);
+      const meta = [item.material, item.scope, item.quantity].filter(Boolean).map(zh).join(" · ");
+      return `<li class="today-card"><b>${{esc(title)}}</b><span>${{esc(meta || zh(item.type || "任务"))}}</span></li>`;
+    }}
+    function currentWeekProgress() {{
+      const items = [...document.querySelectorAll("[data-todo-item]")];
+      if (items.length) {{
+        const checks = items.map(item => item.querySelector("[data-todo-check]")).filter(Boolean);
+        const done = checks.filter(check => check.checked).length;
+        return {{ done, total: checks.length, pct: Math.round(pct(done, checks.length)) }};
+      }}
+      const days = DATA.currentWeek.plan || [];
+      const total = days.reduce((sum, day) => sum + (day.main_tasks || []).length + (day.review_tasks || []).length + (day.optional_extra || []).length, 0);
+      const done = days.reduce((sum, day) => {{
+        const all = [...(day.main_tasks || []), ...(day.review_tasks || []), ...(day.optional_extra || [])];
+        return sum + all.filter(item => item && item.dashboard_status === "done").length;
+      }}, 0);
+      return {{ done, total, pct: Math.round(pct(done, total)) }};
+    }}
+    function syncOverviewDonut() {{
+      const stat = currentWeekProgress();
+      const donut = document.querySelector("[data-week-donut]");
+      const metric = document.querySelector("[data-week-donut-metric]");
+      const label = document.querySelector("[data-week-donut-label]");
+      if (donut) donut.style.setProperty("--p", stat.pct);
+      if (metric) metric.textContent = `${{stat.pct}}%`;
+      if (label) label.textContent = `${{stat.done}}/${{stat.total}} 本周任务`;
+    }}
+    function syncOverviewSubjectProgress() {{
+      const node = document.querySelector("[data-week-subject-progress]");
+      if (!node) return;
+      node.innerHTML = weekSubjectProgressRows(currentWeekSubjectProgress());
+    }}
     function renderOverview() {{
       const inv = DATA.inventory.inventory || {{}};
-      const pending = Object.values(inv).reduce((a,b)=>a+(b.pending||0),0);
-      const done = Object.values(inv).reduce((a,b)=>a+(b.done||0),0);
+      const weekSubjectRows = currentWeekSubjectProgress();
       const reviews = Object.values(DATA.inventory.pending_reviews || {{}}).reduce((a,b)=>a+b,0);
+      const weekProgress = currentWeekProgress();
       const weekStart = DATA.currentWeek.start;
       const weekDays = DATA.currentWeek.days || 0;
       const weekEndDate = weekStart && weekDays ? new Date(new Date(weekStart + "T00:00:00").getTime() + (weekDays - 1) * 86400000) : null;
@@ -524,16 +731,26 @@ def render_html(data: dict) -> str:
       const cycleDaysLeft = weekEndDate ? Math.max(Math.ceil((weekEndDate - today) / 86400000), 0) : 0;
       const countdown = getCountdownTarget();
       const secondsLeft = countdown ? Math.max(Math.floor((countdown.date - new Date()) / 1000), 0) : 0;
+      const todays = dayTasksFor(DATA.generated).slice(0,5);
+      const risks = Object.entries(DATA.analytics?.delay_prediction || {{}})
+        .filter(([,v])=>v.risk && v.risk !== "green")
+        .slice(0,5);
       return `<section id="overview" class="section active">
-        <div class="grid stats">
-          ${{metric("阶段", DATA.phase.phase, `${{DATA.phase.days_left}} 天到暂定截止日`)}}
-          ${{metric("剩余秒数", secondsLeft.toLocaleString(), countdown ? countdown.target : `${{weekStart || "未生成"}} 至 ${{weekEnd}}`)}}
-          ${{metric("总任务", pending+done, `${{done}} 已完成 · ${{pending}} 待完成`)}}
-          ${{metric("课程占比", DATA.courseRatio.course_ratio_percent+"%", `上限 ${{DATA.courseRatio.course_cap_percent}}% · ${{zh(DATA.courseRatio.status)}}`)}}
-        </div>
-        <div class="grid two" style="margin-top:16px">
-          <div class="card"><h2>当前规则</h2>${{DATA.phase.rules.map(r=>`<span class="pill green">${{esc(zh(r))}}</span>`).join("")}}</div>
-          <div class="card"><h2>下一优先解锁</h2><p>${{esc(zh(DATA.blocked.suggestion))}}</p></div>
+        <div class="overview-grid">
+          <div class="card">
+            <h2>本周进度</h2>
+            <div class="donut-board">
+              <div class="donut-wrap"><div class="donut" data-week-donut style="--p:${{weekProgress.pct}}"></div><div class="donut-label"><div class="metric" data-week-donut-metric>${{weekProgress.pct}}%</div><div class="label" data-week-donut-label>${{weekProgress.done}}/${{weekProgress.total}} 本周任务</div></div></div>
+              <div>
+                <div class="subject-progress-list" data-week-subject-progress>${{weekSubjectProgressRows(weekSubjectRows)}}</div>
+                <div style="margin-top:12px"><span class="pill green">课程占比 ${{DATA.courseRatio.course_ratio_percent}}%</span><span class="pill">本周到 ${{esc(weekEnd)}}</span><span class="pill blue">复习队列 ${{reviews}}</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="overview-side">
+            <div class="card"><h2>今日任务</h2><ul class="today-list">${{todays.length ? todays.map(todayCard).join("") : "<li class='today-card'><b>今天暂无任务</b><span>可以生成本周计划或记录完成情况。</span></li>"}}</ul></div>
+            <div class="card"><h2>下一步</h2><p>${{esc(zh(DATA.blocked.suggestion))}}</p><div class="risk-list">${{risks.length ? risks.map(([s,v])=>`<div class="risk-item"><span>${{esc(zh(s))}}</span><span class="pill red">${{esc(zh(v.risk))}}</span></div>`).join("") : "<div class='muted'>当前没有红黄延期风险。</div>"}}</div></div>
+          </div>
         </div>
       </section>`;
     }}
@@ -554,14 +771,13 @@ def render_html(data: dict) -> str:
         </div>
         <textarea class="export-box" data-export-box placeholder="点击“生成导出文本”后，这里会出现可复制给 agent 的本周完成情况。"></textarea>
       </div>`;
-      return `<section id="week" class="section"><div class="grid">
+      return `<section id="week" class="section"><div class="week-grid">
         ${{days.map(d=>`<div class="card day">
           <div class="day-head"><h2>${{d.date}}</h2><div class="day-progress" data-day-progress>0/0</div></div>
           <div class="todo-groups">
             ${{todoGroup("主线任务", d.date, "main", d.main_tasks || [])}}
             ${{todoGroup("复习任务", d.date, "review", d.review_tasks || [])}}
             ${{todoGroup("加餐任务", d.date, "extra", d.optional_extra || [])}}
-            ${{todoGroup("保底任务", d.date, "minimum", d.minimum_version || [])}}
           </div>
         </div>`).join("")}}
       </div>${{exportPanel}}</section>`;
@@ -569,42 +785,134 @@ def render_html(data: dict) -> str:
     function renderSubjects() {{
       const tasks = [...(DATA.courses||[]), ...(DATA.exercises||[])];
       const subjects = {{}};
+      const taskUnitsByMaterial = {{}};
       for (const task of tasks) {{
-        const subject = task.subject || "未分类";
-        const materialName = task.title || task.resource || task.source || "未命名资料";
-        const key = task.material_id || materialName;
-        subjects[subject] ??= {{}};
-        subjects[subject][key] ??= {{
-          name: materialName,
-          material_id: task.material_id || "",
-          catalog_status: task.material_id ? (materialMap[task.material_id]?.catalog_status || "missing") : "missing",
-          total:0,
-          done:0,
-          pending:0,
-          course:0,
-          exercise:0,
-          chapter_bound:0
-        }};
-        const row = subjects[subject][key];
-        row.total += 1;
-        if (task.status === "done") row.done += 1; else row.pending += 1;
-        if (task.type === "course") row.course += 1;
-        if (task.type === "exercise") row.exercise += 1;
-        if (task.catalog_units?.length || task.chapter || task.scope) row.chapter_bound += 1;
+        if (!task.material_id) continue;
+        taskUnitsByMaterial[task.material_id] ??= new Set();
+        if (task.status === "done") {{
+          for (const unit of task.catalog_units || []) taskUnitsByMaterial[task.material_id].add(unit);
+        }}
       }}
-      return `<section id="subjects" class="section"><div class="grid">
-        ${{Object.entries(subjects).map(([subject,materials])=>`<div class="card"><h2>${{esc(zh(subject))}}</h2><table>
-          <tr><th>资料/题册/网课</th><th>完成率</th><th>任务</th><th>构成</th><th>目录</th><th>章节绑定</th></tr>
-          ${{Object.values(materials).map(row=>`<tr><td>${{row.material_id?`<code>${{esc(row.material_id)}}</code> `:""}}${{esc(zh(row.name))}}</td><td><div class="bar"><i style="width:${{pct(row.done,row.total)}}%"></i></div><b>${{pct(row.done,row.total)}}%</b></td><td>${{row.done}} 已完成 / ${{row.total}} 总数</td><td><span class="pill blue">课程 ${{row.course}}</span><span class="pill green">习题 ${{row.exercise}}</span></td><td><span class="pill ${{catalogPillClass(row.catalog_status, !!row.material_id)}}">${{catalogStatusText(row.catalog_status, !!row.material_id)}}</span></td><td>${{row.chapter_bound}}/${{row.total}}</td></tr>`).join("")}}
-        </table></div>`).join("") || "<div class='card'><h2>科目进度</h2><p class='muted'>暂无课程或习题任务。</p></div>"}}
+      const materialTaskKinds = {{}};
+      for (const task of tasks) {{
+        if (!task.material_id) continue;
+        materialTaskKinds[task.material_id] ??= {{course:0, exercise:0, doneTasks:0, totalTasks:0}};
+        materialTaskKinds[task.material_id].totalTasks += 1;
+        if (task.status === "done") materialTaskKinds[task.material_id].doneTasks += 1;
+        if (task.type === "course") materialTaskKinds[task.material_id].course += 1;
+        if (task.type === "exercise") materialTaskKinds[task.material_id].exercise += 1;
+      }}
+      const directSubjectMaterials = DATA.materials || [];
+      for (const m of directSubjectMaterials) {{
+        const subject = m.subject || "未分类";
+        subjects[subject] ??= [];
+        const units = (m.catalog_units || []).filter(u => !u.parent);
+        const progress = m.progress || {{}};
+        const taskDone = taskUnitsByMaterial[m.id] || new Set();
+        const completed = new Set([...(progress.completed_units || []), ...taskDone]);
+        const doneCount = progress.status === "done" ? units.length : units.filter(u=>completed.has(u.id)).length;
+        const taskKinds = materialTaskKinds[m.id] || {{course:0, exercise:0, doneTasks:0, totalTasks:0}};
+        subjects[subject].push({{
+          id:m.id, name:m.name, kind:m.kind || "other", teacher:m.teacher || "", status:progress.status || "active",
+          done:doneCount, total:units.length, units, completed, taskKinds, note:progress.note || m.notes || ""
+        }});
+      }}
+      const kindLabel = kind => {{
+        if (["book","handout"].includes(kind)) return "书籍 / 讲义";
+        if (kind === "exercise-book") return "题册 / 习题";
+        if (kind === "course") return "网课 / 课程";
+        if (kind === "app") return "App / 词库";
+        if (kind === "paper-set") return "真题 / 套卷";
+        return "其他资料";
+      }};
+      const groupOrder = ["书籍 / 讲义","题册 / 习题","网课 / 课程","App / 词库","真题 / 套卷","其他资料"];
+      const statusText = row => row.status === "done" ? "已完成" : (row.done ? "进行中" : "未完成");
+      const statusPill = row => row.status === "done" ? "green" : (row.done ? "blue" : "");
+      const chapterDots = row => row.units.length ? `<div class="chapter-strip">${{row.units.map((u,i)=>`<span class="chapter-dot ${{(row.status==="done" || row.completed.has(u.id))?"done":"pending"}}" data-label="${{i+1}}" title="${{esc(zh(u.title||u.id))}}"></span>`).join("")}}</div>` : `<p class="muted">该资料暂不按章节计数。</p>`;
+      const resourceCard = row => `<div class="resource-row">
+        <div class="resource-title">${{esc(zh(row.name))}}</div>
+        <div class="resource-meta"><code>${{esc(row.id)}}</code><span>${{row.teacher?`主线：${{esc(zh(row.teacher))}}`:"资料进度"}}</span><span>${{row.done}}/${{row.total || row.taskKinds.totalTasks}} 章完成</span><span>任务 ${{row.taskKinds.doneTasks}}/${{row.taskKinds.totalTasks}}</span></div>
+        <div class="bar"><i style="width:${{pct(row.done,row.total || row.taskKinds.totalTasks)}}%"></i></div>
+        <div class="resource-status"><span class="pill ${{statusPill(row)}}">${{statusText(row)}}</span><span class="pill">${{Math.round(pct(row.done,row.total || row.taskKinds.totalTasks))}}%</span></div>
+        ${{chapterDots(row)}}
+      </div>`;
+      return `<section id="subjects" class="section"><div class="subject-board">
+        ${{Object.entries(subjects).map(([subject,rows])=>{{
+          const done = rows.reduce((s,r)=>s+r.done,0);
+          const total = rows.reduce((s,r)=>s+(r.total || r.taskKinds.totalTasks || 0),0);
+          const groups = Object.groupBy ? Object.groupBy(rows, r=>kindLabel(r.kind)) : rows.reduce((acc,r)=>((acc[kindLabel(r.kind)]??=[]).push(r),acc),{{}});
+          const visibleGroups = groupOrder.filter(g=>groups[g]?.length);
+          return `<div class="card subject-card"><div class="subject-head"><div><h2>${{esc(zh(subject))}}</h2><div class="muted">该科目的资料构成、主线状态和章节完成度。</div></div><div class="subject-score"><div class="metric">${{Math.round(pct(done,total))}}%</div><div class="label">${{done}}/${{total}} 章完成</div><div class="bar"><i style="width:${{pct(done,total)}}%"></i></div></div></div>
+            <div class="resource-groups">${{visibleGroups.map(g=>`<div class="resource-group ${{visibleGroups.length===1?'is-wide':''}}"><h3>${{esc(g)}} <span class="pill">${{groups[g].length}} 项</span></h3><div class="resource-list">${{groups[g].map(resourceCard).join("")}}</div></div>`).join("")}}</div>
+          </div>`;
+        }}).join("") || "<div class='card'><h2>科目进度</h2><p class='muted'>暂无课程、题册或资料。</p></div>"}}
       </div></section>`;
     }}
     function renderReviews() {{
-      const due = [...DATA.reviews].sort((a,b)=>String(a.due).localeCompare(String(b.due))).slice(0,40);
-      return `<section id="reviews" class="section"><div class="card"><h2>复习队列</h2><table>
-        <tr><th>日期</th><th>科目</th><th>内容</th><th>间隔</th></tr>
-        ${{due.map(r=>`<tr><td>${{esc(r.due)}}</td><td>${{esc(zh(r.subject))}}</td><td>${{esc(zh(r.content))}}</td><td>${{esc(r.interval)}} 天</td></tr>`).join("")}}
-      </table></div></section>`;
+      const rows = [...(DATA.reviews || [])]
+        .sort((a,b)=>String(a.due).localeCompare(String(b.due)) || String(a.subject).localeCompare(String(b.subject)));
+      const grouped = {{}};
+      for (const row of rows) {{
+        const sourceText = String(row.source || "");
+        const key = [
+          row.subject || "",
+          row.knowledge_point || row.content || "",
+          sourceText.includes("mistake:") ? sourceText.split(" ")[0] : sourceText,
+          row.review_kind || (sourceText.includes("mistake:") ? "mistake" : "knowledge")
+        ].join("||");
+        grouped[key] ??= [];
+        grouped[key].push(row);
+      }}
+      const items = Object.values(grouped).map(group => {{
+        const ordered = [...group].sort((a,b)=>String(a.due).localeCompare(String(b.due)));
+        const pending = ordered.filter(r => (r.status || "pending") !== "done");
+        const next = pending[0] || ordered[ordered.length - 1];
+        return {{
+          subject: next.subject,
+          knowledge_point: next.knowledge_point || next.content || "",
+          content: next.content || "",
+          source: next.source || "",
+          prompt_items: next.prompt_items || [],
+          acceptance: next.acceptance || "",
+          review_kind: next.review_kind || (String(next.source || "").includes("mistake:") ? "mistake" : "knowledge"),
+          next_due: pending.length ? (next.due || "未定日期") : "",
+          status_text: pending.length ? `下次复习：${{next.due || "未定日期"}}` : "复习结束",
+          intervals: ordered.map(r => r.interval).filter(v => v !== undefined && v !== null),
+          total_rounds: ordered.length,
+          done_rounds: ordered.length - pending.length,
+        }};
+      }}).sort((a,b)=> {{
+        const aDone = a.status_text === "复习结束";
+        const bDone = b.status_text === "复习结束";
+        if (aDone !== bDone) return aDone ? 1 : -1;
+        return String(a.next_due || "9999-99-99").localeCompare(String(b.next_due || "9999-99-99")) || String(a.subject).localeCompare(String(b.subject));
+      }});
+      const reviewCard = r => {{
+        const prompts = (r.prompt_items || []).length
+          ? `<div class="todo-detail">${{(r.prompt_items || []).map((q, idx)=>`<span>提问 ${{idx+1}}：${{esc(zh(q))}}</span>`).join("")}}</div>`
+          : `<div class="todo-detail"><span class="muted">当前没有题目，按该知识点自行提问与回忆。</span></div>`;
+        const sourceText = String(r.source || "");
+        const isMistake = r.review_kind === "mistake" || sourceText.includes("mistake:");
+        const kindText = isMistake ? "错题回炉" : "知识点复习";
+        const acceptance = r.acceptance ? `<div class="todo-detail"><span>验收：${{esc(zh(r.acceptance))}}</span></div>` : "";
+        const rounds = r.intervals?.length ? `轮次：${{r.done_rounds}}/${{r.total_rounds}}（${{r.intervals.join("/")}} 天）` : `轮次：${{r.done_rounds}}/${{r.total_rounds}}`;
+        return `<div class="today-card">
+          <b>${{esc(zh(r.subject))}} · ${{esc(zh(r.knowledge_point || r.content))}}</b>
+          <span>${{esc(zh(r.status_text))}} · ${{kindText}}</span>
+          <span>${{esc(rounds)}}</span>
+          <span>${{esc(zh(sourceText || "未记录来源"))}}</span>
+          ${{prompts}}
+          ${{acceptance}}
+        </div>`;
+      }};
+      return `<section id="reviews" class="section"><div class="grid">
+        <div class="card">
+          <h2>统一复习队列</h2>
+          <p class="muted">这里按知识点合并显示复习和错题回炉。同一个知识点只显示一次，只看下一次复习时间；整组都完成后显示“复习结束”。</p>
+          <p><span class="pill blue">知识点总数 ${{items.length}}</span><span class="pill green">错题回炉 ${{items.filter(r=>String(r.review_kind) === "mistake").length}}</span><span class="pill">知识点复习 ${{items.filter(r=>String(r.review_kind) !== "mistake").length}}</span></p>
+        </div>
+        ${{items.length ? `<div class="card"><h2>知识点列表 <span class="pill">${{items.length}} 项</span></h2><div class="today-list">${{items.map(reviewCard).join("")}}</div></div>` : `<div class="card"><h2>统一复习队列</h2><p class="muted">暂无复习项。没有错题就不会显示错题回炉；普通复习可直接用知识点 + 提问的方式新增。</p></div>`}}
+      </div></section>`;
     }}
     function renderBlocks() {{
       return `<section id="blocks" class="section"><div class="grid two">
@@ -661,30 +969,13 @@ def render_html(data: dict) -> str:
         <div class="card"><h2>真题/套卷</h2>${{DATA.papers.length?`<ul>${{DATA.papers.map(p=>`<li>${{esc(zh(p.subject))}} · ${{esc(zh(p.name))}} · ${{esc(p.score)}}/${{esc(p.total_score)}}</li>`).join("")}}</ul>`:"<p class='muted'>暂无真题/套卷记录</p>"}}</div>
       </div></section>`;
     }}
-    function renderMistakeCalendar() {{
-      const rows = DATA.reviews
-        .filter(r => String(r.source || "").includes("mistake:"))
-        .sort((a,b)=>String(a.due).localeCompare(String(b.due)) || String(a.subject).localeCompare(String(b.subject)));
-      const groups = {{}};
-      for (const row of rows) {{
-        groups[row.due || "未定日期"] ??= [];
-        groups[row.due || "未定日期"].push(row);
-      }}
-      const body = rows.length ? `<div class="calendar">${{Object.entries(groups).map(([day,items])=>`<div class="calendar-day">
-        <h3>${{esc(day)}} <span class="pill">${{items.length}} 项</span></h3>
-        <ul>${{items.map(r=>`<li>${{esc(zh(r.subject))}}：${{esc(zh(r.content))}} <span class="muted">· 间隔 ${{esc(r.interval)}} 天 · ${{esc(zh(r.status))}}</span></li>`).join("")}}</ul>
-      </div>`).join("")}}</div>` : `<p class="muted">暂无错题回炉任务；添加错题后，会自动进入当天、1 天、3 天、7 天、14 天、30 天复习队列。</p>`;
-      return `<section id="mistakeCalendar" class="section">
-        <div class="card"><h2>错题回炉日历</h2><p class="muted">只展示来源标记为 <code>mistake:</code> 的复习项，用来追踪错题的二刷、三刷和长期回炉。</p>${{body}}</div>
-      </section>`;
-    }}
     function renderDeploy() {{
       return `<section id="deploy" class="section"><div class="grid deploy">
         <div class="card"><h2>没有域名：本机运行</h2><p>推荐使用一键启动脚本。</p><div class="command">python "${{esc(DATA.scripts.launcher)}}" --profile "${{esc(PROFILE)}}" --open</div><p>也可以手动启动页面服务和本地档案写入服务。</p><div class="command">cd "${{esc(DATA.outDir)}}"<br>python -m http.server ${{new URL(DATA.staticUrl).port || "8787"}}<br>${{esc(DATA.staticUrl)}}<br><br>python "${{esc(DATA.scripts.server)}}" --profile "${{esc(PROFILE)}}" --out-dir "${{esc(DATA.outDir)}}"</div></div>
         <div class="card"><h2>有域名：挂到域名下</h2><p>把当前输出目录作为静态站点部署到 Nginx、Cloudflare Pages、Vercel、Netlify 或服务器任意 Web 根目录。</p><div class="command">${{esc(DATA.outDir)}}<br>&nbsp;&nbsp;index.html</div><p class="muted">域名页面可以展示看板；直接写入本地档案仍需要你电脑上的本地写入服务。若域名页要写入本机档案，需要启动服务前设置 STUDY_DASHBOARD_ORIGINS 为你的域名来源。不开本地服务时，使用底部备用导出。</p></div>
       </div></section>`;
     }}
-    app.innerHTML = renderOverview()+renderWeek()+renderSubjects()+renderReviews()+renderMaterials()+renderMistakes()+renderMistakeCalendar()+renderDiagnostics()+renderDeploy();
+    app.innerHTML = renderOverview()+renderWeek()+renderSubjects()+renderReviews()+renderMaterials()+renderMistakes()+renderDiagnostics()+renderDeploy();
     function setItemSyncState(el, text, state="warn") {{
       const node = el?.querySelector("[data-sync-state]");
       if (!node) return;
@@ -704,6 +995,8 @@ def render_html(data: dict) -> str:
         const progress = day.querySelector("[data-day-progress]");
         if (progress) progress.textContent = `${{done}}/${{checks.length}}`;
       }});
+      syncOverviewDonut();
+      syncOverviewSubjectProgress();
     }}
     function hydrateTodoState() {{
       document.querySelectorAll("[data-todo-check]").forEach(check => {{

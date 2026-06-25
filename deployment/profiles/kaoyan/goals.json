@@ -1,0 +1,21 @@
+{
+  "goal": "2027 postgraduate entrance exam preparation - Math II, 408, English II, Politics",
+  "deadline": "2026-12-20",
+  "subjects": [
+    "Math II",
+    "408",
+    "English II",
+    "Politics"
+  ],
+  "created": "2026-06-24",
+  "notes": "Stage: late foundation. Overall progress about 35%. Daily study average about 9 hours. Priority weights: Math II 30%, 408 45%, English II 15%, Politics 10%. Core tasks: finish linear algebra round one, close high-math double integrals, start OS and computer networks from zero, lightly warm up politics. Deadline provisional until official 2027 exam schedule is announced.",
+  "priority_weights": {
+    "408 - Operating System": 16.0,
+    "408 - Computer Organization": 12.0,
+    "408 - Computer Network": 10.0,
+    "408 - Data Structure": 7.0,
+    "Math II": 30.0,
+    "English II": 15.0,
+    "Politics": 10.0
+  }
+}

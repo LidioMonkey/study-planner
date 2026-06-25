@@ -1,0 +1,480 @@
+[
+  {
+    "id": "T026",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "B tree concepts, insertion/deletion/search details, representative choices",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "missed",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "B tree concepts, insertion/deletion/search details, representative choices",
+    "prompt_items": [
+      "B tree concepts, insertion/deletion/search details, representative choices 的核心定义或结论是什么？",
+      "B tree concepts, insertion/deletion/search details, representative choices 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T027",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "B tree concepts, insertion/deletion/search details, representative choices",
+    "due": "2026-06-27",
+    "interval": 3,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "B tree concepts, insertion/deletion/search details, representative choices",
+    "prompt_items": [
+      "B tree concepts, insertion/deletion/search details, representative choices 的核心定义或结论是什么？",
+      "B tree concepts, insertion/deletion/search details, representative choices 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T028",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "B tree concepts, insertion/deletion/search details, representative choices",
+    "due": "2026-07-01",
+    "interval": 7,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "B tree concepts, insertion/deletion/search details, representative choices",
+    "prompt_items": [
+      "B tree concepts, insertion/deletion/search details, representative choices 的核心定义或结论是什么？",
+      "B tree concepts, insertion/deletion/search details, representative choices 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T029",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "B tree concepts, insertion/deletion/search details, representative choices",
+    "due": "2026-07-08",
+    "interval": 14,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "B tree concepts, insertion/deletion/search details, representative choices",
+    "prompt_items": [
+      "B tree concepts, insertion/deletion/search details, representative choices 的核心定义或结论是什么？",
+      "B tree concepts, insertion/deletion/search details, representative choices 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T030",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "B tree concepts, insertion/deletion/search details, representative choices",
+    "due": "2026-07-24",
+    "interval": 30,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "B tree concepts, insertion/deletion/search details, representative choices",
+    "prompt_items": [
+      "B tree concepts, insertion/deletion/search details, representative choices 的核心定义或结论是什么？",
+      "B tree concepts, insertion/deletion/search details, representative choices 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T031",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "prompt_items": [
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 的核心定义或结论是什么？",
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T032",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "due": "2026-06-27",
+    "interval": 3,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "prompt_items": [
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 的核心定义或结论是什么？",
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T033",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "due": "2026-07-01",
+    "interval": 7,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "prompt_items": [
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 的核心定义或结论是什么？",
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T034",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "due": "2026-07-08",
+    "interval": 14,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "prompt_items": [
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 的核心定义或结论是什么？",
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T035",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "due": "2026-07-24",
+    "interval": 30,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "critical path: AOE network, earliest/latest time, slack, typical calculation",
+    "prompt_items": [
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 的核心定义或结论是什么？",
+      "critical path: AOE network, earliest/latest time, slack, typical calculation 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T036",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "Cache mapping: direct, fully associative, set associative, address partition",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "missed",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "Cache mapping: direct, fully associative, set associative, address partition",
+    "prompt_items": [
+      "Cache mapping: direct, fully associative, set associative, address partition 的核心定义或结论是什么？",
+      "Cache mapping: direct, fully associative, set associative, address partition 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T037",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "Cache mapping: direct, fully associative, set associative, address partition",
+    "due": "2026-06-27",
+    "interval": 3,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "Cache mapping: direct, fully associative, set associative, address partition",
+    "prompt_items": [
+      "Cache mapping: direct, fully associative, set associative, address partition 的核心定义或结论是什么？",
+      "Cache mapping: direct, fully associative, set associative, address partition 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T038",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "Cache mapping: direct, fully associative, set associative, address partition",
+    "due": "2026-07-01",
+    "interval": 7,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "Cache mapping: direct, fully associative, set associative, address partition",
+    "prompt_items": [
+      "Cache mapping: direct, fully associative, set associative, address partition 的核心定义或结论是什么？",
+      "Cache mapping: direct, fully associative, set associative, address partition 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T039",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "Cache mapping: direct, fully associative, set associative, address partition",
+    "due": "2026-07-08",
+    "interval": 14,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "Cache mapping: direct, fully associative, set associative, address partition",
+    "prompt_items": [
+      "Cache mapping: direct, fully associative, set associative, address partition 的核心定义或结论是什么？",
+      "Cache mapping: direct, fully associative, set associative, address partition 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T040",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "Cache mapping: direct, fully associative, set associative, address partition",
+    "due": "2026-07-24",
+    "interval": 30,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "Cache mapping: direct, fully associative, set associative, address partition",
+    "prompt_items": [
+      "Cache mapping: direct, fully associative, set associative, address partition 的核心定义或结论是什么？",
+      "Cache mapping: direct, fully associative, set associative, address partition 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T041",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "missed",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "prompt_items": [
+      "pipeline: speedup, throughput, hazard, timing diagram problems 的核心定义或结论是什么？",
+      "pipeline: speedup, throughput, hazard, timing diagram problems 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T042",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "due": "2026-06-27",
+    "interval": 3,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "prompt_items": [
+      "pipeline: speedup, throughput, hazard, timing diagram problems 的核心定义或结论是什么？",
+      "pipeline: speedup, throughput, hazard, timing diagram problems 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T043",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "due": "2026-07-01",
+    "interval": 7,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "prompt_items": [
+      "pipeline: speedup, throughput, hazard, timing diagram problems 的核心定义或结论是什么？",
+      "pipeline: speedup, throughput, hazard, timing diagram problems 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T044",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "due": "2026-07-08",
+    "interval": 14,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "prompt_items": [
+      "pipeline: speedup, throughput, hazard, timing diagram problems 的核心定义或结论是什么？",
+      "pipeline: speedup, throughput, hazard, timing diagram problems 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T045",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "due": "2026-07-24",
+    "interval": 30,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "prompt_items": [
+      "pipeline: speedup, throughput, hazard, timing diagram problems 的核心定义或结论是什么？",
+      "pipeline: speedup, throughput, hazard, timing diagram problems 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。"
+  },
+  {
+    "id": "T053",
+    "type": "review",
+    "subject": "408 - Operating System",
+    "source": "Weak point",
+    "content": "进程同步与互斥",
+    "knowledge_point": "进程同步与互斥",
+    "prompt_items": [
+      "互斥和同步的区别是什么？",
+      "PV 操作各自表达什么？",
+      "常见题目陷阱在哪里？"
+    ],
+    "acceptance": "回答 3 个问题，并指出自己仍不稳的 1 个点。",
+    "review_kind": "knowledge",
+    "due": "2026-06-26",
+    "interval": 1,
+    "status": "pending",
+    "created": "2026-06-25"
+  },
+  {
+    "id": "T054",
+    "type": "review",
+    "subject": "408 - Operating System",
+    "source": "Weak point",
+    "content": "进程同步与互斥",
+    "knowledge_point": "进程同步与互斥",
+    "prompt_items": [
+      "互斥和同步的区别是什么？",
+      "PV 操作各自表达什么？",
+      "常见题目陷阱在哪里？"
+    ],
+    "acceptance": "回答 3 个问题，并指出自己仍不稳的 1 个点。",
+    "review_kind": "knowledge",
+    "due": "2026-06-28",
+    "interval": 3,
+    "status": "pending",
+    "created": "2026-06-25"
+  },
+  {
+    "id": "T055",
+    "type": "review",
+    "subject": "408 - Operating System",
+    "source": "Weak point",
+    "content": "进程同步与互斥",
+    "knowledge_point": "进程同步与互斥",
+    "prompt_items": [
+      "互斥和同步的区别是什么？",
+      "PV 操作各自表达什么？",
+      "常见题目陷阱在哪里？"
+    ],
+    "acceptance": "回答 3 个问题，并指出自己仍不稳的 1 个点。",
+    "review_kind": "knowledge",
+    "due": "2026-07-02",
+    "interval": 7,
+    "status": "pending",
+    "created": "2026-06-25"
+  },
+  {
+    "id": "T056",
+    "type": "review",
+    "subject": "408 - Operating System",
+    "source": "Weak point",
+    "content": "进程同步与互斥",
+    "knowledge_point": "进程同步与互斥",
+    "prompt_items": [
+      "互斥和同步的区别是什么？",
+      "PV 操作各自表达什么？",
+      "常见题目陷阱在哪里？"
+    ],
+    "acceptance": "回答 3 个问题，并指出自己仍不稳的 1 个点。",
+    "review_kind": "knowledge",
+    "due": "2026-07-09",
+    "interval": 14,
+    "status": "pending",
+    "created": "2026-06-25"
+  },
+  {
+    "id": "T057",
+    "type": "review",
+    "subject": "408 - Operating System",
+    "source": "Weak point",
+    "content": "进程同步与互斥",
+    "knowledge_point": "进程同步与互斥",
+    "prompt_items": [
+      "互斥和同步的区别是什么？",
+      "PV 操作各自表达什么？",
+      "常见题目陷阱在哪里？"
+    ],
+    "acceptance": "回答 3 个问题，并指出自己仍不稳的 1 个点。",
+    "review_kind": "knowledge",
+    "due": "2026-07-25",
+    "interval": 30,
+    "status": "pending",
+    "created": "2026-06-25"
+  }
+]

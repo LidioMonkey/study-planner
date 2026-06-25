@@ -1,0 +1,286 @@
+[
+  {
+    "id": "T001",
+    "type": "course",
+    "subject": "Math II - Advanced Math",
+    "title": "武忠祥高等数学基础篇讲义 + 基础篇网课",
+    "chapter": "第9章 二重积分",
+    "slice": "完成第9章二重积分：区域画图、积分次序、直角坐标/极坐标选择",
+    "estimated_minutes": 60,
+    "output": "整理 1 页二重积分区域选择与换序方法表",
+    "exercise": "武忠祥高数严选题：二重积分剩余题全部订正",
+    "priority": 1,
+    "status": "done",
+    "created": "2026-06-24",
+    "updated": "2026-06-24",
+    "material_id": "MAT-WZX-GS-BASE",
+    "catalog_units": [
+      "WZXGSB-09"
+    ],
+    "page_range": "P154-P161"
+  },
+  {
+    "id": "T002",
+    "type": "course",
+    "subject": "Math II - Linear Algebra",
+    "title": "李永乐线性代数基础篇讲义 + 基础篇网课",
+    "chapter": "第5章 特征值与特征向量",
+    "slice": "复习第5章第1-3节：特征值与特征向量的定义及性质、求法、相似矩阵的概念和性质，并完成对应例题复盘",
+    "estimated_minutes": 60,
+    "output": "写出特征值、特征向量、相似矩阵、可对角化条件清单",
+    "exercise": "李永乐线代基础篇配套习题：第5章特征值与特征向量相关题 25 题",
+    "priority": 1,
+    "status": "done",
+    "created": "2026-06-24",
+    "updated": "2026-06-24",
+    "material_id": "MAT-LIYONGLE-LA-BASE",
+    "catalog_units": [
+      "LYLA-05-01",
+      "LYLA-05-02",
+      "LYLA-05-03"
+    ],
+    "page_range": "P162-P167"
+  },
+  {
+    "id": "T003",
+    "type": "course",
+    "subject": "Math II - Linear Algebra",
+    "title": "李永乐线性代数基础篇讲义 + 基础篇网课",
+    "chapter": "第5章 特征值与特征向量",
+    "slice": "学习第5章第4-5节：矩阵的对角化、实对称矩阵的对角化，并整理可对角化判定流程",
+    "estimated_minutes": 60,
+    "output": "输出矩阵对角化条件、步骤、易错点检查表",
+    "exercise": "李永乐线代基础篇配套习题：第5章矩阵对角化相关题 25 题",
+    "priority": 2,
+    "status": "done",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T002",
+      "T015"
+    ],
+    "material_id": "MAT-LIYONGLE-LA-BASE",
+    "catalog_units": [
+      "LYLA-05-04",
+      "LYLA-05-05"
+    ],
+    "page_range": "P172-P175",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "T004",
+    "type": "course",
+    "subject": "Math II - Linear Algebra",
+    "title": "李永乐线性代数基础篇讲义 + 基础篇网课",
+    "chapter": "第6章 二次型",
+    "slice": "学习第6章第1-3节：二次型及其矩阵、化二次型为标准形、正定二次型和正定矩阵",
+    "estimated_minutes": 60,
+    "output": "整理二次型标准形、合同变换、正定判定清单",
+    "exercise": "李永乐线代基础篇配套习题：第6章二次型相关题 25 题",
+    "priority": 2,
+    "status": "done",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T003",
+      "T016"
+    ],
+    "material_id": "MAT-LIYONGLE-LA-BASE",
+    "catalog_units": [
+      "LYLA-06-01",
+      "LYLA-06-02",
+      "LYLA-06-03"
+    ],
+    "page_range": "P195-P199",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "T005",
+    "type": "course",
+    "subject": "408 - Data Structure",
+    "title": "王道数据结构复习指导书 + 闲鱼老师网课",
+    "chapter": "第8章 排序",
+    "slice": "完成排序章节复习：插入、交换、选择、归并、基数排序对比",
+    "estimated_minutes": 60,
+    "output": "输出排序算法时间复杂度、稳定性、适用场景对比表",
+    "exercise": "王道数据结构排序章节课后题 30 题",
+    "priority": 1,
+    "status": "done",
+    "created": "2026-06-24",
+    "updated": "2026-06-24",
+    "material_id": "MAT-WANGDAO-DS",
+    "catalog_units": [
+      "DS-08"
+    ],
+    "page_range": "P359-P420"
+  },
+  {
+    "id": "T006",
+    "type": "course",
+    "subject": "408 - Computer Organization",
+    "title": "王道计算机组成原理复习指导书 + 湖师大老师网课",
+    "chapter": "第4章 指令系统",
+    "slice": "完成第4章指令系统：指令格式、寻址方式、程序的机器级代码表示、CISC/RISC",
+    "estimated_minutes": 60,
+    "output": "第4章指令系统已完成，保留错因表用于复习",
+    "exercise": "王道计组指令系统章节课后题 25 题",
+    "priority": 1,
+    "status": "done",
+    "created": "2026-06-24",
+    "material_id": "MAT-WANGDAO-CO",
+    "catalog_units": [
+      "CO-04-01",
+      "CO-04-02",
+      "CO-04-03",
+      "CO-04-04"
+    ],
+    "page_range": "P168-P215",
+    "updated": "2026-06-24"
+  },
+  {
+    "id": "T007",
+    "type": "course",
+    "subject": "408 - Computer Organization",
+    "title": "王道计算机组成原理复习指导书 + 湖师大老师网课",
+    "chapter": "第5章 中央处理器",
+    "slice": "学习第5章第4节：控制器的功能和工作原理",
+    "estimated_minutes": 60,
+    "output": "整理硬布线控制器、微程序控制器、控制信号产生流程对比表",
+    "exercise": "王道计组第5章中央处理器：控制器相关课后题 15-20 题",
+    "priority": 2,
+    "status": "missed",
+    "created": "2026-06-24",
+    "depends_on": [],
+    "material_id": "MAT-WANGDAO-CO",
+    "catalog_units": [
+      "CO-05-04"
+    ],
+    "page_range": "P248-P262",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T008",
+    "type": "course",
+    "subject": "408 - Operating System",
+    "title": "王道操作系统复习指导书",
+    "chapter": "第2章 进程与线程",
+    "slice": "学习进程与线程小节 1 个 45-60 分钟切片：进程状态、PCB、线程模型",
+    "estimated_minutes": 60,
+    "output": "画出进程状态转换图，并列出进程/线程区别",
+    "exercise": "王道操作系统进程与线程课后选择题 8-10 题",
+    "priority": 1,
+    "status": "missed",
+    "created": "2026-06-24",
+    "material_id": "MAT-WANGDAO-OS",
+    "catalog_units": [
+      "OS-02-01"
+    ],
+    "page_range": "P50-P76",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T009",
+    "type": "course",
+    "subject": "408 - Operating System",
+    "title": "王道操作系统复习指导书",
+    "chapter": "第2章 进程与线程",
+    "slice": "学习调度算法与 PV 入门 1 个 45-60 分钟切片",
+    "estimated_minutes": 60,
+    "output": "整理 FCFS/SJF/优先级/时间片调度对比表和 PV 模板",
+    "exercise": "王道操作系统调度与 PV 课后题 25 题",
+    "priority": 1,
+    "status": "missed",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T008"
+    ],
+    "material_id": "MAT-WANGDAO-OS",
+    "catalog_units": [
+      "OS-02-02",
+      "OS-02-03"
+    ],
+    "page_range": "P77-P159",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T010",
+    "type": "course",
+    "subject": "408 - Computer Network",
+    "title": "王道计算机网络复习指导书",
+    "chapter": "第1章 计算机网络体系结构",
+    "slice": "学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口",
+    "estimated_minutes": 45,
+    "output": "整理分层模型、协议数据单元、典型协议表",
+    "exercise": "王道计网体系结构章节课后题 20 题",
+    "priority": 2,
+    "status": "missed",
+    "created": "2026-06-24",
+    "material_id": "MAT-WANGDAO-CN",
+    "catalog_units": [
+      "CN-01-01",
+      "CN-01-02"
+    ],
+    "page_range": "P13-P40",
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T011",
+    "type": "course",
+    "subject": "English II",
+    "title": "刘晓艳 88句",
+    "chapter": "第1句-第3句",
+    "slice": "完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分",
+    "estimated_minutes": 40,
+    "output": "拆解 3 个长难句并记录生词",
+    "exercise": "刘晓艳 88句：第1句-第3句逐句复盘",
+    "priority": 3,
+    "status": "missed",
+    "created": "2026-06-24",
+    "material_id": "MAT-LXY-88",
+    "catalog_units": [
+      "LXY88-001",
+      "LXY88-002",
+      "LXY88-003"
+    ],
+    "updated": "2026-06-25"
+  },
+  {
+    "id": "T012",
+    "type": "course",
+    "subject": "Politics",
+    "title": "徐涛核心考案",
+    "chapter": "马克思主义基本原理",
+    "slice": "完成徐涛核心考案马克思主义基本原理总框架：五科结构、马原在政治中的位置、首轮复习顺序",
+    "estimated_minutes": 30,
+    "output": "写出政治五科一级框架，并整理马原首轮章节清单",
+    "exercise": "肖1000题：第一部分马克思主义基本原理对应选择题 10-20 题",
+    "priority": 4,
+    "status": "pending",
+    "created": "2026-06-24",
+    "material_id": "MAT-XT-KXKA",
+    "catalog_units": [
+      "XTKX-01"
+    ]
+  },
+  {
+    "id": "T046",
+    "type": "course",
+    "subject": "Math II - Advanced Math",
+    "title": "武忠祥高等数学辅导讲义强化篇",
+    "chapter": "第6章 二重积分",
+    "slice": "在 660 二重积分专题订正后，学习第6章二重积分：计算二重积分、重积分换元法及与二重积分相关的综合题",
+    "estimated_minutes": 60,
+    "output": "整理强化篇方法框架与 2 道代表题",
+    "exercise": "武忠祥高等数学辅导讲义配套严选题：第6章二重积分",
+    "priority": 3,
+    "status": "missed",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T014"
+    ],
+    "material_id": "MAT-WZX-GS-FUDAO",
+    "catalog_units": [
+      "WZXFD-06"
+    ],
+    "page_range": "P200-P217",
+    "updated": "2026-06-25"
+  }
+]

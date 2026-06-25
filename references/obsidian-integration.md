@@ -187,3 +187,4 @@ Existing files with the same generated file name are overwritten.
 - Do not invent pages, lectures, or problem ranges if the Obsidian material note lacks them.
 - For an imported outline with `catalog_precision: chapter`, chapter-level plans are allowed and are the default. Page-level or question-number-level plans still require a richer material table, OCR, screenshots, PDF text, or user confirmation.
 - Keep Obsidian paths user-configurable with `--vault`; never hard-code a local vault path.
+- If a migrated profile contains `obsidian.json` from another machine or another OS, treat that path as untrusted until the user confirms the correct local vault path.

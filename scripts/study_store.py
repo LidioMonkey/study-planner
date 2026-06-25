@@ -393,6 +393,14 @@ def split_csv(value: str | None) -> list[str]:
     return [item.strip() for item in value.split(",") if item.strip()]
 
 
+def split_review_prompts(value: str | None) -> list[str]:
+    if not value:
+        return []
+    normalized = value.replace("\r\n", "\n")
+    parts = normalized.split(";;") if ";;" in normalized else normalized.splitlines()
+    return [item.strip() for item in parts if item.strip()]
+
+
 def parse_weights(value: str | None) -> dict[str, float]:
     weights: dict[str, float] = {}
     if not value:
@@ -639,10 +647,15 @@ def add_review_item(
     source: str,
     content: str,
     start: date | None = None,
+    knowledge_point: str = "",
+    prompt_items: list[str] | None = None,
+    acceptance: str = "",
 ) -> list[dict[str, Any]]:
     start = start or date.today()
     reviews = load(profile, "reviews")
     created: list[dict[str, Any]] = []
+    prompt_items = prompt_items or []
+    review_kind = "mistake" if str(source).startswith("mistake:") else "knowledge"
     for interval in REVIEW_INTERVALS:
         item = {
             "id": next_id(profile),
@@ -650,6 +663,10 @@ def add_review_item(
             "subject": subject,
             "source": source,
             "content": content,
+            "knowledge_point": knowledge_point or content,
+            "prompt_items": prompt_items,
+            "acceptance": acceptance or "",
+            "review_kind": review_kind,
             "due": (start + timedelta(days=interval)).isoformat(),
             "interval": interval,
             "status": "pending",
@@ -669,12 +686,27 @@ def add_review(args: argparse.Namespace) -> None:
         args.source,
         args.content,
         start=start,
+        knowledge_point=args.knowledge_point,
+        prompt_items=split_review_prompts(args.questions),
+        acceptance=args.acceptance,
     )
     print_json(created)
 
 
 def pending(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [item for item in items if item.get("status", "pending") == "pending"]
+
+
+def dedupe_tasks_by_id(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    deduped: dict[str, dict[str, Any]] = {}
+    ordered_without_id: list[dict[str, Any]] = []
+    for item in items:
+        task_id = item.get("id")
+        if not task_id:
+            ordered_without_id.append(item)
+            continue
+        deduped[task_id] = item
+    return list(deduped.values()) + ordered_without_id
 
 
 def done_task_ids(profile: str) -> set[str]:
@@ -721,10 +753,34 @@ def subject_weight(item: dict[str, Any], weights: dict[str, float]) -> float:
     return float(weights.get(group, 0))
 
 
+def is_supplemental_material(profile: str, item: dict[str, Any]) -> bool:
+    material_id = item.get("material_id", "")
+    if not material_id:
+        return False
+    material = find_material(profile, material_id)
+    if not material:
+        return False
+    notes = str(material.get("notes", ""))
+    return "辅助习题册" in notes or "非主线使用" in notes
+
+
 def weighted_key(item: dict[str, Any], weights: dict[str, float]) -> tuple[int, float, str]:
     priority = int(item.get("priority", 3))
     created = item.get("created", "")
     return priority, -subject_weight(item, weights), created
+
+
+def split_main_and_supplemental(
+    profile: str, items: list[dict[str, Any]]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    main_route: list[dict[str, Any]] = []
+    supplemental: list[dict[str, Any]] = []
+    for item in items:
+        if is_supplemental_material(profile, item):
+            supplemental.append(item)
+        else:
+            main_route.append(item)
+    return main_route, supplemental
 
 
 def select_diverse_tasks(
@@ -780,15 +836,21 @@ def generate_today(args: argparse.Namespace) -> None:
     )
     backlog = [item for item in pending(load(args.profile, "backlog")) if is_unblocked(item, done_ids)]
     reviews = due_reviews(args.profile, when)
+    main_courses, supplemental_courses = split_main_and_supplemental(args.profile, courses)
+    main_exercises, supplemental_exercises = split_main_and_supplemental(args.profile, exercises)
 
     must_do: list[dict[str, Any]] = []
     must_do.extend(backlog[:1])
-    candidates = courses + exercises
+    candidates = main_courses + main_exercises
     candidates = [item for item in candidates if item["id"] not in {task["id"] for task in must_do}]
     must_do.extend(select_diverse_tasks(candidates, weights, 3 - len(must_do)))
     must_do = must_do[:3]
 
-    optional_candidates = [item for item in courses + exercises if item["id"] not in {t["id"] for t in must_do}]
+    optional_candidates = [
+        item
+        for item in main_courses + main_exercises + supplemental_courses + supplemental_exercises
+        if item["id"] not in {t["id"] for t in must_do}
+    ]
     optional = sorted(optional_candidates, key=lambda item: weighted_key(item, weights))
     output = {
         "date": when.isoformat(),
@@ -819,7 +881,7 @@ def build_weekly_plan(profile: str, start: date, days: int) -> dict[str, Any]:
     simulated_done = done_task_ids(profile)
     remaining_courses = pending(load(profile, "courses"))
     remaining_exercises = pending(load(profile, "exercises"))
-    remaining_backlog = pending(load(profile, "backlog"))
+    remaining_backlog = dedupe_tasks_by_id(pending(load(profile, "backlog")))
     remaining_reviews = pending(load(profile, "reviews"))
     plan_days: list[dict[str, Any]] = []
 
@@ -834,12 +896,14 @@ def build_weekly_plan(profile: str, start: date, days: int) -> dict[str, Any]:
         available_exercises = [
             item for item in remaining_exercises if is_unblocked(item, simulated_done)
         ]
+        main_courses, supplemental_courses = split_main_and_supplemental(profile, available_courses)
+        main_exercises, supplemental_exercises = split_main_and_supplemental(profile, available_exercises)
 
         must_do: list[dict[str, Any]] = []
         must_do.extend(sorted(available_backlog, key=priority_key)[:1])
         candidates = [
             item
-            for item in available_courses + available_exercises
+            for item in main_courses + main_exercises
             if item["id"] not in {task["id"] for task in must_do}
         ]
         must_do.extend(select_diverse_tasks(candidates, weights, 3 - len(must_do)))
@@ -855,7 +919,7 @@ def build_weekly_plan(profile: str, start: date, days: int) -> dict[str, Any]:
 
         optional_candidates = [
             item
-            for item in available_courses + available_exercises
+            for item in main_courses + main_exercises + supplemental_courses + supplemental_exercises
             if item["id"] not in selected_ids
         ]
         optional = sorted(optional_candidates, key=lambda item: weighted_key(item, weights))[:3]
@@ -888,8 +952,21 @@ def days_until_sunday(start: date) -> int:
 
 def plan_task_view(item: dict[str, Any]) -> dict[str, Any]:
     material = item.get("title") or item.get("resource") or item.get("source") or ""
-    scope = item.get("chapter") or item.get("scope") or item.get("content") or ""
-    action = item.get("slice") or item.get("task") or item.get("scope") or item.get("content") or scope
+    scope = (
+        item.get("chapter")
+        or item.get("scope")
+        or item.get("knowledge_point")
+        or item.get("content")
+        or ""
+    )
+    action = (
+        item.get("slice")
+        or item.get("task")
+        or item.get("knowledge_point")
+        or item.get("scope")
+        or item.get("content")
+        or scope
+    )
     quantity = task_quantity_text(item)
     acceptance = item.get("output") or item.get("acceptance") or ""
     range_parts = [
@@ -913,6 +990,9 @@ def plan_task_view(item: dict[str, Any]) -> dict[str, Any]:
         "precise_range": precise_range,
         "quantity": quantity,
         "acceptance": acceptance,
+        "knowledge_point": item.get("knowledge_point", ""),
+        "prompt_items": item.get("prompt_items", []),
+        "review_kind": item.get("review_kind", ""),
         "display_title": explicit_task_title(item, material, scope, action, quantity, acceptance),
         "output_or_acceptance": acceptance,
         "depends_on": item.get("depends_on", []),
@@ -974,7 +1054,10 @@ def explicit_task_title(
             scope or action or "specified review content",
             quantity,
         ]
-        return " | ".join(part for part in parts if part)
+        title = " | ".join(part for part in parts if part)
+        if acceptance:
+            title += f" | 验收：{acceptance}"
+        return title
     return action or scope or material or item.get("id", "task")
 
 
@@ -1055,7 +1138,14 @@ def log_progress(args: argparse.Namespace) -> None:
         subject = found.get("subject", "Study") if found else "Study"
         source = found.get("resource") or found.get("title") or args.task_id if found else args.task_id
         content = args.review or args.note or f"Review task {args.task_id}"
-        created_reviews = add_review_item(args.profile, subject, source, content)
+        created_reviews = add_review_item(
+            args.profile,
+            subject,
+            source,
+            content,
+            knowledge_point=content,
+            acceptance="回答该知识点的自测问题，并确认是否仍有薄弱点。",
+        )
 
     if args.status in {"missed", "partial"} and found and found_key != "backlog":
         backlog = load(args.profile, "backlog")
@@ -1063,8 +1153,9 @@ def log_progress(args: argparse.Namespace) -> None:
         backlog_item["status"] = "pending"
         backlog_item["backlog_reason"] = args.status
         backlog_item["backlog_date"] = today_iso()
+        backlog = [item for item in backlog if item.get("id") != backlog_item.get("id")]
         backlog.append(backlog_item)
-        save(args.profile, "backlog", backlog)
+        save(args.profile, "backlog", dedupe_tasks_by_id(backlog))
 
     print_json(
         {
@@ -1287,6 +1378,8 @@ def add_mistake(args: argparse.Namespace) -> None:
         f"mistake:{mistake['id']} {args.source}",
         f"{args.question} - {args.knowledge} - {args.note}".strip(" -"),
         start=parse_date(args.date),
+        knowledge_point=args.knowledge,
+        acceptance="回忆原题解法与错因，确认本次是否能独立做对。",
     )
     print_json({"mistake": mistake, "created_reviews": created_reviews})
 
@@ -1802,7 +1895,7 @@ def active_tasks(profile: str) -> list[dict[str, Any]]:
     tasks: list[dict[str, Any]] = []
     for key in ["courses", "exercises", "backlog"]:
         tasks.extend(load(profile, key))
-    return tasks
+    return dedupe_tasks_by_id(tasks)
 
 
 def subject_task_map(profile: str) -> dict[str, dict[str, Any]]:
@@ -2085,6 +2178,9 @@ def build_parser() -> argparse.ArgumentParser:
     review.add_argument("--subject", required=True)
     review.add_argument("--source", required=True)
     review.add_argument("--content", required=True)
+    review.add_argument("--knowledge-point", default="")
+    review.add_argument("--questions", default="")
+    review.add_argument("--acceptance", default="")
     review.add_argument("--start", default="")
     review.set_defaults(func=add_review)
 

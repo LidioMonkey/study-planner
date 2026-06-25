@@ -1,0 +1,357 @@
+[
+  {
+    "id": "T016",
+    "type": "exercise",
+    "subject": "Math II - Linear Algebra",
+    "resource": "李永乐线代基础篇讲义配套习题",
+    "scope": "第5章 矩阵的对角化（第4-5节）",
+    "quantity": 25,
+    "mode": "untimed",
+    "acceptance": "完成 25 题，写出对角化条件清单并订正错题",
+    "priority": 2,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T003"
+    ],
+    "material_id": "MAT-LIYONGLE-LA-BASE",
+    "catalog_units": [
+      "LYLA-05-04",
+      "LYLA-05-05"
+    ],
+    "page_range": "P172-P175",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T008",
+    "type": "course",
+    "subject": "408 - Operating System",
+    "title": "王道操作系统复习指导书",
+    "chapter": "第2章 进程与线程",
+    "slice": "学习进程与线程小节 1 个 45-60 分钟切片：进程状态、PCB、线程模型",
+    "estimated_minutes": 60,
+    "output": "画出进程状态转换图，并列出进程/线程区别",
+    "exercise": "王道操作系统进程与线程课后选择题 8-10 题",
+    "priority": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "material_id": "MAT-WANGDAO-OS",
+    "catalog_units": [
+      "OS-02-01"
+    ],
+    "page_range": "P50-P76",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T007",
+    "type": "course",
+    "subject": "408 - Computer Organization",
+    "title": "王道计算机组成原理复习指导书 + 湖师大老师网课",
+    "chapter": "第5章 中央处理器",
+    "slice": "学习第5章第4节：控制器的功能和工作原理",
+    "estimated_minutes": 60,
+    "output": "整理硬布线控制器、微程序控制器、控制信号产生流程对比表",
+    "exercise": "王道计组第5章中央处理器：控制器相关课后题 15-20 题",
+    "priority": 2,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [],
+    "material_id": "MAT-WANGDAO-CO",
+    "catalog_units": [
+      "CO-05-04"
+    ],
+    "page_range": "P248-P262",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T009",
+    "type": "course",
+    "subject": "408 - Operating System",
+    "title": "王道操作系统复习指导书",
+    "chapter": "第2章 进程与线程",
+    "slice": "学习调度算法与 PV 入门 1 个 45-60 分钟切片",
+    "estimated_minutes": 60,
+    "output": "整理 FCFS/SJF/优先级/时间片调度对比表和 PV 模板",
+    "exercise": "王道操作系统调度与 PV 课后题 25 题",
+    "priority": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T008"
+    ],
+    "material_id": "MAT-WANGDAO-OS",
+    "catalog_units": [
+      "OS-02-02",
+      "OS-02-03"
+    ],
+    "page_range": "P77-P159",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T041",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "pipeline: speedup, throughput, hazard, timing diagram problems",
+    "prompt_items": [
+      "pipeline: speedup, throughput, hazard, timing diagram problems 的核心定义或结论是什么？",
+      "pipeline: speedup, throughput, hazard, timing diagram problems 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T026",
+    "type": "review",
+    "subject": "408 - Data Structure",
+    "source": "Weak point",
+    "content": "B tree concepts, insertion/deletion/search details, representative choices",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "B tree concepts, insertion/deletion/search details, representative choices",
+    "prompt_items": [
+      "B tree concepts, insertion/deletion/search details, representative choices 的核心定义或结论是什么？",
+      "B tree concepts, insertion/deletion/search details, representative choices 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T036",
+    "type": "review",
+    "subject": "408 - Computer Organization",
+    "source": "Weak point",
+    "content": "Cache mapping: direct, fully associative, set associative, address partition",
+    "due": "2026-06-25",
+    "interval": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "review_kind": "knowledge",
+    "knowledge_point": "Cache mapping: direct, fully associative, set associative, address partition",
+    "prompt_items": [
+      "Cache mapping: direct, fully associative, set associative, address partition 的核心定义或结论是什么？",
+      "Cache mapping: direct, fully associative, set associative, address partition 最容易混淆的点是什么？",
+      "不看笔记，你能举一个典型题型或应用场景吗？"
+    ],
+    "acceptance": "回答该知识点的自测问题，并确认是否仍有薄弱点。",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T021",
+    "type": "exercise",
+    "subject": "408 - Operating System",
+    "resource": "王道操作系统复习指导书课后题",
+    "scope": "第2章 进程与线程",
+    "quantity": 25,
+    "mode": "untimed",
+    "acceptance": "完成 25 题，标记概念缺口，并整理进程状态/调度/PV 模板",
+    "priority": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T008",
+      "T009"
+    ],
+    "material_id": "MAT-WANGDAO-OS",
+    "catalog_units": [
+      "OS-02-01",
+      "OS-02-02",
+      "OS-02-03",
+      "OS-02-04"
+    ],
+    "page_range": "P50-P187",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T020",
+    "type": "exercise",
+    "subject": "408 - Computer Organization",
+    "resource": "王道计算机组成原理复习指导书课后题",
+    "scope": "第5章 中央处理器：5.4 控制器的功能和工作原理",
+    "quantity": 20,
+    "mode": "untimed",
+    "acceptance": "完成控制器相关 20 题，订正全部错题，并整理硬布线/微程序控制器易混点",
+    "priority": 2,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T007"
+    ],
+    "material_id": "MAT-WANGDAO-CO",
+    "catalog_units": [
+      "CO-05-04"
+    ],
+    "page_range": "P248-P262",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T010",
+    "type": "course",
+    "subject": "408 - Computer Network",
+    "title": "王道计算机网络复习指导书",
+    "chapter": "第1章 计算机网络体系结构",
+    "slice": "学习体系结构与分层模型 1 个 40-50 分钟切片：OSI、TCP/IP、协议/服务/接口",
+    "estimated_minutes": 45,
+    "output": "整理分层模型、协议数据单元、典型协议表",
+    "exercise": "王道计网体系结构章节课后题 20 题",
+    "priority": 2,
+    "status": "pending",
+    "created": "2026-06-24",
+    "material_id": "MAT-WANGDAO-CN",
+    "catalog_units": [
+      "CN-01-01",
+      "CN-01-02"
+    ],
+    "page_range": "P13-P40",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T046",
+    "type": "course",
+    "subject": "Math II - Advanced Math",
+    "title": "武忠祥高等数学辅导讲义强化篇",
+    "chapter": "第6章 二重积分",
+    "slice": "在 660 二重积分专题订正后，学习第6章二重积分：计算二重积分、重积分换元法及与二重积分相关的综合题",
+    "estimated_minutes": 60,
+    "output": "整理强化篇方法框架与 2 道代表题",
+    "exercise": "武忠祥高等数学辅导讲义配套严选题：第6章二重积分",
+    "priority": 3,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T014"
+    ],
+    "material_id": "MAT-WZX-GS-FUDAO",
+    "catalog_units": [
+      "WZXFD-06"
+    ],
+    "page_range": "P200-P217",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T011",
+    "type": "course",
+    "subject": "English II",
+    "title": "刘晓艳 88句",
+    "chapter": "第1句-第3句",
+    "slice": "完成第1句到第3句长难句拆解：主干识别、修饰成分定位、从句切分",
+    "estimated_minutes": 40,
+    "output": "拆解 3 个长难句并记录生词",
+    "exercise": "刘晓艳 88句：第1句-第3句逐句复盘",
+    "priority": 3,
+    "status": "pending",
+    "created": "2026-06-24",
+    "material_id": "MAT-LXY-88",
+    "catalog_units": [
+      "LXY88-001",
+      "LXY88-002",
+      "LXY88-003"
+    ],
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T014",
+    "type": "exercise",
+    "subject": "Math II",
+    "resource": "660 题",
+    "scope": "高数篇：二重积分（填空题 + 选择题）",
+    "quantity": 30,
+    "mode": "untimed",
+    "acceptance": "完成 30 题，订正全部错题，并标记概念/计算/方法错因",
+    "priority": 2,
+    "status": "pending",
+    "created": "2026-06-24",
+    "material_id": "MAT-660-GS",
+    "catalog_units": [
+      "660GS-F09",
+      "660GS-C09"
+    ],
+    "page_range": "P62；P145",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T015",
+    "type": "exercise",
+    "subject": "Math II - Linear Algebra",
+    "resource": "李永乐线代基础篇讲义配套习题",
+    "scope": "第5章 特征值与特征向量（第1-3节）",
+    "quantity": 25,
+    "mode": "untimed",
+    "acceptance": "完成 25 题，订正全部错题，总结特征值、特征向量、相似矩阵条件",
+    "priority": 1,
+    "status": "pending",
+    "created": "2026-06-24",
+    "depends_on": [
+      "T002"
+    ],
+    "material_id": "MAT-LIYONGLE-LA-BASE",
+    "catalog_units": [
+      "LYLA-05-01",
+      "LYLA-05-02",
+      "LYLA-05-03"
+    ],
+    "page_range": "P162-P167",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  },
+  {
+    "id": "T023",
+    "type": "exercise",
+    "subject": "English II",
+    "resource": "不背单词 App",
+    "scope": "Review 复习队列 + Learn 新词队列",
+    "quantity": 240,
+    "mode": "untimed",
+    "acceptance": "完成当日 Review 队列 240 词，标记顽固词，并推进 Learn 新词队列",
+    "priority": 2,
+    "status": "pending",
+    "created": "2026-06-24",
+    "material_id": "MAT-BBDC-APP",
+    "catalog_units": [
+      "BBDC-REVIEW",
+      "BBDC-LEARN"
+    ],
+    "problem_range": "Review 240；Learn 6680",
+    "updated": "2026-06-25",
+    "backlog_reason": "missed",
+    "backlog_date": "2026-06-25"
+  }
+]
