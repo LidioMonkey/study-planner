@@ -883,46 +883,98 @@ def build_weekly_plan(profile: str, start: date, days: int) -> dict[str, Any]:
     remaining_exercises = pending(load(profile, "exercises"))
     remaining_backlog = dedupe_tasks_by_id(pending(load(profile, "backlog")))
     remaining_reviews = pending(load(profile, "reviews"))
-    plan_days: list[dict[str, Any]] = []
 
+    # ── Phase 1: collect all available main tasks with dependency ordering ──
+    all_main: list[dict[str, Any]] = []
+    tmp_done = set(simulated_done)
+    tmp_courses = list(remaining_courses)
+    tmp_exercises = list(remaining_exercises)
+    tmp_backlog = list(remaining_backlog)
+    changed = True
+    while changed:
+        changed = False
+        # Try backlog first
+        for item in sorted(tmp_backlog, key=priority_key):
+            if is_unblocked(item, tmp_done):
+                all_main.append(item)
+                tmp_done.add(item["id"])
+                tmp_backlog.remove(item)
+                changed = True
+                break
+        if changed:
+            continue
+        # Then courses + exercises (priority-weighted)
+        candidates = [
+            item for item in tmp_courses + tmp_exercises if is_unblocked(item, tmp_done)
+        ]
+        if not candidates:
+            break
+        main_candidates, _supp = split_main_and_supplemental(profile, candidates)
+        if main_candidates:
+            chosen = select_diverse_tasks(main_candidates, weights, 1)
+            if chosen:
+                all_main.append(chosen[0])
+                tmp_done.add(chosen[0]["id"])
+                tmp_courses = [item for item in tmp_courses if item["id"] != chosen[0]["id"]]
+                tmp_exercises = [item for item in tmp_exercises if item["id"] != chosen[0]["id"]]
+                changed = True
+
+    # ── Phase 2: spread main tasks evenly across available days ──
+    MAX_MAIN_PER_DAY = 3
+    total_main = len(all_main)
+    if total_main == 0:
+        per_day = 0
+    else:
+        per_day = max(1, total_main // days)  # floor so we leave some headroom
+
+    # Pre-allocate which tasks go on which day (round-robin by subject)
+    day_buckets: list[list[dict[str, Any]]] = [[] for _ in range(days)]
+    subject_rounds: dict[str, int] = {}
+    task_idx = 0
+    while task_idx < total_main:
+        placed = False
+        for day_i in range(days):
+            if len(day_buckets[day_i]) >= MAX_MAIN_PER_DAY:
+                continue
+            if task_idx >= total_main:
+                break
+            # Try to pick a task whose subject hasn't been placed on this day yet
+            found = False
+            for offset_i in range(task_idx, total_main):
+                candidate = all_main[offset_i]
+                subj = candidate.get("subject", "")
+                key = f"{day_i}:{subj}"
+                if subject_rounds.get(key, 0) < 1:
+                    # Move this candidate to position task_idx and place it
+                    all_main[task_idx], all_main[offset_i] = all_main[offset_i], all_main[task_idx]
+                    day_buckets[day_i].append(all_main[task_idx])
+                    subject_rounds[key] = subject_rounds.get(key, 0) + 1
+                    task_idx += 1
+                    placed = True
+                    found = True
+                    break
+            if not found:
+                # Just place the next task regardless of subject
+                if task_idx < total_main and len(day_buckets[day_i]) < MAX_MAIN_PER_DAY:
+                    day_buckets[day_i].append(all_main[task_idx])
+                    task_idx += 1
+                    placed = True
+        if not placed and task_idx < total_main:
+            # Force-place into the day with fewest tasks
+            min_day = min(range(days), key=lambda d: len(day_buckets[d]))
+            if len(day_buckets[min_day]) < MAX_MAIN_PER_DAY:
+                day_buckets[min_day].append(all_main[task_idx])
+                task_idx += 1
+            else:
+                # All days full at max; stop
+                break
+
+    # ── Phase 3: build daily plan ──
+    plan_days: list[dict[str, Any]] = []
     for offset in range(days):
         when = start + timedelta(days=offset)
-        available_backlog = [
-            item for item in remaining_backlog if is_unblocked(item, simulated_done)
-        ]
-        available_courses = [
-            item for item in remaining_courses if is_unblocked(item, simulated_done)
-        ]
-        available_exercises = [
-            item for item in remaining_exercises if is_unblocked(item, simulated_done)
-        ]
-        main_courses, supplemental_courses = split_main_and_supplemental(profile, available_courses)
-        main_exercises, supplemental_exercises = split_main_and_supplemental(profile, available_exercises)
+        must_do = day_buckets[offset]
 
-        must_do: list[dict[str, Any]] = []
-        must_do.extend(sorted(available_backlog, key=priority_key)[:1])
-        candidates = [
-            item
-            for item in main_courses + main_exercises
-            if item["id"] not in {task["id"] for task in must_do}
-        ]
-        must_do.extend(select_diverse_tasks(candidates, weights, 3 - len(must_do)))
-        must_do = must_do[:3]
-
-        selected_ids = {item["id"] for item in must_do}
-        simulated_done.update(selected_ids)
-        remaining_courses = [item for item in remaining_courses if item["id"] not in selected_ids]
-        remaining_exercises = [
-            item for item in remaining_exercises if item["id"] not in selected_ids
-        ]
-        remaining_backlog = [item for item in remaining_backlog if item["id"] not in selected_ids]
-
-        optional_candidates = [
-            item
-            for item in main_courses + main_exercises + supplemental_courses + supplemental_exercises
-            if item["id"] not in selected_ids
-        ]
-        optional = sorted(optional_candidates, key=lambda item: weighted_key(item, weights))[:3]
         reviews = local_due_reviews(remaining_reviews, when)[:8]
         review_ids = {item["id"] for item in reviews}
         remaining_reviews = [item for item in remaining_reviews if item["id"] not in review_ids]
@@ -932,7 +984,7 @@ def build_weekly_plan(profile: str, start: date, days: int) -> dict[str, Any]:
                 "date": when.isoformat(),
                 "main_tasks": [plan_task_view(item) for item in must_do],
                 "review_tasks": [plan_task_view(item) for item in reviews],
-                "optional_extra": [plan_task_view(item) for item in optional],
+                "optional_extra": [],
                 "minimum_version": build_minimum_version(must_do, reviews),
             }
         )
@@ -942,7 +994,7 @@ def build_weekly_plan(profile: str, start: date, days: int) -> dict[str, Any]:
         "start": start.isoformat(),
         "days": days,
         "plan": plan_days,
-        "note": "Weekly plans simulate task completion for dependency ordering but do not update stored statuses.",
+        "note": "周计划模拟任务完成以计算依赖顺序，不会更新存储中的状态。任务已按天数均匀分散，每天最多 3 项主线任务。",
     }
 
 
@@ -1088,10 +1140,10 @@ def build_minimum_version(
                 f"{item.get('subject')}：做《{item.get('resource')}》{item.get('scope')} {quantity} 题，并订正错题。"
             )
         else:
-            minimum.append(f"{item.get('subject', 'Study')}: make one small verifiable step.")
+            minimum.append(f"{item.get('subject', '学习')}：完成一个最小的可验证步骤。")
     if reviews:
-        minimum.append("Review 1 due item and mark whether it still feels weak.")
-    return minimum or ["Complete one 25-minute focused study task and log the result."]
+        minimum.append("从复习队列中完成 1 项到期复习，并标记薄弱程度。")
+    return minimum or ["完成一项 25 分钟的专注学习任务，并记录结果。"]
 
 
 def update_item_status(items: list[dict[str, Any]], task_id: str, status: str) -> dict[str, Any] | None:
@@ -1205,12 +1257,12 @@ def weekly_review(args: argparse.Namespace) -> None:
 
 def weekly_suggestion(completion: float, accuracy: float | None, backlog_count: int) -> str:
     if backlog_count >= 5 or completion < 50:
-        return "Reduce new input next week, keep review, and clear the highest-priority backlog first."
+        return "下周减少新任务量，优先清理最高优先级的积压任务，并保护复习时间。"
     if accuracy is not None and accuracy < 60:
-        return "Return to basics and representative examples before adding large new exercise sets."
+        return "正确率偏低，先回归例题和基础概念，再加大练习量。"
     if accuracy is not None and accuracy > 80 and completion >= 70:
-        return "Increase mixed or timed practice while keeping scheduled review."
-    return "Keep the current load, reserve one buffer block, and strengthen mistake rework."
+        return "增加混合练习或限时训练，同时保持计划内的复习。"
+    return "保持当前节奏，预留一个缓冲块，并加强错题回炉。"
 
 
 def analytics_report(args: argparse.Namespace) -> None:
@@ -1298,11 +1350,11 @@ def blocked_suggestion(
     top_blockers: list[tuple[str, dict[str, Any]]], all_tasks: dict[str, dict[str, Any]]
 ) -> str:
     if not top_blockers:
-        return "No blocked pending tasks. Keep following the weighted plan."
+        return "没有受阻的待处理任务。继续按权重计划推进。"
     task_id, score = top_blockers[0]
     task = all_tasks.get(task_id, {"id": task_id})
     name = task.get("chapter") or task.get("scope") or task.get("slice") or task_id
-    return f"Protect {task_id} ({name}) first; it unlocks {score['count']} pending task(s)."
+    return f"优先完成 {task_id}（{name}），它可以解锁 {score['count']} 个待处理任务。"
 
 
 def course_ratio_report(args: argparse.Namespace) -> None:
@@ -1353,8 +1405,8 @@ def course_ratio_rows(tasks: list[dict[str, Any]]) -> dict[str, dict[str, int]]:
 
 def course_ratio_suggestion(course_ratio: float, cap: float) -> str:
     if course_ratio <= cap:
-        return "Course input is within cap. Keep pairing courses with exercises and review."
-    return "Course input is over cap. Move lower-priority lectures to optional extras and protect exercises, correction, and review."
+        return "课程占比在安全范围内。继续保持课程与练习、复习的配套安排。"
+    return "课程占比已超标。将低优先级课程移入加餐区，保护做题、订正和复习时间。"
 
 
 def add_mistake(args: argparse.Namespace) -> None:
@@ -1459,24 +1511,24 @@ def infer_phase(days_left: int, inventory: dict[str, int], course_ratio: float) 
 def phase_rules(phase: str) -> list[str]:
     rules = {
         "foundation-close": [
-            "Close first-round gaps and start blank subjects.",
-            "Keep course ratio at or below 40%.",
-            "Every course slice must pair with output and practice.",
+            "完成第一轮收尾，启动空白科目。",
+            "保持课程占比不超过 40%。",
+            "每个课程切片必须配套输出和练习。",
         ],
         "strengthening": [
-            "Lower course ratio to 20%.",
-            "Protect main question banks, mistakes, and review.",
-            "Use extra teachers only for weak points.",
+            "将课程占比降至 20%。",
+            "保护主线题库、错题和复习。",
+            "只在薄弱点使用额外老师。",
         ],
         "past-exam": [
-            "Lower course ratio to 10%.",
-            "Use timed past papers and theme analysis.",
-            "Cut full supplemental resources into selective repair.",
+            "将课程占比降至 10%。",
+            "使用限时真题和专题分析。",
+            "将完整补充资源裁剪为针对性修补。",
         ],
         "sprint": [
-            "Do not open large new content.",
-            "Focus on mock exams, recitation, formulas/frameworks, and mistakes.",
-            "Protect sleep and review stability.",
+            "不要开启大量新内容。",
+            "聚焦模拟卷、背诵、公式/框架和错题。",
+            "保护睡眠和复习稳定性。",
         ],
     }
     return rules[phase]
@@ -1544,8 +1596,8 @@ def next_week_plan(args: argparse.Namespace) -> None:
         "cut_or_downgrade_candidates": audit.get("cut_or_downgrade_candidates", []),
     }
     plan["note"] = (
-        "Generated for the next week using current pending tasks. Carryover IDs from the previous audit "
-        f"should be protected when present: {sorted(protected_ids)}"
+        "基于当前待处理任务生成下周计划。来自上周审计的顺延任务 ID 应优先保护："
+        f"{sorted(protected_ids)}"
     )
     if args.commit:
         plan["committed_at"] = today_iso()
@@ -1596,15 +1648,15 @@ def planned_task_ids(current_week: dict[str, Any]) -> set[str]:
 
 def week_audit_suggestion(done: int, planned: int, unlogged: int, extra_done: int) -> str:
     if not planned:
-        return "No planned tasks found. Commit a weekly plan before auditing."
+        return "未找到计划任务。请先提交周计划再进行审计。"
     completion = done / planned * 100
     if completion < 50:
-        return "Next week is overloaded or under-logged. Reduce must-do tasks and carry over only high-priority unfinished work."
+        return "本周计划超负荷或记录不足。减少必做任务，仅保留高优先级未完成项至下周。"
     if unlogged > done:
-        return "Many planned tasks are unlogged. Do a quick status pass before generating next week."
+        return "大量计划任务未记录完成状态。生成下周计划前先快速盘点进度。"
     if extra_done > done:
-        return "Many completed tasks were outside the plan. Re-align next week around the actual path."
-    return "Execution is usable. Carry over unfinished main tasks and keep the current structure."
+        return "许多已完成任务不在原计划中。重新对齐下周计划到实际执行路径。"
+    return "执行情况可用。顺延未完成的主线任务，保持当前结构。"
 
 
 def add_paper(args: argparse.Namespace) -> None:
@@ -1871,24 +1923,24 @@ def adjustment_advice(
     if logged_days:
         avg_completion = sum(day["completion_rate"] for day in logged_days) / len(logged_days)
         if avg_completion < 60:
-            advice.append("Reduce next week's must-do count or move lower-priority tasks to optional extras.")
+            advice.append("减少下周必做任务数量，或将低优先级任务移至加餐区。")
     for subject, stats in accuracy.items():
         if stats["average"] < 60:
-            advice.append(f"{subject}: accuracy is below 60%; return to examples and smaller targeted sets.")
+            advice.append(f"{subject}：正确率低于 60%，建议先回归例题和小批量针对性练习。")
         elif stats["delta"] < -10:
-            advice.append(f"{subject}: accuracy is dropping; schedule mistake rework before new input.")
+            advice.append(f"{subject}：正确率在下降，先安排错题回炉再上新内容。")
     top_errors = sorted(
         errors.get("total", {}).items(), key=lambda item: item[1], reverse=True
     )[:3]
     if top_errors:
-        causes = ", ".join(cause for cause, _ in top_errors)
-        advice.append(f"Top error causes: {causes}; convert them into next week's review tasks.")
+        causes = "、".join(cause for cause, _ in top_errors)
+        advice.append(f"高频错因：{causes}；将其转化为下周复习任务。")
     for subject, stats in delay.items():
         if stats["risk"] == "red":
-            advice.append(f"{subject}: predicted delay risk is red; cut supplemental tasks and protect main path.")
+            advice.append(f"{subject}：延期风险为红色；裁剪补充任务，保护主线路径。")
         elif stats["risk"] == "yellow":
-            advice.append(f"{subject}: no recent completion or slow pace; protect one concrete task next week.")
-    return advice or ["Keep current load, protect review/correction, and continue logging accuracy and error causes."]
+            advice.append(f"{subject}：近期无完成记录或进度缓慢；下周至少保护一项具体任务。")
+    return advice or ["保持当前节奏，保护复习/订正，继续记录正确率和错因。"]
 
 
 def active_tasks(profile: str) -> list[dict[str, Any]]:
@@ -1968,7 +2020,7 @@ def control_report(args: argparse.Namespace) -> None:
         "subjects": subject_reports,
         "tasks_to_protect": protect_candidates(pending_tasks, weights),
         "cut_or_downgrade_candidates": cut_candidates(pending_tasks),
-        "rule": "If risk is yellow/red, reduce optional course watching and supplemental books before cutting review, correction, main question banks, or past papers.",
+        "rule": "风险为黄色/红色时，优先削减可选网课和补充题册，再动复习、订正、主线题库和真题。",
     }
     print_json(output)
 
